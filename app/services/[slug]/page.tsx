@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   ContactAside,
+  DogFitnessTools,
+  Faq,
   FinalCta,
   Footer,
   Header,
   InternalLinks,
   Pricing,
   StickyCta,
+  TargetDogs,
 } from "@/components/site-sections";
-import { getSiteUrl, methods, servicePages, site } from "@/content/site";
+import { faqs, getSiteUrl, methods, servicePages, site } from "@/content/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -52,14 +55,21 @@ export default async function ServicePage({ params }: Props) {
     notFound();
   }
 
-  const jsonLd = {
+  const isDogFitness = page.slug === "dog-fitness";
+
+  const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
+    serviceType: isDogFitness ? "Dog Fitness Training" : "Dog Home Training",
     name: page.title,
+    alternateName: isDogFitness
+      ? ["Dog Fitness", "Canine Fitness", "독피트니스"]
+      : undefined,
     provider: {
       "@type": "LocalBusiness",
       name: "멍멍피트",
       telephone: "+82-10-2609-6593",
+      url: getSiteUrl(),
     },
     areaServed: ["하남", "서울", "경기", "인천", "충청도"],
     description: page.description,
@@ -70,12 +80,30 @@ export default async function ServicePage({ params }: Props) {
     },
   };
 
+  const faqJsonLd = isDogFitness
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
   return (
     <main className="page">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Header />
       <section className="container subpage">
         <span className="eyebrow">Service</span>
@@ -102,7 +130,14 @@ export default async function ServicePage({ params }: Props) {
           <ContactAside />
         </div>
       </section>
+      {isDogFitness && (
+        <>
+          <DogFitnessTools />
+          <TargetDogs />
+        </>
+      )}
       <Pricing />
+      {isDogFitness && <Faq />}
       <FinalCta />
       <Footer />
       <StickyCta />

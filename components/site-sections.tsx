@@ -12,12 +12,15 @@ import {
   brandImages,
   concerns,
   credentials,
+  dogFitnessTools,
+  faqs,
   featuredGallery,
   methodImages,
   methods,
   reviewImages,
   reviews,
   site,
+  targetDogs,
   trainingGallery,
   trainingProcess,
 } from "@/content/site";
@@ -60,13 +63,14 @@ export function Hero() {
           멍멍<span>피트</span>
         </div>
         <h1>
-          몸의 자신감이 생기면,
+          강아지 몸부터 단단해지면,
           <br />
-          <em>행동도 달라집니다.</em>
+          <em>문제행동도 사라집니다.</em>
         </h1>
         <p className="lead">
-          {site.trainerTitle}가 방문교육과 독피트니스를 결합해 강아지가 몸을
-          자유롭게 쓰도록 돕고, 보호자와 함께 핸들링 자신감을 키웁니다.
+          CSCC 국제 독피트니스 트레이너 김주영이 밸런스볼·카발레티·디스크로
+          강아지 코어와 자신감을 키우고, 보호자 핸들링까지 함께 가르치는
+          방문훈련입니다.
         </p>
         <div className="hero-actions">
           <a className="button button-kakao" href={site.kakaoUrl}>
@@ -79,8 +83,8 @@ export function Hero() {
           </a>
         </div>
         <p className="note">
-          방문 가능 지역: 서울, 경기, 인천, 충청도. 하남/미사는 기본 수업료
-          기준으로 안내합니다.
+          비만견·노령견·소심한 강아지·줄당김 강아지·퍼피 사회화 모두 가능.
+          방문 지역: 하남·서울·경기·인천·충청.
         </p>
       </div>
       <div>
@@ -95,8 +99,8 @@ export function Hero() {
           />
         </div>
         <div className="hero-caption">
-          <strong>방문교육과 독피트니스를 결합한 1:1 수업</strong>
-          <span>강아지의 몸 사용과 보호자 핸들링을 함께 봅니다.</span>
+          <strong>독피트니스 도구로 진행하는 1:1 방문훈련</strong>
+          <span>강아지 코어·균형 + 보호자 핸들링을 한 수업에서 다룹니다.</span>
         </div>
         <div className="stats" aria-label="수업 핵심 정보">
           <div className="stat">
@@ -105,11 +109,11 @@ export function Hero() {
           </div>
           <div className="stat">
             <strong>75~90분</strong>
-            <span>1:1 방문수업</span>
+            <span>1:1 방문훈련</span>
           </div>
           <div className="stat">
-            <strong>4권역</strong>
-            <span>서울·경기·인천·충청</span>
+            <strong>CSCC</strong>
+            <span>국제 독피트니스 자격</span>
           </div>
         </div>
       </div>
@@ -436,6 +440,103 @@ export function StickyCta() {
         전화
       </a>
     </div>
+  );
+}
+
+export function DogFitnessTools() {
+  return (
+    <section className="section" id="tools">
+      <div className="container">
+        <div className="section-header">
+          <div>
+            <span className="eyebrow">Tools</span>
+            <h2>
+              사람 필라테스처럼,
+              <br />
+              강아지에게도 전문 도구가 필요합니다.
+            </h2>
+          </div>
+          <p className="section-text">
+            멍멍피트 수업은 산책·놀이로는 닿지 않는 코어 근육과 균형 감각을
+            전문 독피트니스 도구로 자극합니다. 트레이너가 직접 가져가니
+            보호자가 따로 구입할 필요는 없습니다.
+          </p>
+        </div>
+        <div className="grid grid-3">
+          {dogFitnessTools.map((tool) => (
+            <article className="card sub-card" key={tool.name}>
+              <span className="eyebrow">{tool.target}</span>
+              <h3>{tool.name}</h3>
+              <p>{tool.effect}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function TargetDogs() {
+  return (
+    <section className="section section-muted" id="target">
+      <div className="container">
+        <div className="section-header">
+          <div>
+            <span className="eyebrow">For these dogs</span>
+            <h2>
+              이런 강아지에게
+              <br />
+              독피트니스가 답이 됩니다.
+            </h2>
+          </div>
+          <p className="section-text">
+            문제행동·체형·나이·견종에 따라 운동 강도와 도구를 다르게 설계합니다.
+            우리 강아지가 어디에 해당되는지 확인해보세요.
+          </p>
+        </div>
+        <div className="grid grid-3">
+          {targetDogs.map((target) => (
+            <article className="card concern-card" key={target.title}>
+              <h3>{target.title}</h3>
+              <p>{target.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Faq() {
+  return (
+    <section className="section" id="faq">
+      <div className="container">
+        <div className="section-header">
+          <div>
+            <span className="eyebrow">FAQ</span>
+            <h2>
+              많이 받는 질문에
+              <br />
+              미리 답해드립니다.
+            </h2>
+          </div>
+          <p className="section-text">
+            독피트니스가 처음이라 낯설 수 있어요. 자주 받는 질문을 모아두었으니
+            상담 전에 한번 훑어보세요.
+          </p>
+        </div>
+        <div className="grid">
+          {faqs.map((item) => (
+            <details className="card sub-card" key={item.q}>
+              <summary>
+                <h3 style={{ display: "inline" }}>Q. {item.q}</h3>
+              </summary>
+              <p style={{ marginTop: "0.75rem" }}>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
