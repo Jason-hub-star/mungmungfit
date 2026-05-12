@@ -9,7 +9,9 @@ import {
   Method,
   StickyCta,
 } from "@/components/site-sections";
-import { areaPages, getSiteUrl, site } from "@/content/site";
+import { PhotoSlot } from "@/components/photo-slot";
+import { areaPages, buildBreadcrumbJsonLd, getSiteUrl, site } from "@/content/site";
+import { font, space } from "@/styles/tokens";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -59,11 +61,20 @@ export default async function AreaPage({ params }: Props) {
     telephone: "+82-10-2609-6593",
     areaServed: page.name,
     description: page.description,
-    priceRange: "90000 KRW~",
+    priceRange: "89000 KRW~",
   };
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: page.title, path: `/areas/${page.slug}` },
+  ]);
 
   return (
     <main className="page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -77,17 +88,40 @@ export default async function AreaPage({ params }: Props) {
           자신감 부족을 보호자와 함께 다룹니다.
         </p>
         <InternalLinks />
-        <div className="sub-grid">
+
+        <div style={{ marginTop: space.xxl, borderRadius: 12, overflow: "hidden" }}>
+          <PhotoSlot
+            slotId={`area-${page.slug}`}
+            sizes="(max-width: 940px) 100vw, 1120px"
+          />
+        </div>
+
+        <div className="stats stats-full" style={{ marginTop: space.xl }}>
+          <div className="stat">
+            <strong>89,000원</strong>
+            <span>1회 수업료</span>
+          </div>
+          <div className="stat">
+            <strong>75~90분</strong>
+            <span>1:1 방문훈련</span>
+          </div>
+          <div className="stat">
+            <strong>{page.name}</strong>
+            <span>출장 기준 적용</span>
+          </div>
+        </div>
+
+        <div className="sub-grid" style={{ marginTop: space.xxl }}>
           <article className="card sub-card">
             <h2>{page.name} 수업 안내</h2>
             <p>
-              수업 시간은 약 1시간 15분에서 1시간 30분입니다. 상담 시 강아지의
-              문제 상황, 나이, 생활환경, 산책 동선을 확인한 뒤 방문 가능 일정과
-              비용을 먼저 안내합니다.
+              상담 시 강아지의 문제 상황, 나이, 생활환경, 산책 동선을 확인한 뒤
+              방문 가능 일정과 비용을 먼저 안내합니다.
             </p>
             <ul className="plain-list">
-              <li>기본 수업료: 90,000원</li>
-              <li>출장비: {page.fee}</li>
+              <li style={{ fontSize: font.lead, fontWeight: 700 }}>
+                출장비: {page.fee}
+              </li>
               <li>상담 연락: {site.phoneDisplay} 또는 카카오 오픈채팅</li>
             </ul>
           </article>

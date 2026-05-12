@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --version)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx tsc --noEmit --pretty)",
+      "Bash(npm run lint)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(supabase db query:*)",
+      "Bash(supabase migration list)",
+      "Bash(vercel ls)",
+      "Read(/tmp/**)",
+      "WebFetch(domain:claude.com)",
+      "WebFetch(domain:vercel.com)",
+      "WebFetch(domain:nextjs.org)",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:manus.im)",
+      "WebFetch(domain:graph.threads.net)",
+      "WebFetch(domain:graph.instagram.com)"
+    ],
+    "additionalDirectories": [
+      "/Users/family/jason/vibehub-media/apps/mungmung-bot"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-edit-typecheck.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/post-edit-mdx-validate.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Route } from "next";
 import {
   ArrowRight,
   Check,
@@ -10,34 +11,54 @@ import {
 } from "lucide-react";
 import {
   brandImages,
+  comparisonRows,
   concerns,
   credentials,
   dogFitnessTools,
+  eventOffer,
   faqs,
   featuredGallery,
+  guarantees,
   methodImages,
   methods,
+  pageContent,
   reviewImages,
   reviews,
   site,
   targetDogs,
   trainingGallery,
   trainingProcess,
+  trustStats,
 } from "@/content/site";
+import { PhotoSlot } from "@/components/photo-slot";
+import { font, space } from "@/styles/tokens";
+
+const navContent = pageContent.nav;
+const sectionContent = pageContent.sections;
 
 export function Header() {
   return (
     <header className="nav">
       <div className="container nav-inner">
         <Link className="logo" href="/">
-          <span className="logo-mark">핏</span>
+          <span className="logo-mark" aria-hidden>
+            <Image
+              src="/images/brand/mungmungfit-icon.png"
+              alt=""
+              width={34}
+              height={34}
+              className="logo-mark-img"
+              priority
+            />
+          </span>
           <span>{site.name}</span>
         </Link>
         <nav className="nav-links" aria-label="주요 메뉴">
-          <Link href="/services/dog-fitness">독피트니스</Link>
-          <Link href="/services/home-training">방문교육</Link>
-          <Link href="/areas/hanam">방문지역</Link>
-          <Link href="/reviews">후기</Link>
+          {navContent.links.map((link) => (
+            <Link href={link.href as Route} key={link.href}>
+              {link.label}
+            </Link>
+          ))}
         </nav>
         <div className="nav-actions">
           <a className="button button-ghost" href={site.phoneHref}>
@@ -46,7 +67,7 @@ export function Header() {
           </a>
           <a className="button button-kakao" href={site.kakaoUrl}>
             <MessageCircle size={17} aria-hidden />
-            상담
+            {navContent.consultLabel}
           </a>
         </div>
       </div>
@@ -55,73 +76,63 @@ export function Header() {
 }
 
 export function Hero() {
+  const copy = sectionContent.hero;
+
   return (
-    <section className="container hero">
-      <div>
-        <span className="eyebrow">Dog fitness home training</span>
-        <div className="wordmark">
-          멍멍<span>피트</span>
+    <>
+      <section className="hero-full" aria-label={copy.ariaLabel}>
+        <div className="hero-backdrop">
+          <PhotoSlot slotId="hero-1" priority sizes="100vw" />
         </div>
-        <h1>
-          강아지 몸부터 단단해지면,
-          <br />
-          <em>문제행동도 사라집니다.</em>
-        </h1>
-        <p className="lead">
-          CSCC 국제 독피트니스 트레이너 김주영이 밸런스볼·카발레티·디스크로
-          강아지 코어와 자신감을 키우고, 보호자 핸들링까지 함께 가르치는
-          방문훈련입니다.
-        </p>
-        <div className="hero-actions">
-          <a className="button button-kakao" href={site.kakaoUrl}>
-            <MessageCircle size={19} aria-hidden />
-            카카오톡 상담하기
-          </a>
-          <a className="button button-primary" href={site.phoneHref}>
-            <Phone size={19} aria-hidden />
-            전화 상담
-          </a>
-        </div>
-        <p className="note">
-          비만견·노령견·소심한 강아지·줄당김 강아지·퍼피 사회화 모두 가능.
-          방문 지역: 하남·서울·경기·인천·충청.
-        </p>
-      </div>
-      <div>
-        <div className="photo-card has-photo hero-photo">
-          <Image
-            src={brandImages.hero.src}
-            alt={brandImages.hero.alt}
-            fill
-            priority
-            sizes="(max-width: 940px) 100vw, 520px"
-            className="photo-img"
-          />
-        </div>
-        <div className="hero-caption">
-          <strong>독피트니스 도구로 진행하는 1:1 방문훈련</strong>
-          <span>강아지 코어·균형 + 보호자 핸들링을 한 수업에서 다룹니다.</span>
-        </div>
-        <div className="stats" aria-label="수업 핵심 정보">
-          <div className="stat">
-            <strong>90,000원</strong>
-            <span>하남 기준 1회</span>
+        <div className="hero-overlay" aria-hidden />
+        <div className="container hero-content">
+          <span className="eyebrow hero-eyebrow">{copy.eyebrow}</span>
+          <h1 className="hero-headline">
+            {copy.headline[0]}
+            <br />
+            <em>{copy.headline[1]}</em>
+          </h1>
+          <p className="hero-lead">
+            {copy.lead[0]}
+            <br />
+            {copy.lead[1]}
+          </p>
+          <div className="hero-actions">
+            <a className="button button-kakao" href={site.kakaoUrl}>
+              <MessageCircle size={19} aria-hidden />
+              {copy.primaryCta}
+            </a>
+            <a className="button button-light-outline" href={site.phoneHref}>
+              <Phone size={19} aria-hidden />
+              {site.phoneDisplay}
+            </a>
           </div>
-          <div className="stat">
-            <strong>75~90분</strong>
-            <span>1:1 방문훈련</span>
-          </div>
-          <div className="stat">
-            <strong>CSCC</strong>
-            <span>국제 독피트니스 자격</span>
+          <p className="hero-note">{copy.note}</p>
+        </div>
+        <div className="hero-scroll-hint" aria-hidden>
+          {copy.scrollHint}
+        </div>
+      </section>
+      <section className="hero-stat-strip" aria-label={copy.statsAriaLabel}>
+        <div className="container">
+          <div className="stats stats-trust">
+            {trustStats.map((s) => (
+              <div className="stat" key={s.label}>
+                <strong>{s.value}</strong>
+                <span>{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Guarantee />
+    </>
   );
 }
 
 export function TrainerProfile() {
+  const copy = sectionContent.trainer;
+
   return (
     <section className="section section-muted" id="trainer">
       <div className="container profile">
@@ -134,7 +145,7 @@ export function TrainerProfile() {
               sizes="(max-width: 940px) 100vw, 280px"
               className="photo-img"
             />
-            <div className="photo-label">김주영 트레이너</div>
+            <div className="photo-label">{copy.photoLabel}</div>
           </div>
           <div className="certificate-card">
             <Image
@@ -144,16 +155,21 @@ export function TrainerProfile() {
               sizes="(max-width: 940px) 100vw, 280px"
               className="photo-img contain"
             />
-            <span>CSCC 국제 독피트니스 자격</span>
+            <span>{copy.certificateLabel}</span>
+          </div>
+          <div style={{ gridColumn: "1 / -1" }}>
+            <PhotoSlot
+              slotId="mei-action"
+              sizes="(max-width: 940px) 100vw, 560px"
+            />
           </div>
         </div>
         <div>
-          <span className="eyebrow">Trainer</span>
-          <h2>김주영 독피트니스 트레이너</h2>
-          <p className="section-text">
-            CSCC 국제 독피트니스 자격과 현장 방문교육 경험을 바탕으로, 강아지가
-            자신의 몸을 이해하고 보호자가 안정적으로 다룰 수 있는 수업을
-            만듭니다.
+          <span className="eyebrow">{copy.eyebrow}</span>
+          <h2>{copy.title}</h2>
+          <p className="section-text">{copy.body[0]}</p>
+          <p className="section-text" style={{ marginTop: space.sm, fontSize: font.body }}>
+            {copy.body[1]}
           </p>
           <div className="badge-list">
             {credentials.map((credential) => (
@@ -170,28 +186,34 @@ export function TrainerProfile() {
 }
 
 export function Concerns() {
+  const copy = sectionContent.concerns;
+
   return (
     <section className="section" id="concerns">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Problem</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2>
-              문제행동처럼 보이지만,
+              {copy.title[0]}
               <br />
-              자신감 부족에서 시작되는 경우가 많습니다.
+              {copy.title[1]}
             </h2>
           </div>
-          <p className="section-text">
-            짖음, 줄당김, 흥분, 회피 행동을 혼내기보다 몸의 안정감과 보호자
-            핸들링 루틴으로 다시 설계합니다.
-          </p>
+          <p className="section-text">{copy.body}</p>
         </div>
-        <div className="grid grid-3">
+        <div className="concern-grid">
           {concerns.map((concern) => (
-            <div className="card concern-card" key={concern}>
-              {concern}
-            </div>
+            <article className="concern-photo-card" key={concern.title}>
+              <PhotoSlot
+                slotId={concern.slotId}
+                sizes="(max-width: 940px) 100vw, 50vw"
+              />
+              <div className="concern-photo-body">
+                <h3>{concern.title}</h3>
+                <p>{concern.body}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -200,21 +222,22 @@ export function Concerns() {
 }
 
 export function Method() {
+  const copy = sectionContent.method;
+
   return (
     <section className="section section-dark" id="method">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Method</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2>
-              혼내기보다,
+              {copy.title[0]}
               <br />
-              몸을 쓰는 법부터 알려줍니다.
+              {copy.title[1]}
             </h2>
           </div>
           <p className="section-text" style={{ color: "rgba(251, 250, 245, 0.78)" }}>
-            멍멍피트 수업은 강아지 운동만 하는 시간이 아닙니다. 강아지의 몸,
-            보호자의 손, 생활 공간의 동선을 한 번에 다룹니다.
+            {copy.body}
           </p>
         </div>
         <div className="grid grid-3">
@@ -241,11 +264,25 @@ export function Method() {
 }
 
 export function Process() {
+  const copy = sectionContent.process;
+
   return (
     <section className="section section-dark" id="process">
       <div className="container">
-        <span className="eyebrow">Class flow</span>
-        <h2>수업은 1시간 15분에서 1시간 30분 정도 진행됩니다.</h2>
+        <span className="eyebrow">{copy.eyebrow}</span>
+        <h2>{copy.title}</h2>
+        <div
+          style={{
+            marginTop: "24px",
+            marginBottom: "32px",
+            maxWidth: "880px",
+          }}
+        >
+          <PhotoSlot
+            slotId="process-flow"
+            sizes="(max-width: 940px) 100vw, 880px"
+          />
+        </div>
         <div className="process-list">
           {trainingProcess.map((step, index) => (
             <div className="process-item" key={step.title}>
@@ -263,46 +300,94 @@ export function Process() {
 }
 
 export function Pricing() {
+  const copy = sectionContent.pricing;
+  const formatKrw = (n: number) => n.toLocaleString("ko-KR");
+
   return (
     <section className="section" id="pricing">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Price and area</span>
-            <h2>하남 기준 9만원, 지역별 출장비를 명확히 안내합니다.</h2>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2>{copy.title}</h2>
           </div>
-          <p className="section-text">
-            이동 시간과 거리를 기준으로 상담 시 최종 금액을 먼저 안내합니다.
-            장거리의 경우 톨비와 주차비가 별도로 발생할 수 있습니다.
-          </p>
+          <p className="section-text">{copy.body}</p>
         </div>
-        <div className="price-layout">
-          <article className="card price-card price-main">
-            <h3>1회 방문수업</h3>
+
+        <article className="price-feature" aria-label="4회 패키지 할인 안내">
+          <span className="price-feature-badge">
+            <Sparkles size={14} aria-hidden /> {copy.packageBadge}
+          </span>
+          <h3 className="price-feature-title">{copy.packageTitle}</h3>
+          <p className="price-feature-caption">{eventOffer.validUntil}</p>
+          <p className="price-feature-desc">{copy.packageBody}</p>
+          <div className="price-feature-amount">
+            <span className="price-feature-strike">
+              {formatKrw(eventOffer.packageOriginalPrice)}원
+            </span>
+            <span className="price-feature-now">
+              {formatKrw(eventOffer.packagePrice)}
+              <small>원</small>
+            </span>
+            <span className="price-feature-save">
+              {copy.packageDiscountLabel} {eventOffer.packageDiscountPercent}% 할인
+            </span>
+          </div>
+          <p className="price-feature-list-hint">
+            {copy.packagePerSession} {formatKrw(eventOffer.packagePerSessionPrice)}원
+          </p>
+          <ul className="price-feature-list">
+            {copy.packageItems.map((item) => (
+              <li key={item}>
+                <Check size={18} aria-hidden />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="price-feature-actions">
+            <a className="button button-kakao" href={site.kakaoUrl}>
+              <MessageCircle size={18} aria-hidden />
+              {copy.packageCta}
+            </a>
+            <a className="button button-light-outline" href={site.phoneHref}>
+              <Phone size={18} aria-hidden />
+              {site.phoneDisplay}
+            </a>
+          </div>
+        </article>
+
+        <div className="price-secondary-grid">
+          <article className="card price-card">
+            <span className="tool-card-target">Single</span>
+            <h3>{copy.singleTitle}</h3>
             <div className="price">
-              90,000<small>원~</small>
+              {formatKrw(eventOffer.singlePrice)}
+              <small>{copy.singleSuffix}</small>
             </div>
-            <p>
-              하남, 미사 기준 출장비 없음. 서울, 경기, 인천, 충청도는 이동
-              거리에 따라 출장비를 상담 후 안내합니다.
-            </p>
+            <p>{copy.singleBody}</p>
+            <ul className="plain-list">
+              {copy.singleItems.map((item) => (
+                <li key={item}>
+                  <Check size={18} aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </article>
           <article className="card price-card">
-            <h3>출장비 권장 기준</h3>
+            <span className="tool-card-target">Travel</span>
+            <h3>{copy.travelTitle}</h3>
             <ul className="plain-list">
-              <li>
-                <MapPin size={18} aria-hidden />
-                하남/미사: 출장비 없음
-              </li>
-              <li>
-                <MapPin size={18} aria-hidden />
-                서울·경기·인천: 2만~5만원 기준
-              </li>
-              <li>
-                <MapPin size={18} aria-hidden />
-                충청권·장거리: 일정 확인 후 안내
-              </li>
+              {copy.travelItems.map((item) => (
+                <li key={item}>
+                  <MapPin size={18} aria-hidden />
+                  {item}
+                </li>
+              ))}
             </ul>
+            <p style={{ marginTop: space.md, fontSize: font.small, color: "var(--ink-muted)" }}>
+              {copy.travelNote}
+            </p>
           </article>
         </div>
       </div>
@@ -311,17 +396,17 @@ export function Pricing() {
 }
 
 export function ReviewsPreview() {
+  const copy = sectionContent.reviewsPreview;
+
   return (
     <section className="section section-muted" id="reviews">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Reviews</span>
-            <h2>보호자가 집에서 다시 할 수 있게 남기는 수업.</h2>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2>{copy.title}</h2>
           </div>
-          <p className="section-text">
-            보호자들이 남긴 실제 후기로 우리 수업을 미리 만나보세요.
-          </p>
+          <p className="section-text">{copy.body}</p>
         </div>
         <div className="review-image-grid preview">
           {reviews.map((review, index) => (
@@ -337,7 +422,10 @@ export function ReviewsPreview() {
                 />
               </div>
               <h3>{review.title}</h3>
-              <p>{review.body}</p>
+              {"meta" in review && review.meta ? (
+                <p className="review-meta">{review.meta}</p>
+              ) : null}
+              <p className="review-body">{review.body}</p>
               <div className="tag-row">
                 {review.tags.map((tag) => (
                   <span className="tag" key={tag}>
@@ -348,28 +436,32 @@ export function ReviewsPreview() {
             </article>
           ))}
         </div>
+        <div className="review-more">
+          <Link className="review-more-link" href={"/reviews" as Route}>
+            더 많은 후기 보기 <ArrowRight size={16} aria-hidden />
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
 
 export function Gallery() {
+  const copy = sectionContent.gallery;
+
   return (
     <section className="section" id="gallery">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Gallery</span>
-            <h2>수업의 변화를 사진으로 보여드립니다.</h2>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2>{copy.title}</h2>
           </div>
-          <p className="section-text">
-            독피트니스 도구 사용, 산책 핸들링, 보호자 실습 장면들이
-            강아지가 어떻게 달라지는지 한눈에 보여줍니다.
-          </p>
+          <p className="section-text">{copy.body}</p>
         </div>
         <div className="gallery-grid">
-          {(trainingGallery.length > 0 ? trainingGallery : featuredGallery).map((image) => (
-            <div className="gallery-tile" key={image.src}>
+          {(trainingGallery.length > 0 ? trainingGallery : featuredGallery).map((image, index) => (
+            <div className="gallery-tile" key={`${image.src}-${index}`}>
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -388,24 +480,23 @@ export function Gallery() {
 }
 
 export function FinalCta() {
+  const copy = sectionContent.finalCta;
+
   return (
     <section className="section">
       <div className="container cta">
         <div>
-          <h2>우리 강아지에게 맞는 몸의 자신감부터 상담해보세요.</h2>
-          <p>
-            현재 고민, 거주 지역, 강아지 나이와 문제 상황을 보내주시면 방문교육
-            가능 일정과 예상 비용을 안내합니다.
-          </p>
+          <h2>{copy.title}</h2>
+          <p>{copy.body}</p>
         </div>
         <div className="hero-actions">
           <a className="button button-kakao" href={site.kakaoUrl}>
             <MessageCircle size={18} aria-hidden />
-            카카오 상담
+            {copy.kakaoLabel}
           </a>
           <a className="button button-ghost" href={site.phoneHref}>
             <Phone size={18} aria-hidden />
-            전화 상담
+            {copy.phoneLabel}
           </a>
         </div>
       </div>
@@ -414,60 +505,137 @@ export function FinalCta() {
 }
 
 export function Footer() {
+  const copy = sectionContent.footer;
+
   return (
     <footer className="footer">
       <div className="container">
         <strong>{site.name}</strong>
         <br />
-        {site.trainerTitle} · 강아지 방문교육 · 독피트니스 · 방문 가능 지역:
+        {site.trainerTitle} · {copy.serviceText} · {copy.areaPrefix}
         {site.areas}
         <br />
-        상담: {site.phoneDisplay} · 카카오 오픈채팅
+        {copy.consultPrefix} {site.phoneDisplay} · {copy.kakaoText}
+        <br />
+        <small style={{ opacity: 0.6, fontSize: font.small }}>
+          {copy.imageCredit}
+        </small>
       </div>
     </footer>
   );
 }
 
 export function StickyCta() {
+  const copy = sectionContent.stickyCta;
+
   return (
-    <div className="sticky-cta" aria-label="빠른 상담">
+    <div className="sticky-cta" aria-label={copy.ariaLabel}>
       <a className="button button-kakao" href={site.kakaoUrl}>
         <MessageCircle size={16} aria-hidden />
-        카톡
+        {copy.kakaoLabel}
       </a>
       <a className="button button-primary" href={site.phoneHref}>
         <Phone size={16} aria-hidden />
-        전화
+        {copy.phoneLabel}
       </a>
     </div>
   );
 }
 
+const toolSlotIds = [
+  "tool-balance-ball",
+  "tool-cavaletti",
+  "tool-fitpaws",
+  "tool-proprioception",
+  "tool-hurdle",
+  "tool-routine",
+];
+
 export function DogFitnessTools() {
+  const copy = sectionContent.tools;
+
   return (
     <section className="section" id="tools">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Tools</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2>
-              사람 필라테스처럼,
+              {copy.title[0]}
               <br />
-              강아지에게도 전문 도구가 필요합니다.
+              {copy.title[1]}
             </h2>
           </div>
-          <p className="section-text">
-            멍멍피트 수업은 산책·놀이로는 닿지 않는 코어 근육과 균형 감각을
-            전문 독피트니스 도구로 자극합니다. 트레이너가 직접 가져가니
-            보호자가 따로 구입할 필요는 없습니다.
+          <p className="section-text">{copy.body}</p>
+        </div>
+        <div
+          className="tools-carousel"
+          role="region"
+          aria-label="독피트니스 도구 모음 (좌우 스크롤)"
+        >
+          <ul className="tools-track" tabIndex={0} aria-label="좌우 화살표 키로 탐색">
+            {dogFitnessTools.map((tool, i) => (
+              <li className="tools-snap" key={tool.name}>
+                <article className="tool-card">
+                  <PhotoSlot
+                    slotId={toolSlotIds[i]}
+                    sizes="(max-width: 940px) 80vw, 320px"
+                  />
+                  <div className="tool-card-body">
+                    <span className="tool-card-target">{tool.target}</span>
+                    <h3>{tool.name}</h3>
+                    <p>{tool.effect}</p>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+          <p className="tools-hint" aria-hidden>
+            좌우로 넘겨보세요 →
           </p>
         </div>
-        <div className="grid grid-3">
-          {dogFitnessTools.map((tool) => (
-            <article className="card sub-card" key={tool.name}>
-              <span className="eyebrow">{tool.target}</span>
-              <h3>{tool.name}</h3>
-              <p>{tool.effect}</p>
+      </div>
+    </section>
+  );
+}
+
+const targetSlotIds = [
+  "target-obese",
+  "target-senior",
+  "target-shy",
+  "target-energetic",
+  "target-puppy",
+  "target-leash",
+];
+
+export function TargetDogs() {
+  const copy = sectionContent.targetDogs;
+
+  return (
+    <section className="section section-muted" id="target">
+      <div className="container">
+        <div className="section-header">
+          <div>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2>
+              {copy.title[0]}
+              <br />
+              {copy.title[1]}
+            </h2>
+          </div>
+          <p className="section-text">{copy.body}</p>
+        </div>
+        <div className="tools-library">
+          {targetDogs.map((target, i) => (
+            <article className="tool-card" key={target.title}>
+              <PhotoSlot
+                slotId={targetSlotIds[i]}
+                sizes="(max-width: 940px) 100vw, 33vw"
+              />
+              <div className="tool-card-body">
+                <h3>{target.title}</h3>
+                <p>{target.body}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -476,30 +644,39 @@ export function DogFitnessTools() {
   );
 }
 
-export function TargetDogs() {
+export function BeforeAfter() {
+  const copy = sectionContent.beforeAfter;
+  const pairs = [
+    { before: "before-1", after: "after-1", label: "Case 01" },
+    { before: "before-2", after: "after-2", label: "Case 02" },
+    { before: "before-3", after: "after-3", label: "Case 03" },
+  ];
   return (
-    <section className="section section-muted" id="target">
+    <section className="section" id="before-after">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">For these dogs</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2>
-              이런 강아지에게
+              {copy.title[0]}
               <br />
-              독피트니스가 답이 됩니다.
+              {copy.title[1]}
             </h2>
           </div>
-          <p className="section-text">
-            문제행동·체형·나이·견종에 따라 운동 강도와 도구를 다르게 설계합니다.
-            우리 강아지가 어디에 해당되는지 확인해보세요.
-          </p>
+          <p className="section-text">{copy.body}</p>
         </div>
-        <div className="grid grid-3">
-          {targetDogs.map((target) => (
-            <article className="card concern-card" key={target.title}>
-              <h3>{target.title}</h3>
-              <p>{target.body}</p>
-            </article>
+        <div className="before-after-grid">
+          {pairs.map((p) => (
+            <div className="before-after-pair" key={p.label}>
+              <PhotoSlot
+                slotId={p.before}
+                sizes="(max-width: 940px) 50vw, 25vw"
+              />
+              <PhotoSlot
+                slotId={p.after}
+                sizes="(max-width: 940px) 50vw, 25vw"
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -508,28 +685,29 @@ export function TargetDogs() {
 }
 
 export function Faq() {
+  const copy = sectionContent.faq;
+
   return (
     <section className="section" id="faq">
       <div className="container">
         <div className="section-header">
           <div>
-            <span className="eyebrow">FAQ</span>
+            <span className="eyebrow">{copy.eyebrow}</span>
             <h2>
-              많이 받는 질문에
+              {copy.title[0]}
               <br />
-              미리 답해드립니다.
+              {copy.title[1]}
             </h2>
           </div>
-          <p className="section-text">
-            독피트니스가 처음이라 낯설 수 있어요. 자주 받는 질문을 모아두었으니
-            상담 전에 한번 훑어보세요.
-          </p>
+          <p className="section-text">{copy.body}</p>
         </div>
         <div className="grid">
           {faqs.map((item) => (
             <details className="card sub-card" key={item.q}>
               <summary>
-                <h3 style={{ display: "inline" }}>Q. {item.q}</h3>
+                <h3 style={{ display: "inline" }}>
+                  {copy.questionPrefix} {item.q}
+                </h3>
               </summary>
               <p style={{ marginTop: "0.75rem" }}>{item.a}</p>
             </details>
@@ -541,47 +719,122 @@ export function Faq() {
 }
 
 export function InternalLinks() {
+  const links = sectionContent.internalLinks;
+
   return (
     <div className="tag-row" aria-label="관련 페이지">
-      <Link className="tag" href="/services/dog-fitness">
-        <Sparkles size={14} aria-hidden /> 독피트니스
-      </Link>
-      <Link className="tag" href="/services/home-training">
-        강아지 방문교육
-      </Link>
-      <Link className="tag" href="/services/walk-training">
-        산책교육
-      </Link>
-      <Link className="tag" href="/areas/hanam">
-        하남 방문교육
-      </Link>
-      <Link className="tag" href="/reviews">
-        실제 후기
-      </Link>
+      {links.map((link) => (
+        <Link className="tag" href={link.href as Route} key={link.href}>
+          {link.icon === "sparkles" && <Sparkles size={14} aria-hidden />}
+          {link.label}
+        </Link>
+      ))}
     </div>
   );
 }
 
 export function ContactAside() {
+  const copy = sectionContent.contactAside;
+
   return (
     <aside className="card price-card">
-      <h3>상담할 때 보내주시면 좋아요</h3>
+      <h3>{copy.title}</h3>
       <ul className="plain-list">
-        <li><Check size={18} aria-hidden /> 거주 지역과 방문 희망 시간</li>
-        <li><Check size={18} aria-hidden /> 강아지 나이, 견종, 체중</li>
-        <li><Check size={18} aria-hidden /> 가장 고민되는 행동 1~2가지</li>
-        <li><Check size={18} aria-hidden /> 산책 영상이나 문제 상황 영상</li>
+        {copy.items.map((item) => (
+          <li key={item}>
+            <Check size={18} aria-hidden /> {item}
+          </li>
+        ))}
       </ul>
       <div className="hero-actions">
         <a className="button button-kakao" href={site.kakaoUrl}>
           <MessageCircle size={18} aria-hidden />
-          상담하기
+          {copy.kakaoLabel}
         </a>
         <a className="button button-ghost" href={site.phoneHref}>
           <ArrowRight size={18} aria-hidden />
-          전화하기
+          {copy.phoneLabel}
         </a>
       </div>
     </aside>
+  );
+}
+
+const guaranteeIcons: Record<string, string> = {
+  phone: "/images/brand/guarantees/free-consultation.png",
+  shield: "/images/brand/guarantees/refund-guarantee.png",
+  clock: "/images/brand/guarantees/fast-schedule.png",
+};
+
+export function Guarantee() {
+  return (
+    <section className="guarantee-strip" aria-label="신뢰·보장 정보">
+      <div className="container guarantee-grid">
+        {guarantees.map((g) => {
+          const iconSrc = guaranteeIcons[g.icon] ?? guaranteeIcons.shield;
+          return (
+            <div className="guarantee-card" key={g.title}>
+              <div className="guarantee-icon" aria-hidden>
+                <Image
+                  src={iconSrc}
+                  alt=""
+                  width={58}
+                  height={58}
+                  className="guarantee-icon-img"
+                />
+              </div>
+              <div>
+                <h3>{g.title}</h3>
+                <p>{g.body}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export function Comparison() {
+  const copy = sectionContent.comparison;
+
+  return (
+    <section className="section" id="comparison">
+      <div className="container">
+        <div className="section-header">
+          <div>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2>
+              {copy.title[0]}
+              <br />
+              {copy.title[1]}
+            </h2>
+          </div>
+          <p className="section-text">{copy.body}</p>
+        </div>
+        <div className="comparison-table" role="table">
+          <div className="comparison-row comparison-head" role="row">
+            <span role="columnheader">{copy.headers[0]}</span>
+            <span role="columnheader">{copy.headers[1]}</span>
+            <span role="columnheader" className="comparison-highlight">
+              {copy.headers[2]}
+            </span>
+          </div>
+          {comparisonRows.map((row) => (
+            <div className="comparison-row" key={row.label} role="row">
+              <span role="cell" className="comparison-label">
+                {row.label}
+              </span>
+              <span role="cell" className="comparison-common">
+                {row.common}
+              </span>
+              <span role="cell" className="comparison-mungmungfit">
+                {row.mungmungfit}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

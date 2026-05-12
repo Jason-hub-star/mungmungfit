@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { getSiteUrl, site } from "@/content/site";
+import { colors } from "@/styles/tokens";
 
 const siteUrl = getSiteUrl();
 
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
     "멍멍피트",
     "김주영 독피트니스 트레이너",
     "CSCC 독피트니스",
-    "하남 강아지 방문훈련",
     "서울 강아지 방문훈련",
+    "경기 강아지 방문훈련",
     "퍼피 사회화",
     "강아지 줄당김 교정",
   ],
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1f3a2e",
+  themeColor: colors.green,
 };
 
 export default function RootLayout({

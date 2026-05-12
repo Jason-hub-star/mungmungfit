@@ -12,7 +12,7 @@ import {
   StickyCta,
   TargetDogs,
 } from "@/components/site-sections";
-import { faqs, getSiteUrl, methods, servicePages, site } from "@/content/site";
+import { buildBreadcrumbJsonLd, faqs, getSiteUrl, methods, servicePages, site } from "@/content/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -71,14 +71,19 @@ export default async function ServicePage({ params }: Props) {
       telephone: "+82-10-2609-6593",
       url: getSiteUrl(),
     },
-    areaServed: ["하남", "서울", "경기", "인천", "충청도"],
+    areaServed: ["서울", "경기", "인천", "충청도"],
     description: page.description,
     offers: {
       "@type": "Offer",
-      price: "90000",
+      price: "89000",
       priceCurrency: "KRW",
     },
   };
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: page.title, path: `/services/${page.slug}` },
+  ]);
 
   const faqJsonLd = isDogFitness
     ? {
@@ -94,6 +99,10 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <main className="page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  Comparison,
   Concerns,
   DogFitnessTools,
   Faq,
@@ -23,7 +24,7 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   title: "강아지 독피트니스 방문훈련",
   description:
-    "CSCC 국제 독피트니스 트레이너 김주영이 진행하는 강아지 독피트니스 방문훈련. 밸런스볼·카발레티·디스크로 강아지 코어·균형·자신감을 키워 비만·노령·줄당김·문제행동을 근본부터 풀어갑니다. 하남, 서울, 경기, 인천, 충청.",
+    "CSCC 국제 독피트니스 트레이너 김주영이 진행하는 강아지 독피트니스 방문훈련. 밸런스볼·카발레티·디스크로 강아지 코어·균형·자신감을 키워 비만·노령·줄당김·문제행동을 함께 풀어갑니다. 서울, 경기, 인천, 충청 출장.",
   alternates: {
     canonical: "/",
   },
@@ -36,7 +37,7 @@ const localBusinessJsonLd = {
   alternateName: "Mungmungfit",
   url: siteUrl,
   telephone: "+82-10-2609-6593",
-  priceRange: "90000 KRW~",
+  priceRange: "89000 KRW~",
   image: `${siteUrl}/images/training/main.jpg`,
   description: site.description,
   founder: {
@@ -44,34 +45,34 @@ const localBusinessJsonLd = {
     name: "김주영",
     jobTitle: "CSCC 국제 독피트니스 트레이너",
   },
-  areaServed: ["하남", "서울", "경기", "인천", "충청도"],
+  areaServed: ["서울", "경기", "인천", "충청도"],
   makesOffer: [
     {
       "@type": "Offer",
       name: "강아지 독피트니스 방문훈련",
       description: "밸런스볼·카발레티·디스크로 강아지 코어·균형·자신감을 키우는 1:1 방문훈련",
-      price: "90000",
+      price: "89000",
       priceCurrency: "KRW",
     },
     {
       "@type": "Offer",
       name: "노령견 재활 독피트니스",
       description: "관절염·수술 후 회복기 노령견을 위한 저강도 균형 운동",
-      price: "90000",
+      price: "89000",
       priceCurrency: "KRW",
     },
     {
       "@type": "Offer",
       name: "비만견 다이어트 독피트니스",
       description: "관절 부담 없이 코어를 자극해 체중을 줄이는 운동 프로그램",
-      price: "90000",
+      price: "89000",
       priceCurrency: "KRW",
     },
     {
       "@type": "Offer",
       name: "퍼피 사회화 독피트니스",
       description: "8~16주 사회화기 퍼피의 환경 자신감을 만드는 도구 경험 수업",
-      price: "90000",
+      price: "89000",
       priceCurrency: "KRW",
     },
   ],
@@ -94,7 +95,7 @@ const serviceJsonLd = {
     name: "멍멍피트",
     url: siteUrl,
   },
-  areaServed: ["하남", "서울", "경기", "인천", "충청도"],
+  areaServed: ["서울", "경기", "인천", "충청도"],
   description:
     "밸런스볼, 카발레티, 디스크 같은 전문 도구로 강아지 코어·균형·자신감을 키우고, 보호자 핸들링까지 결합한 1:1 방문훈련 서비스.",
   audience: {
@@ -131,14 +132,19 @@ export default function Home() {
       <Header />
       <Hero />
       <TrainerProfile />
+      <Gallery />
       <Concerns />
+      <Comparison />
       <Method />
       <DogFitnessTools />
+      {/* BeforeAfter: 비포·애프터 실제 사진이 모이면 다시 켜기. 사용:
+          1) BeforeAfter를 위 import에 추가
+          2) <BeforeAfter /> 한 줄 노출
+          3) content/placeholders.ts의 before-1~3, after-1~3 src 채우기 */}
       <TargetDogs />
       <Process />
       <Pricing />
       <ReviewsPreview />
-      <Gallery />
       <Faq />
       <FinalCta />
       <Footer />

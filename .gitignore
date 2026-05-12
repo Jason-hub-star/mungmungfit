@@ -7,3 +7,26 @@ dist
 *.log
 .DS_Store
 .vercel
+
+# Claude (local-only files)
+.claude/settings.local.json
+.claude/.session/
+
+# Codex CLI local config (may contain tokens)
+.codex/
+
+# 임시 발행 대기 폴더 (로컬 작업용)
+1-발행대기/
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# Editor / OS
+.swc/
+.turbo/
+.idea/
+
+# Generated
+tsconfig.tsbuildinfo
+next-env.d.ts
