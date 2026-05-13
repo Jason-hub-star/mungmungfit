@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import {
   brandImages,
+  businessInfo,
   comparisonRows,
   concerns,
   credentials,
@@ -506,18 +507,60 @@ export function FinalCta() {
 
 export function Footer() {
   const copy = sectionContent.footer;
+  const info = businessInfo;
+  const sns = info.sameAs ?? [];
 
   return (
     <footer className="footer">
-      <div className="container">
-        <strong>{site.name}</strong>
-        <br />
-        {site.trainerTitle} · {copy.serviceText} · {copy.areaPrefix}
-        {site.areas}
-        <br />
-        {copy.consultPrefix} {site.phoneDisplay} · {copy.kakaoText}
-        <br />
-        <small style={{ opacity: 0.6, fontSize: font.small }}>
+      <div className="container footer-rows">
+        <div className="footer-row">
+          <strong>{site.name}</strong>
+        </div>
+        <div className="footer-row">
+          {site.trainerTitle} · {copy.serviceText} · {copy.areaPrefix}
+          {site.areas}
+        </div>
+        <div className="footer-row">
+          {copy.consultPrefix} {site.phoneDisplay} · {copy.kakaoText}
+        </div>
+        {info.openingHoursDisplay && (
+          <div className="footer-row">
+            {copy.hoursPrefix} {info.openingHoursDisplay}
+          </div>
+        )}
+        {info.email && (
+          <div className="footer-row">
+            {copy.emailPrefix}{" "}
+            <a href={`mailto:${info.email}`}>{info.email}</a>
+          </div>
+        )}
+        {info.registrationNumber && (
+          <div className="footer-row">
+            {copy.businessRegPrefix} {info.registrationNumber}
+          </div>
+        )}
+        {sns.length > 0 && (
+          <div className="footer-row">
+            {copy.snsHeading}
+            <span className="footer-sns">
+              {sns.map((url) => {
+                const label = (() => {
+                  try {
+                    return new URL(url).hostname.replace(/^www\./, "");
+                  } catch {
+                    return url;
+                  }
+                })();
+                return (
+                  <a key={url} href={url} rel="noopener noreferrer" target="_blank">
+                    {label}
+                  </a>
+                );
+              })}
+            </span>
+          </div>
+        )}
+        <small className="footer-credit" style={{ fontSize: font.small }}>
           {copy.imageCredit}
         </small>
       </div>
@@ -768,7 +811,10 @@ const guaranteeIcons: Record<string, string> = {
 
 export function Guarantee() {
   return (
-    <section className="guarantee-strip" aria-label="신뢰·보장 정보">
+    <section className="guarantee-strip" aria-labelledby="guarantee-heading">
+      <h2 id="guarantee-heading" className="sr-only">
+        신뢰·보장 안내
+      </h2>
       <div className="container guarantee-grid">
         {guarantees.map((g) => {
           const iconSrc = guaranteeIcons[g.icon] ?? guaranteeIcons.shield;

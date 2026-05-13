@@ -17,7 +17,15 @@ import {
   TargetDogs,
   TrainerProfile,
 } from "@/components/site-sections";
-import { faqs, getSiteUrl, site } from "@/content/site";
+import {
+  buildLocalBusinessJsonLd,
+  buildReviewJsonLd,
+  faqs,
+  getAggregateRating,
+  getSiteUrl,
+  reviews,
+  site,
+} from "@/content/site";
 
 const siteUrl = getSiteUrl();
 
@@ -31,21 +39,16 @@ export const metadata: Metadata = {
 };
 
 const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "멍멍피트",
-  alternateName: "Mungmungfit",
-  url: siteUrl,
-  telephone: "+82-10-2609-6593",
-  priceRange: "89000 KRW~",
-  image: `${siteUrl}/images/training/main.jpg`,
-  description: site.description,
+  ...buildLocalBusinessJsonLd({
+    url: siteUrl,
+    description: site.description,
+    image: `${siteUrl}/images/training/main.jpg`,
+  }),
   founder: {
     "@type": "Person",
     name: "김주영",
     jobTitle: "CSCC 국제 독피트니스 트레이너",
   },
-  areaServed: ["서울", "경기", "인천", "충청도"],
   makesOffer: [
     {
       "@type": "Offer",

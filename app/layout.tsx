@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { getSiteUrl, site } from "@/content/site";
 import { colors } from "@/styles/tokens";
@@ -76,7 +78,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="멍멍피트 독피트니스 블로그 RSS"
+          href="/feed.xml"
+        />
+      </head>
+      <body>
+        {children}
+        <SpeedInsights />
+        <Analytics />
+      </body>
     </html>
   );
 }

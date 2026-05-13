@@ -12,6 +12,7 @@ import {
   StickyCta,
   TargetDogs,
 } from "@/components/site-sections";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { buildBreadcrumbJsonLd, faqs, getSiteUrl, methods, servicePages, site } from "@/content/site";
 
 type Props = {
@@ -115,6 +116,13 @@ export default async function ServicePage({ params }: Props) {
       )}
       <Header />
       <section className="container subpage">
+        <Breadcrumb
+          crumbs={[
+            { name: "홈", path: "/" },
+            { name: "서비스", path: "/services/dog-fitness" },
+            { name: page.title.replace(/^강아지 /, "") },
+          ]}
+        />
         <span className="eyebrow">Service</span>
         <h1>{page.h1}</h1>
         <p className="lead">{page.description}</p>

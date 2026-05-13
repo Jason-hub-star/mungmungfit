@@ -7,7 +7,14 @@ import {
   InternalLinks,
   StickyCta,
 } from "@/components/site-sections";
-import { eventOffer, getSiteUrl, pageContent, site } from "@/content/site";
+import { Breadcrumb } from "@/components/breadcrumb";
+import {
+  buildBreadcrumbJsonLd,
+  eventOffer,
+  getSiteUrl,
+  pageContent,
+  site,
+} from "@/content/site";
 import { alpha, colors, font, radius, space, weight } from "@/styles/tokens";
 
 const siteUrl = getSiteUrl();
@@ -21,11 +28,13 @@ export const metadata: Metadata = {
 
 const offerJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Offer",
+  "@type": "AggregateOffer",
   name: pricingContent.offerName,
   description: pricingContent.offerDescription,
-  price: String(eventOffer.packagePrice),
   priceCurrency: "KRW",
+  lowPrice: String(eventOffer.packagePerSessionPrice),
+  highPrice: String(eventOffer.singlePrice),
+  offerCount: 2,
   availability: "https://schema.org/InStock",
   validThrough: "2027-12-31",
   seller: {
@@ -33,7 +42,30 @@ const offerJsonLd = {
     name: site.name,
     url: siteUrl,
   },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "4회 패키지",
+      price: String(eventOffer.packagePrice),
+      priceCurrency: "KRW",
+      availability: "https://schema.org/InStock",
+      description: `4회 패키지. 1회 평균 ${eventOffer.packagePerSessionPrice}원 (정가 대비 ${eventOffer.packageDiscountPercent}% 할인).`,
+    },
+    {
+      "@type": "Offer",
+      name: "1회 단발 수업",
+      price: String(eventOffer.singlePrice),
+      priceCurrency: "KRW",
+      availability: "https://schema.org/InStock",
+      description: "1회 75~90분, 독피트니스 도구 풀세트 지참.",
+    },
+  ],
 };
+
+const pricingBreadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "홈", path: "/" },
+  { name: "수업료", path: "/pricing" },
+]);
 
 export default function PricingPage() {
   const savings = eventOffer.packageOriginalPrice - eventOffer.packagePrice;
@@ -45,8 +77,20 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pricingBreadcrumbJsonLd),
+        }}
+      />
       <Header />
       <section className="container subpage">
+        <Breadcrumb
+          crumbs={[
+            { name: "홈", path: "/" },
+            { name: "수업료" },
+          ]}
+        />
         <span className="eyebrow">{pricingContent.eyebrow}</span>
         <h1>{pricingContent.title}</h1>
         <p className="lead">{pricingContent.lead}</p>

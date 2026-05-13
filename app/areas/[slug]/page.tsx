@@ -9,8 +9,15 @@ import {
   Method,
   StickyCta,
 } from "@/components/site-sections";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { PhotoSlot } from "@/components/photo-slot";
-import { areaPages, buildBreadcrumbJsonLd, getSiteUrl, site } from "@/content/site";
+import {
+  areaPages,
+  buildBreadcrumbJsonLd,
+  buildLocalBusinessJsonLd,
+  getSiteUrl,
+  site,
+} from "@/content/site";
 import { font, space } from "@/styles/tokens";
 
 type Props = {
@@ -53,19 +60,20 @@ export default async function AreaPage({ params }: Props) {
     notFound();
   }
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+  const pageGeo = (page as { geo?: { latitude: number; longitude: number } }).geo;
+  const jsonLd = buildLocalBusinessJsonLd({
     name: `멍멍피트 ${page.name} 강아지 방문교육`,
     url: `${getSiteUrl()}/areas/${page.slug}`,
-    telephone: "+82-10-2609-6593",
-    areaServed: page.name,
     description: page.description,
-    priceRange: "89000 KRW~",
-  };
+    image: `${getSiteUrl()}/images/training/main.jpg`,
+    areaServed: page.name,
+    geo: pageGeo,
+    addressRegionOverride: page.name,
+  });
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "홈", path: "/" },
+    { name: "방문지역", path: "/areas/seoul" },
     { name: page.title, path: `/areas/${page.slug}` },
   ]);
 
@@ -81,6 +89,13 @@ export default async function AreaPage({ params }: Props) {
       />
       <Header />
       <section className="container subpage">
+        <Breadcrumb
+          crumbs={[
+            { name: "홈", path: "/" },
+            { name: "방문지역", path: "/areas/seoul" },
+            { name: page.name },
+          ]}
+        />
         <span className="eyebrow">Area</span>
         <h1>{page.title}</h1>
         <p className="lead">

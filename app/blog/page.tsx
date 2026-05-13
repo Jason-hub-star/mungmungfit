@@ -7,6 +7,8 @@ import {
   Header,
   StickyCta,
 } from "@/components/site-sections";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { buildBreadcrumbJsonLd } from "@/content/site";
 import { getAllPosts, getAllCategories } from "@/lib/blog";
 import { alpha, font, space } from "@/styles/tokens";
 
@@ -50,10 +52,25 @@ export default function BlogIndex() {
   const featured = posts.find((p) => p.frontmatter.featured) ?? posts[0];
   const rest = posts.filter((p) => p !== featured);
 
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: "블로그", path: "/blog" },
+  ]);
+
   return (
     <main className="page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
       <section className="container subpage">
+        <Breadcrumb
+          crumbs={[
+            { name: "홈", path: "/" },
+            { name: "블로그" },
+          ]}
+        />
         <span className="eyebrow">Blog</span>
         <h1>독피트니스 블로그</h1>
         <p className="lead">

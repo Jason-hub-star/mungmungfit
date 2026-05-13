@@ -90,6 +90,20 @@ img {
   max-width: 100%;
 }
 
+/* 스크린리더 전용 텍스트 — 시각적으로 숨기되 보조기기에는 노출.
+   접근성·heading-order 충족용 (예: 시각적 헤더 없는 섹션의 h2). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .page {
   min-height: 100vh;
   background:
@@ -337,6 +351,12 @@ img {
 
 .stats-trust .stat:hover {
   background: rgba(28, 64, 50, 0.04);
+}
+
+/* 신뢰 통계 라벨 — WCAG AA 충족 (이전에 ink-muted로 1.52:1 부족) */
+.stats-trust .stat span {
+  color: var(--ink);
+  font-weight: 650;
 }
 
 .stats-trust .stat strong {
@@ -748,7 +768,7 @@ h3 {
 .stat span {
   display: block;
   margin-top: 10px;
-  color: var(--ink-muted);
+  color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.4;
 }
@@ -1331,9 +1351,227 @@ h3 {
 .footer {
   border-top: 1px solid var(--line);
   padding: 34px 0 96px;
-  color: var(--ink-muted);
+  color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.8;
+}
+
+.footer-rows {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-row {
+  color: var(--ink-soft);
+}
+
+.footer-row strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.footer-sns {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 6px;
+}
+
+.footer-sns a {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.footer-credit {
+  display: block;
+  margin-top: 14px;
+  color: var(--ink-muted);
+  opacity: 0.78;
+  font-size: 13px;
+}
+
+/* Diagnosis form — 5문항 자가진단 */
+.diagnosis-form {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.diagnosis-question {
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  padding: var(--card-pad);
+}
+
+.diagnosis-question-legend {
+  display: block;
+  margin-bottom: var(--card-gap);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.diagnosis-question-num {
+  color: var(--green);
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+.diagnosis-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.diagnosis-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  background: var(--card-bg-strong);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.diagnosis-option:hover {
+  border-color: var(--green);
+  color: var(--ink);
+}
+
+.diagnosis-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--green);
+}
+
+.diagnosis-option.is-selected {
+  border-color: var(--green);
+  background: rgba(28, 64, 50, 0.08);
+  color: var(--green);
+  font-weight: 700;
+}
+
+.diagnosis-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--card-gap);
+}
+
+.diagnosis-submit .button {
+  min-width: 220px;
+}
+
+.diagnosis-hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.diagnosis-result {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.diagnosis-result-headline {
+  text-align: center;
+}
+
+.diagnosis-result-emoji {
+  display: block;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.diagnosis-result-title {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.3;
+}
+
+.diagnosis-result-summary {
+  margin: 12px auto 0;
+  max-width: 580px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.diagnosis-result-score {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.diagnosis-result-score strong {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.diagnosis-result-cta {
+  background: var(--grad-paper);
+  border-color: rgba(28, 64, 50, 0.18);
+}
+
+.diagnosis-restart {
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto;
+}
+
+/* Breadcrumb (서브페이지 상단 노출) */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb li + li::before {
+  content: "›";
+  color: var(--ink-muted);
+  margin-right: 2px;
+}
+
+.breadcrumb a {
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.breadcrumb a:hover {
+  border-bottom-color: var(--green);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--green);
+  font-weight: 800;
 }
 
 .sticky-cta {
@@ -2051,8 +2289,9 @@ h3 {
 }
 
 @supports (animation-timeline: view()) {
+  /* hero-stat-strip은 첫 화면에 위치하므로 fade 대상에서 제외.
+     포함 시 Lighthouse가 측정 시점 opacity 0.3~0.4를 색대비로 잡는 인공물 발생 (WCAG 위반 false positive). */
   .section,
-  .hero-stat-strip,
   .before-after-grid,
   .tools-library,
   .concern-grid {

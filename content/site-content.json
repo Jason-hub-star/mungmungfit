@@ -300,28 +300,36 @@
       "name": "서울",
       "title": "서울 강아지 방문교육",
       "description": "서울 지역 강아지 방문교육은 1회 수업료 89,000원에 이동 시간과 거리를 반영한 출장비를 안내합니다.",
-      "fee": "수업료 89,000원 + 출장비 상담 후 안내"
+      "fee": "수업료 89,000원 + 출장비 상담 후 안내",
+      "geo": { "latitude": 37.5663, "longitude": 126.9779 },
+      "regionCode": "KR-11"
     },
     {
       "slug": "gyeonggi",
       "name": "경기",
       "title": "경기 강아지 방문교육",
       "description": "경기권 강아지 방문교육과 독피트니스 수업은 실제 생활 동선과 산책 환경에서 진행합니다.",
-      "fee": "수업료 89,000원 + 출장비 20,000~50,000원 기준"
+      "fee": "수업료 89,000원 + 출장비 20,000~50,000원 기준",
+      "geo": { "latitude": 37.2891, "longitude": 127.0186 },
+      "regionCode": "KR-41"
     },
     {
       "slug": "incheon",
       "name": "인천",
       "title": "인천 강아지 방문교육",
       "description": "인천 지역은 이동 거리와 시간에 따라 출장비를 안내하고 방문 독피트니스 수업을 진행합니다.",
-      "fee": "수업료 89,000원 + 출장비 상담 후 안내"
+      "fee": "수업료 89,000원 + 출장비 상담 후 안내",
+      "geo": { "latitude": 37.4563, "longitude": 126.7052 },
+      "regionCode": "KR-28"
     },
     {
       "slug": "chungcheong",
       "name": "충청",
       "title": "충청도 강아지 방문교육",
       "description": "충청권 장거리 방문교육은 일정과 이동 조건을 상담한 뒤 독피트니스 기반 수업 가능 여부를 안내합니다.",
-      "fee": "장거리 출장비 상담 후 안내"
+      "fee": "장거리 출장비 상담 후 안내",
+      "geo": { "latitude": 36.6358, "longitude": 127.4914 },
+      "regionCode": "KR-43"
     }
   ],
   "reviews": [
@@ -333,7 +341,13 @@
         "핸들링",
         "친절한 설명"
       ],
-      "meta": "비숑프리제 · 8개월 · 서울"
+      "meta": "비숑프리제 · 8개월 · 서울",
+      "breed": "비숑프리제",
+      "age": "8개월",
+      "area": "서울",
+      "rating": 5,
+      "datePublished": "2026-04-15",
+      "authorName": "보호자(익명)"
     },
     {
       "title": "실내외 자극 반응 수업",
@@ -343,7 +357,13 @@
         "거리조절",
         "보호자 실습"
       ],
-      "meta": "포메라니안 · 2세 · 경기"
+      "meta": "포메라니안 · 2세 · 경기",
+      "breed": "포메라니안",
+      "age": "2세",
+      "area": "경기",
+      "rating": 5,
+      "datePublished": "2026-03-22",
+      "authorName": "보호자(익명)"
     },
     {
       "title": "배변 공간과 생활 루틴 점검",
@@ -353,9 +373,44 @@
         "생활환경",
         "루틴"
       ],
-      "meta": "진돗개 · 1세 · 인천"
+      "meta": "진돗개 · 1세 · 인천",
+      "breed": "진돗개",
+      "age": "1세",
+      "area": "인천",
+      "rating": 5,
+      "datePublished": "2026-02-08",
+      "authorName": "보호자(익명)"
     }
   ],
+  "businessInfo": {
+    "legalName": "멍멍피트",
+    "registrationNumber": null,
+    "email": null,
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "openingHoursDisplay": "평일 10:00~20:00 · 주말 10:00~18:00 (사전 상담 후 방문)",
+    "address": {
+      "country": "KR",
+      "addressRegion": "서울",
+      "addressLocality": null,
+      "streetAddress": null,
+      "postalCode": null
+    },
+    "sameAs": [
+      "https://www.instagram.com/mungmungfit/",
+      "https://www.youtube.com/@Mungmungfit"
+    ]
+  },
   "brandImages": {
     "hero": {
       "src": "/images/training/main.jpg",
@@ -520,6 +575,10 @@
         "areaPrefix": "방문 가능 지역:",
         "consultPrefix": "상담:",
         "kakaoText": "카카오 오픈채팅",
+        "hoursPrefix": "운영시간:",
+        "emailPrefix": "이메일:",
+        "businessRegPrefix": "사업자등록번호:",
+        "snsHeading": "SNS",
         "imageCredit": "일부 이미지: Photos from Pexels"
       },
       "stickyCta": {
@@ -553,6 +612,9 @@
         { "href": "/services/home-training", "label": "강아지 방문교육" },
         { "href": "/services/walk-training", "label": "산책교육" },
         { "href": "/areas/seoul", "label": "서울 방문교육" },
+        { "href": "/diagnosis", "label": "1분 자가진단" },
+        { "href": "/cases", "label": "변화 사례" },
+        { "href": "/about", "label": "트레이너 소개" },
         { "href": "/reviews", "label": "실제 후기" }
       ],
       "contactAside": {
@@ -571,6 +633,157 @@
         "title": ["일반 강아지 훈련과", "멍멍피트의 차이."],
         "body": "\"유튜브 보고 따라했는데 안 됐어요\"라는 보호자분이 많아요. 멍멍피트는 명령어 위주가 아니라 강아지 몸 상태부터 다시 봅니다.",
         "headers": ["항목", "일반 강아지 훈련", "멍멍피트 독피트니스"]
+      },
+      "aboutPage": {
+        "metadataTitle": "김주영 트레이너 소개",
+        "metadataDescription": "CSCC 국제 독피트니스 트레이너 김주영. 돌고래 훈련사 경력부터 LG유플러스 포동·브리딩 방문교육까지, 헬퍼견 메이와 함께하는 멍멍피트의 운동 철학과 이력을 정리합니다.",
+        "eyebrow": "Trainer",
+        "title": "김주영 독피트니스 트레이너",
+        "lead": "강아지가 자기 몸을 이해하고, 보호자가 그 몸을 안정적으로 다룰 수 있게 만드는 일이 제 일입니다. 운동을 가르치지 않습니다. 운동으로 자신감을 만들어 줍니다.",
+        "philosophyHeading": "운동 철학",
+        "philosophyBody": "행동 교정은 보통 \"안 되는 것을 멈추기\"에서 시작합니다. 멍멍피트는 반대로 시작합니다. 강아지가 자기 몸을 어떻게 쓰고 있는지부터 보고, 약한 부분을 채워서 자신감이 생기게 합니다. 자신감이 생긴 강아지는 짖음·줄당김·회피가 자연스럽게 줄어듭니다. 그래서 멍멍피트의 첫 30분은 항상 강아지 몸 평가입니다.",
+        "careerHeading": "경력",
+        "careerItems": [
+          "현 브리딩 방문교육 훈련사",
+          "전 LG유플러스 포동 훈련사",
+          "돌고래 훈련사 경력",
+          "지자체 반려동물 행사 진행 다수",
+          "독피트니스 누적 수업 5,000+회"
+        ],
+        "certificationHeading": "자격·교육",
+        "certificationItems": [
+          "CSCC 국제 독피트니스 트레이너 (Canine Strength & Conditioning Coach)"
+        ],
+        "helperHeading": "헬퍼견 메이",
+        "helperBody": "사회화·자신감 수업에는 헬퍼견 메이가 함께 참여합니다. 메이는 다른 강아지를 무서워하지 않으면서도 적극적으로 다가가지 않는 균형감 있는 성격이라, 사회화기 퍼피·소심한 강아지에게 안전한 첫 강아지-강아지 만남을 만들어 줍니다.",
+        "mediaHeading": "미디어·외부 활동",
+        "mediaPlaceholder": "준비 중입니다.",
+        "ctaHeading": "우리 강아지에게 맞는 수업이 궁금하신가요?",
+        "ctaBody": "강아지 상태와 고민을 카카오톡으로 보내주시면, 첫 수업 가능 일정과 비용을 먼저 안내해 드립니다."
+      },
+      "casesPage": {
+        "metadataTitle": "강아지 변화 사례 — 케이스 스터디",
+        "metadataDescription": "멍멍피트 독피트니스 방문훈련을 받은 강아지들의 4주 변화 사례. 문제·접근·결과를 시간 순으로 정리합니다.",
+        "eyebrow": "Cases",
+        "title": "강아지 변화 사례",
+        "lead": "4회 패키지 동안 강아지가 어떻게 달라졌는지, 보호자가 어떤 도구·핸들링을 익혔는지 사례별로 기록합니다. 사진 정리가 끝나는 대로 순차 공개합니다.",
+        "comingSoonLabel": "준비 중",
+        "draftBadge": "샘플 (실제 데이터 정리 중)"
+      },
+      "diagnosisPage": {
+        "metadataTitle": "강아지 코어·자신감 자가진단 (5문항)",
+        "metadataDescription": "5문항으로 우리 강아지의 코어·균형·환경 자신감 상태를 빠르게 점검합니다. CSCC 국제 독피트니스 트레이너 김주영이 설계한 자가진단.",
+        "eyebrow": "Diagnosis",
+        "title": "우리 강아지 코어·자신감 자가진단",
+        "lead": "5문항을 답하시면 강아지 몸 상태 신호와 추천 운동을 즉시 보여드립니다. 1분 안에 끝나요.",
+        "submitLabel": "결과 보기",
+        "incompleteHint": "모든 질문에 답해주세요.",
+        "restartLabel": "다시 진단하기",
+        "scoreLabel": "총 점수",
+        "weakAreasLabel": "특히 신경 써야 할 영역",
+        "recommendationLabel": "추천 5분 운동",
+        "ctaLabel": "수업으로 직접 점검받기",
+        "ctaSubLabel": "1회 평가 89,000원 · 4회 패키지 25만원 (오픈 기념)",
+        "questions": [
+          {
+            "id": "q1",
+            "label": "산책 30분 후 강아지 등이 굽거나 꼬리가 쳐져 있나요?",
+            "area": "posture",
+            "options": [
+              { "value": 0, "label": "거의 없음" },
+              { "value": 1, "label": "가끔" },
+              { "value": 2, "label": "자주" },
+              { "value": 3, "label": "매번" }
+            ]
+          },
+          {
+            "id": "q2",
+            "label": "낯선 바닥(미끄러운 마루·계단·차)에 망설임이 있나요?",
+            "area": "confidence",
+            "options": [
+              { "value": 0, "label": "잘 올라감" },
+              { "value": 1, "label": "가끔 망설임" },
+              { "value": 2, "label": "자주 망설임" },
+              { "value": 3, "label": "못 올라감" }
+            ]
+          },
+          {
+            "id": "q3",
+            "label": "산책할 때 한쪽으로만 끌어당기는 경향이 있나요?",
+            "area": "balance",
+            "options": [
+              { "value": 0, "label": "균형 잘 잡음" },
+              { "value": 1, "label": "약간 불균형" },
+              { "value": 2, "label": "명확히 한쪽" },
+              { "value": 3, "label": "끌어당김 심함" }
+            ]
+          },
+          {
+            "id": "q4",
+            "label": "점프·갑작스런 멈춤 후 다리를 절거나 몸을 터는 경우 있나요?",
+            "area": "posture",
+            "options": [
+              { "value": 0, "label": "없음" },
+              { "value": 1, "label": "드물게" },
+              { "value": 2, "label": "가끔" },
+              { "value": 3, "label": "자주" }
+            ]
+          },
+          {
+            "id": "q5",
+            "label": "사람·다른 강아지 자극에 굳거나 숨나요?",
+            "area": "confidence",
+            "options": [
+              { "value": 0, "label": "안 그럼" },
+              { "value": 1, "label": "살짝 멈춤" },
+              { "value": 2, "label": "굳음" },
+              { "value": 3, "label": "숨음" }
+            ]
+          }
+        ],
+        "areas": {
+          "posture": { "label": "통증·자세", "description": "산책 후 자세나 보행 안정성에 신호가 있어요." },
+          "confidence": { "label": "환경 자신감", "description": "낯선 자극·표면에 반응이 약해진 상태일 수 있어요." },
+          "balance": { "label": "균형", "description": "좌우 체중 분산이나 핸들러 집중력 균형이 흔들립니다." }
+        },
+        "results": [
+          {
+            "min": 0,
+            "max": 3,
+            "level": "stable",
+            "emoji": "🟢",
+            "title": "안정 — 지금 잘 관리되고 있어요",
+            "summary": "현재 강아지 몸 상태는 양호합니다. 코어·균형이 잘 받쳐주고 있어요. 무리하게 운동량을 늘리지 말고 짧은 유지 루틴을 권장합니다.",
+            "recommendation": "밸런스볼·디스크 가벼운 자극 5분 루틴 (주 3회). 가정용 도구 없이 쿠션·매트·계단으로도 대체 가능합니다."
+          },
+          {
+            "min": 4,
+            "max": 7,
+            "level": "early",
+            "emoji": "🟡",
+            "title": "약함 신호 — 코어 자극을 시작할 시점",
+            "summary": "지금이 가장 좋은 타이밍입니다. 작은 신호일 때 5분 운동을 들이면 큰 문제로 번지기 전에 잡힙니다.",
+            "recommendation": "카발레티(낮은 막대 통과) + 디스크 위 균형 5분. 1회 평가에서 보호자 핸들링 기초를 배우는 것을 권장합니다."
+          },
+          {
+            "min": 8,
+            "max": 11,
+            "level": "clear",
+            "emoji": "🟠",
+            "title": "명확한 약함 — 체계적 운동이 필요해요",
+            "summary": "한두 영역에서 분명한 약함 신호가 잡힙니다. 보호자 핸들링과 코어 운동을 같이 4주에 걸쳐 잡는 게 효과적입니다.",
+            "recommendation": "4회 패키지 권장. 매주 1회 방문, 강아지 몸 평가 → 코어 운동 → 산책 핸들링 → 가정 루틴 정착 순서로 진행됩니다."
+          },
+          {
+            "min": 12,
+            "max": 15,
+            "level": "urgent",
+            "emoji": "🔴",
+            "title": "즉시 평가 필요 — 통증·재활 신호 의심",
+            "summary": "여러 영역에서 강한 신호가 잡힙니다. 통증이 동반된 경우가 있어 운동 전 수의사 진료를 먼저 권장합니다.",
+            "recommendation": "1회 단발 평가 (75~90분) 후 수의사 협의가 필요한 상태인지 점검합니다. 무리한 가정 운동은 일시 중단하세요."
+          }
+        ]
       }
     },
     "pricingPage": {

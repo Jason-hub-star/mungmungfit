@@ -8,7 +8,16 @@ import {
   InternalLinks,
   StickyCta,
 } from "@/components/site-sections";
-import { getSiteUrl, reviewImages, reviews } from "@/content/site";
+import { Breadcrumb } from "@/components/breadcrumb";
+import {
+  buildBreadcrumbJsonLd,
+  buildLocalBusinessJsonLd,
+  buildReviewJsonLd,
+  getSiteUrl,
+  reviewImages,
+  reviews,
+  site,
+} from "@/content/site";
 
 export const metadata: Metadata = {
   title: "강아지 방문교육 후기",
@@ -26,7 +35,10 @@ export const metadata: Metadata = {
 };
 
 export default function ReviewsPage() {
-  const jsonLd = {
+  const siteUrl = getSiteUrl();
+
+  // ItemList — 사이트 내 후기 컬렉션 신호
+  const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: reviews.map((review, index) => ({
@@ -37,14 +49,54 @@ export default function ReviewsPage() {
     })),
   };
 
+  // LocalBusiness with AggregateRating + Review[] — 검색 결과 별점 노출용
+  const itemReviewed = {
+    "@type": "LocalBusiness",
+    name: site.name,
+    url: siteUrl,
+  };
+  const businessWithReviewsJsonLd = {
+    ...buildLocalBusinessJsonLd({
+      url: `${siteUrl}/reviews`,
+      description:
+        "멍멍피트 보호자 후기 모음. 산책 짖음·줄당김·생활환경·보호자 핸들링 수업 후기.",
+      image: `${siteUrl}/images/training/main.jpg`,
+    }),
+    review: reviews.map((r) =>
+      // itemReviewed는 페이지 별점 표시용으로 review 안에는 포함 안 함 (top-level에서 attach)
+      ({ ...buildReviewJsonLd(r, itemReviewed), itemReviewed: undefined }),
+    ),
+  };
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: "강아지 방문교육 후기", path: "/reviews" },
+  ]);
+
   return (
     <main className="page">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(businessWithReviewsJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
       <section className="container subpage">
+        <Breadcrumb
+          crumbs={[
+            { name: "홈", path: "/" },
+            { name: "후기" },
+          ]}
+        />
         <span className="eyebrow">Reviews</span>
         <h1>강아지 방문교육 후기</h1>
         <p className="lead">
@@ -68,19 +120,6 @@ export default function ReviewsPage() {
                 </figure>
               ))}
             </div>
-            {reviews.map((review) => (
-              <article className="card review-card" key={review.title}>
-                <h2>{review.title}</h2>
-                <p>{review.body}</p>
-                <div className="tag-row">
-                  {review.tags.map((tag) => (
-                    <span className="tag" key={tag}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
           </div>
           <ContactAside />
         </div>

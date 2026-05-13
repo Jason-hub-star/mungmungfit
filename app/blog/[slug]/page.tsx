@@ -14,6 +14,7 @@ import {
   InternalLinks,
   StickyCta,
 } from "@/components/site-sections";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { BlogImage } from "@/components/blog-image";
 import {
   getAllSlugs,
@@ -155,6 +156,13 @@ export default async function BlogPostPage({ params }: Props) {
       />
       <Header />
       <section className="container subpage">
+        <Breadcrumb
+          crumbs={[
+            { name: "홈", path: "/" },
+            { name: "블로그", path: "/blog" },
+            { name: frontmatter.title },
+          ]}
+        />
         <span className="eyebrow">{frontmatter.category}</span>
         <h1>{frontmatter.title}</h1>
         <p className="lead">{frontmatter.description}</p>

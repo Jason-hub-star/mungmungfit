@@ -19,7 +19,9 @@
 │   ├── blog-publish-nightly.prompt.md       # 매일 22:00
 │   ├── bot-dispatch-tracker.prompt.md       # 매일 20:00
 │   ├── content-metrics-weekly.prompt.md     # 매주 일요일 21:00 (opus)
-│   └── instagram-publishing-cycle.prompt.md # 화 18·토 18·목 09·일 09 (마누스 짝)
+│   ├── instagram-publishing-cycle.prompt.md # 화 18·토 18·목 09·일 09 (마누스 짝)
+│   ├── seo-health-check.prompt.md           # 매주 월 09:00 (sonnet)
+│   └── schema-validator.prompt.md           # 매주 화 09:00 (haiku)
 └── hooks/                            # 자동 검사 훅 (PostToolUse)
     ├── post-edit-typecheck.sh        # .ts/.tsx 편집 후 tsc --noEmit
     └── post-edit-mdx-validate.sh     # .mdx 편집 후 frontmatter + 정책 검증
@@ -49,6 +51,8 @@
 |------|--------|------|------|
 | 매일 20:00 | bot-dispatch-tracker | `sonnet` | 큐 상태 추적·매트릭스 갱신 |
 | 매일 22:00 | blog-publish-nightly | `sonnet` | 발행 큐 요약·아카이브 |
+| 매주 월 09:00 | seo-health-check | `sonnet` | 라우트·schema·Lighthouse 회귀 점검 |
+| 매주 화 09:00 | schema-validator | `haiku` | JSON-LD 필수 필드 검증 (단순 분류) |
 | 매주 일 21:00 | content-metrics-weekly | `opus` | 인사이트 분석·다음 주 방향 제안 |
 | 화 18·토 18·목 09·일 09 | instagram-publishing-cycle | `sonnet` | 마누스 발행 짝 — 시드 생성·결과 점검 |
 
@@ -88,3 +92,6 @@
 - **자동화 런북** (막혔을 때 1순위): `docs/automation-runbook.md`
 - **마누스 Drive 워크플로우**: `docs/MANUS-DRIVE-INSTRUCTIONS.md`
 - **학습 레퍼런스**: `docs/learning-references.md`
+- **SEO 로드맵 (정본)**: `docs/seo-roadmap.md`
+- **SEO Health 정본**: `docs/status/SEO-HEALTH-STATUS.md`
+- **로컬 SEO 플레이북**: `docs/local-seo-playbook.md`
