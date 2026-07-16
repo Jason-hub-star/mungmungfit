@@ -2950,6 +2950,11 @@ body.has-mobile-nav .cookie-consent {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.gallery-tile:first-child .photo-img {
+  /* 세로 사진이 2행 스팬 타일에서 머리가 잘리지 않게 상단 기준 크롭 */
+  object-position: center top;
+}
+
 .gallery-tile:hover .photo-img {
   transform: scale(1.06);
 }
@@ -2957,9 +2962,10 @@ body.has-mobile-nav .cookie-consent {
 /* 4) 릴스 섹션 — 9초 세로 수업 영상 */
 .reels-track {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 38px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 880px;
+  margin: 38px auto 0;
 }
 
 .reel-card {
@@ -3250,5 +3256,96 @@ body.has-mobile-nav .cookie-consent {
 @media (max-width: 720px) {
   .stats-trust {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ═══ 수업 4단계(Process) 인터랙션 — 2026-07-16 ═══ */
+.process-step {
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+
+.process-step summary {
+  grid-template-columns: 64px minmax(0, 1fr) 28px;
+  transition: background 0.3s ease;
+}
+
+.process-step summary:hover {
+  background: rgba(251, 250, 245, 0.05);
+}
+
+.process-number {
+  transition:
+    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.35s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.process-step[open] .process-number {
+  background: var(--orange-soft);
+  border-color: transparent;
+  color: var(--green);
+  transform: scale(1.1);
+}
+
+.process-toggle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+
+.process-toggle::before,
+.process-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(251, 250, 245, 0.55);
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.process-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.process-step[open] .process-toggle::before {
+  background: var(--orange-soft);
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.process-step[open] .process-toggle::after {
+  background: var(--orange-soft);
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.process-step[open] .process-step-body {
+  animation: processReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes processReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-step,
+  .process-step summary,
+  .process-number,
+  .process-toggle::before,
+  .process-toggle::after {
+    transition: none !important;
+  }
+
+  .process-step[open] .process-step-body {
+    animation: none;
   }
 }

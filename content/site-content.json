@@ -507,14 +507,6 @@
       "src": "/videos/reels/fit-cones.mp4",
       "poster": "/images/reels/fit-cones-poster.jpg",
       "alt": "콘 사이를 통과하는 강아지 수업 영상"
-    },
-    {
-      "id": "gait",
-      "title": "보행 밸런스",
-      "caption": "관절에 부담 없는 걸음 만들기",
-      "src": "/videos/reels/fit-gait.mp4",
-      "poster": "/images/reels/fit-gait-poster.jpg",
-      "alt": "바른 보행을 연습하는 강아지 수업 영상"
     }
   ],
   "marqueePhotos": [
@@ -523,7 +515,6 @@
     { "src": "/images/marquee/visit-cones.jpg", "alt": "콘 위빙을 연습하는 강아지" },
     { "src": "/images/reels/fit-cavaletti-poster.jpg", "alt": "카발레티 스텝 수업 장면" },
     { "src": "/images/marquee/visit-balance-b.jpg", "alt": "디스크 위에서 균형 잡는 강아지" },
-    { "src": "/images/reels/fit-gait-poster.jpg", "alt": "야외 보행 수업 장면" },
     { "src": "/images/marquee/visit-extra1.jpg", "alt": "밸런스 도구 위에서 간식을 기다리는 강아지" },
     { "src": "/images/reels/fit-cones-poster.jpg", "alt": "콘 사이를 지나는 강아지" },
     { "src": "/images/marquee/visit-walk.jpg", "alt": "노을 아래 산책 중인 강아지들" }
@@ -534,12 +525,12 @@
     "body": "동물의 몸과 마음을 읽는 일에서 시작해, 지금은 강아지의 자신감을 만드는 일을 합니다. 종은 달라도 원칙은 같습니다. 억지로 시키지 않고, 몸이 스스로 배우게 하는 것.",
     "cards": [
       {
-        "src": "/images/story/dolphin-trainer-days.jpg",
+        "src": "/images/story/dolphin-trainer-days.jpg?v=20260716-1",
         "alt": "돌고래 훈련사 시절의 김주영 트레이너",
         "label": "돌고래 훈련사 시절"
       },
       {
-        "src": "/images/story/now-dog-fitness.jpg",
+        "src": "/images/story/now-dog-fitness.jpg?v=20260716-1",
         "alt": "야외 독피트니스 수업 중인 김주영 트레이너",
         "label": "지금, 독피트니스 수업"
       }

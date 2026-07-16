@@ -315,21 +315,24 @@ export function Process() {
   return (
     <section className="section section-dark" id="process">
       <div className="container">
-        <span className="eyebrow">{copy.eyebrow}</span>
-        <h2>{copy.title}</h2>
-        <div className="process-flow" aria-label="수업 단계별 흐름">
+        <Reveal>
+          <span className="eyebrow">{copy.eyebrow}</span>
+          <h2>{copy.title}</h2>
+        </Reveal>
+        <Reveal stagger className="process-flow" ariaLabel="수업 단계별 흐름">
           {trainingProcess.map((step, index) => (
             <details className="process-step" key={step.title} open={index === 0}>
               <summary>
                 <span className="process-number">{String(index + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
+                <span className="process-toggle" aria-hidden />
               </summary>
               <div className="process-step-body">
                 <p>{step.body}</p>
               </div>
             </details>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

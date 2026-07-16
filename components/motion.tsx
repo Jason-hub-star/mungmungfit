@@ -24,9 +24,10 @@ type RevealProps = {
   delay?: number;
   /** true면 컨테이너는 그대로 두고 직계 자식들을 순차 리빌 */
   stagger?: boolean;
+  ariaLabel?: string;
 };
 
-export function Reveal({ children, className, delay = 0, stagger = false }: RevealProps) {
+export function Reveal({ children, className, delay = 0, stagger = false, ariaLabel }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,6 +61,7 @@ export function Reveal({ children, className, delay = 0, stagger = false }: Reve
       ref={ref}
       className={className}
       style={style}
+      aria-label={ariaLabel}
       {...(stagger ? { "data-stagger": "" } : { "data-reveal": "" })}
     >
       {children}

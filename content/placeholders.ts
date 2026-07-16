@@ -128,9 +128,9 @@ export const photoSlots: Record<string, PhotoSlotDef> = {
     description: "비만·과체중 강아지 일러스트 또는 실제 사진",
     alt: "비만 강아지 다이어트 독피트니스 대상",
     aspect: "1/1",
-    src: "/images/slots/target-obese.jpg",
+    src: "/images/slots/target-obese.jpg?v=20260716-1",
     priority: 2,
-    source: "ai-generated",
+    source: "existing",
   },
   "target-senior": {
     number: 12,
