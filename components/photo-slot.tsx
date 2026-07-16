@@ -9,6 +9,9 @@ type Props = {
   sizes?: string;
 };
 
+// 슬롯 번호 배지는 사진 교체 워크플로용 관리 도구 — 운영 화면에는 숨긴다
+const showSlotBadges = process.env.NODE_ENV === "development";
+
 export function PhotoSlot({ slotId, className, priority, sizes }: Props) {
   const slot = getSlot(slotId as Parameters<typeof getSlot>[0]);
 
@@ -38,8 +41,12 @@ export function PhotoSlot({ slotId, className, priority, sizes }: Props) {
           sizes={sizes ?? "(max-width: 940px) 100vw, 50vw"}
           className="photo-img"
         />
-        <span className="photo-slot-number">#{slot.number}</span>
-        <span className="photo-slot-replace-label">교체 #{slot.number}</span>
+        {showSlotBadges && (
+          <>
+            <span className="photo-slot-number">#{slot.number}</span>
+            <span className="photo-slot-replace-label">교체 #{slot.number}</span>
+          </>
+        )}
       </div>
     );
   }
