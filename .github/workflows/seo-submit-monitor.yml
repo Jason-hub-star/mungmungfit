@@ -1,0 +1,46 @@
+name: SEO Submit Monitor
+
+on:
+  workflow_dispatch:
+  # Enable after secrets are configured.
+  # schedule:
+  #   - cron: "10 0 * * 1"
+
+jobs:
+  seo-submit-monitor:
+    if: vars.SEO_PIPELINE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_SITE_URL: https://mungmungfit.kr
+      GOOGLE_SEARCH_CONSOLE_SITE_URL: ${{ vars.GOOGLE_SEARCH_CONSOLE_SITE_URL || 'https://mungmungfit.kr/' }}
+      GOOGLE_SEARCH_CONSOLE_SITEMAP_URL: ${{ vars.GOOGLE_SEARCH_CONSOLE_SITEMAP_URL || 'https://mungmungfit.kr/sitemap.xml' }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      NAVER_INDEXNOW_KEY: ${{ secrets.NAVER_INDEXNOW_KEY }}
+      NAVER_INDEXNOW_KEY_LOCATION: ${{ vars.NAVER_INDEXNOW_KEY_LOCATION || 'https://mungmungfit.kr/indexnow-key.txt' }}
+      NAVER_CRAWL_REQUEST_ACCESS_TOKEN: ${{ secrets.NAVER_CRAWL_REQUEST_ACCESS_TOKEN }}
+      MUNGMUNG_BOT_TOKEN: ${{ secrets.MUNGMUNG_BOT_TOKEN }}
+      MUNGMUNG_CHAT_ID: ${{ secrets.MUNGMUNG_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Dry-run SEO payloads
+        run: npm run seo:dry-run -- --no-write
+
+      - name: Submit and monitor SEO
+        run: npm run seo:pipeline
+
+      - name: Upload SEO metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-pipeline-metrics
+          path: docs/metrics/seo-pipeline-*.json
+          if-no-files-found: ignore

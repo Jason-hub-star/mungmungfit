@@ -9,6 +9,7 @@ import {
 } from "@/components/site-sections";
 import { Breadcrumb } from "@/components/breadcrumb";
 import {
+  brandImages,
   buildBreadcrumbJsonLd,
   eventOffer,
   getSiteUrl,
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
   title: pricingContent.metadataTitle,
   description: pricingContent.metadataDescription,
   alternates: { canonical: "/pricing" },
+  openGraph: {
+    title: `${pricingContent.metadataTitle} | 멍멍피트`,
+    description: pricingContent.metadataDescription,
+    url: `${siteUrl}/pricing`,
+    images: [{ url: brandImages.hero.src, alt: brandImages.hero.alt }],
+  },
 };
 
 const offerJsonLd = {
@@ -45,11 +52,11 @@ const offerJsonLd = {
   offers: [
     {
       "@type": "Offer",
-      name: "4회 패키지",
+      name: "3회 패키지",
       price: String(eventOffer.packagePrice),
       priceCurrency: "KRW",
       availability: "https://schema.org/InStock",
-      description: `4회 패키지. 1회 평균 ${eventOffer.packagePerSessionPrice}원 (정가 대비 ${eventOffer.packageDiscountPercent}% 할인).`,
+      description: `3회 패키지. 1회 평균 ${eventOffer.packagePerSessionPrice}원 (정가 대비 ${eventOffer.packageDiscountPercent}% 할인).`,
     },
     {
       "@type": "Offer",
@@ -72,7 +79,7 @@ export default function PricingPage() {
   const formatKrw = (n: number) => n.toLocaleString("ko-KR");
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}

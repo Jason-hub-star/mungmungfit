@@ -24,6 +24,17 @@ export const brandImages = siteContent.brandImages;
 export const methodImages = siteContent.methodImages;
 export const featuredGallery = siteContent.featuredGallery;
 export const pageContent = siteContent.pageContent;
+export const intakeForm = siteContent.intakeForm;
+
+/**
+ * 노출용 사업장 주소 (시·구 단위까지만). 상세 주소는 주거지 보호 차원에서 노출 X.
+ * Footer, /privacy, /terms 책임자/공급자 영역에서 공통 사용.
+ */
+export function getBusinessAddressDisplay(): string {
+  return [businessInfo.address.addressRegion, businessInfo.address.addressLocality]
+    .filter(Boolean)
+    .join(" ");
+}
 
 /**
  * 후기 평균 별점 + 리뷰 수 계산. AggregateRating JSON-LD 부착에 사용.
@@ -106,6 +117,7 @@ export function buildLocalBusinessJsonLd(opts: {
     name: opts.name ?? site.name,
     alternateName: site.englishName,
     url: opts.url,
+    logo: `${getSiteUrl()}/images/brand/mungmungfit-icon.png`,
     telephone: site.phoneHref.replace(/^tel:/, "").replace(/^0/, "+82-").replace(/(\d{2})(\d{4})(\d{4})/, "$1-$2-$3"),
     priceRange: "89000 KRW~",
     description: opts.description,
@@ -257,16 +269,48 @@ export interface GallerySession {
   date: string;
   src: string;
   alt: string;
-  description: string;
+  description?: string;
+  label?: string;
 }
 
 // 파이프라인이 추가한 세션 + 기존 로컬 이미지 fallback
 const sessionGallery: GallerySession[] = galleryData.sessions;
 
+/**
+ * 사진별 라벨 메타. site-content.json::trainingPhotosMeta·reviewPhotosMeta에 추가하면
+ * alt가 동적으로 풍부해진다. 비어 있으면 기존 fallback alt를 그대로 사용.
+ */
+type PhotoMeta = {
+  breed?: string;
+  focus?: string;
+  environment?: string;
+  outcome?: string;
+};
+const trainingPhotosMeta: PhotoMeta[] =
+  (siteContent as { trainingPhotosMeta?: PhotoMeta[] }).trainingPhotosMeta ?? [];
+const reviewPhotosMeta: PhotoMeta[] =
+  (siteContent as { reviewPhotosMeta?: PhotoMeta[] }).reviewPhotosMeta ?? [];
+
+function composeTrainingAlt(index: number): string {
+  const m = trainingPhotosMeta[index];
+  if (!m) return `멍멍피트 강아지 방문교육 훈련사진 ${index + 1}`;
+  const parts = [m.breed, m.focus, m.environment].filter(Boolean);
+  if (parts.length === 0) return `멍멍피트 강아지 방문교육 훈련사진 ${index + 1}`;
+  return `${parts.join(" · ")} | 멍멍피트 방문교육`;
+}
+
+function composeReviewAlt(index: number): string {
+  const m = reviewPhotosMeta[index];
+  if (!m) return `멍멍피트 강아지 방문교육 후기 ${index + 1}`;
+  const parts = [m.breed, m.outcome].filter(Boolean);
+  if (parts.length === 0) return `멍멍피트 강아지 방문교육 후기 ${index + 1}`;
+  return `${parts.join(" · ")} | 멍멍피트 후기`;
+}
+
 const localFallback = Array.from({ length: 25 }, (_, index) => ({
   date: "",
   src: `/images/training/training-${String(index + 1).padStart(2, "0")}.jpg`,
-  alt: `멍멍피트 강아지 방문교육 훈련사진 ${index + 1}`,
+  alt: composeTrainingAlt(index),
   description: "",
 }));
 
@@ -282,7 +326,7 @@ export const reviewImages = Array.from({ length: 23 }, (_, index) => {
   const number = String(index + 1).padStart(2, "0");
   return {
     src: `/images/reviews/review-${number}.jpg`,
-    alt: `멍멍피트 강아지 방문교육 후기 ${index + 1}`,
+    alt: composeReviewAlt(index),
     width: 1080,
     height: reviewImageHeights[index] ?? 1080,
   };

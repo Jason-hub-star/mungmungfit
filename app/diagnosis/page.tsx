@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import {
   ContactAside,
   FinalCta,
@@ -34,6 +35,12 @@ export const metadata: Metadata = {
     title: `${diagnosisContent.metadataTitle} | 멍멍피트`,
     description: diagnosisContent.metadataDescription,
     url: `${siteUrl}/diagnosis`,
+    images: [
+      {
+        url: "/images/training/main.jpg",
+        alt: "멍멍피트 강아지 코어·자신감 자가진단",
+      },
+    ],
   },
 };
 
@@ -63,7 +70,7 @@ export default function DiagnosisPage() {
   ]);
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
@@ -86,7 +93,9 @@ export default function DiagnosisPage() {
 
         <h2 className="sr-only">자가진단 폼</h2>
         <div className="sub-grid">
-          <DiagnosisForm content={diagnosisContent} />
+          <Suspense fallback={<div className="diagnosis-form" aria-hidden />}>
+            <DiagnosisForm content={diagnosisContent} />
+          </Suspense>
           <ContactAside />
         </div>
       </section>

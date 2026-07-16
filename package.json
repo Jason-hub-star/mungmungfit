@@ -6,14 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "qa:responsive": "node scripts/responsive-check.mjs",
+    "media:budget": "node scripts/media-budget-check.mjs",
+    "seo:dry-run": "node scripts/seo-submit-monitor.mjs --dry-run --all",
+    "seo:submit": "node scripts/seo-submit-monitor.mjs --submit",
+    "seo:monitor": "node scripts/seo-submit-monitor.mjs --monitor",
+    "seo:pipeline": "node scripts/seo-submit-monitor.mjs --all"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "1.14.0",
-    "next": "16.2.4",
+    "next": "^16.2.6",
     "next-mdx-remote": "^6.0.0",
     "pretendard": "^1.3.9",
     "react": "19.2.5",
@@ -27,6 +33,7 @@
     "@types/node": "24.10.2",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "playwright": "^1.60.0",
     "tsx": "^4.21.0",
     "typescript": "5.9.3"
   },

@@ -69,7 +69,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const isDraft = (study as { isDraft?: boolean }).isDraft === true;
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -239,7 +239,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <h2>{site.trainerTitle}와 비슷한 고민이라면</h2>
               <p>
                 같은 고민을 가진 강아지의 첫 수업·평가는 카카오톡으로 상담해주세요.
-                강아지 상태에 맞춘 4회 패키지·1회 단발 옵션을 안내합니다.
+                강아지 상태에 맞춘 3회 패키지·1회 단발 옵션을 안내합니다.
               </p>
               <p style={{ marginTop: space.lg, fontSize: font.lead, fontWeight: 700 }}>
                 {site.phoneDisplay}

@@ -1,9 +1,16 @@
 "use client";
-// 강아지 코어·자신감 5문항 자가진단 폼 — useState 단일 페이지 전환
+// 강아지 코어·자신감 5문항 자가진단 폼 — useState 단일 페이지 전환 + URL 공유
 
-import { useMemo, useState } from "react";
-import { ArrowRight, MessageCircle, RotateCcw } from "lucide-react";
-import { site } from "@/content/site";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import {
+  ArrowRight,
+  ExternalLink,
+  MessageCircle,
+  RotateCcw,
+  Share2,
+} from "lucide-react";
+import { intakeForm, site } from "@/content/site";
 
 type Option = { value: number; label: string };
 type Question = { id: string; label: string; area: string; options: Option[] };
@@ -32,9 +39,57 @@ export type DiagnosisContent = {
   results: ResultBand[];
 };
 
+const SHARE_PARAM = "r";
+
+function encodeAnswers(answers: Record<string, number>): string {
+  try {
+    return btoa(JSON.stringify(answers));
+  } catch {
+    return "";
+  }
+}
+
+function decodeAnswers(encoded: string | null): Record<string, number> | null {
+  if (!encoded) return null;
+  try {
+    const parsed = JSON.parse(atob(encoded));
+    if (!parsed || typeof parsed !== "object") return null;
+    const out: Record<string, number> = {};
+    for (const [k, v] of Object.entries(parsed)) {
+      if (typeof v === "number") out[k] = v;
+    }
+    return out;
+  } catch {
+    return null;
+  }
+}
+
 export function DiagnosisForm({ content }: { content: DiagnosisContent }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [copyToast, setCopyToast] = useState<"copied" | "failed" | null>(null);
+  const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const encoded = searchParams.get(SHARE_PARAM);
+    if (!encoded) return;
+    const decoded = decodeAnswers(encoded);
+    if (!decoded) return;
+    const hasAll = content.questions.every((q) => q.id in decoded);
+    if (hasAll) {
+      setAnswers(decoded);
+      setSubmitted(true);
+    }
+  }, [searchParams, content.questions]);
+
+  useEffect(() => {
+    if (!copyToast) return;
+    const timer = window.setTimeout(() => setCopyToast(null), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copyToast]);
 
   const allAnswered = content.questions.every((q) => q.id in answers);
   const totalScore = Object.values(answers).reduce((a, b) => a + b, 0);
@@ -61,11 +116,49 @@ export function DiagnosisForm({ content }: { content: DiagnosisContent }) {
       .map(([area]) => ({ key: area, ...content.areas[area] }));
   }, [content.questions, content.areas, answers]);
 
+  function handleSubmit() {
+    setSubmitted(true);
+    const encoded = encodeAnswers(answers);
+    if (encoded) {
+      router.replace(`?${SHARE_PARAM}=${encoded}`, { scroll: false });
+    }
+  }
+
   function handleRestart() {
     setAnswers({});
     setSubmitted(false);
+    setCopyToast(null);
+    setFallbackUrl(null);
+    router.replace("?", { scroll: false });
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  async function handleShare() {
+    if (typeof window === "undefined") return;
+    const url = window.location.href;
+    const shareText = `멍멍피트 자가진단 결과: ${result.title} (${totalScore}/15)`;
+
+    if (typeof navigator !== "undefined" && "share" in navigator) {
+      try {
+        await navigator.share({
+          title: "멍멍피트 자가진단 결과",
+          text: shareText,
+          url,
+        });
+        return;
+      } catch {
+        // 사용자가 시스템 공유 시트 취소한 경우 클립보드로 fallback
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopyToast("copied");
+    } catch {
+      setCopyToast("failed");
+      setFallbackUrl(url);
     }
   }
 
@@ -116,7 +209,49 @@ export function DiagnosisForm({ content }: { content: DiagnosisContent }) {
               <ArrowRight size={18} aria-hidden />
               {site.phoneDisplay}
             </a>
+            {intakeForm?.url && (
+              <a
+                className="button button-ghost"
+                href={intakeForm.url}
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label={`${intakeForm.label} (새 창에서 네이버폼 열림)`}
+              >
+                <ExternalLink size={18} aria-hidden />
+                {intakeForm.label}
+              </a>
+            )}
+            <button
+              type="button"
+              className="button button-ghost"
+              onClick={handleShare}
+              aria-label="진단 결과 공유"
+            >
+              <Share2 size={18} aria-hidden />
+              결과 공유
+            </button>
           </div>
+          {copyToast && (
+            <div
+              className="diagnosis-hint"
+              role="status"
+              aria-live="polite"
+            >
+              {copyToast === "copied"
+                ? "링크가 복사되었어요. 친구에게 붙여넣기만 하면 돼요."
+                : "자동 복사가 차단된 환경이에요. 아래 주소를 길게 눌러 복사해 주세요."}
+              {copyToast === "failed" && fallbackUrl && (
+                <input
+                  className="diagnosis-share-url"
+                  type="text"
+                  readOnly
+                  value={fallbackUrl}
+                  onClick={(e) => (e.target as HTMLInputElement).select()}
+                  aria-label="진단 결과 공유 URL"
+                />
+              )}
+            </div>
+          )}
         </article>
 
         <button
@@ -136,7 +271,7 @@ export function DiagnosisForm({ content }: { content: DiagnosisContent }) {
       className="diagnosis-form"
       onSubmit={(e) => {
         e.preventDefault();
-        if (allAnswered) setSubmitted(true);
+        if (allAnswered) handleSubmit();
       }}
     >
       {content.questions.map((q, idx) => (

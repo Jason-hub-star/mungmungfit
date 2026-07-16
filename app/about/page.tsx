@@ -48,7 +48,7 @@ export default function AboutPage() {
   ]);
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

@@ -11,6 +11,7 @@ import {
   getAllCategories,
   getPostsByCategory,
 } from "@/lib/blog";
+import { buildBreadcrumbJsonLd, getSiteUrl } from "@/content/site";
 import { alpha, font, space } from "@/styles/tokens";
 
 type Props = { params: Promise<{ name: string }> };
@@ -24,10 +25,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name: rawName } = await params;
   const name = decodeURIComponent(rawName);
+  const posts = getPostsByCategory(name);
+  const count = posts.length;
   return {
-    title: `${name} 블로그`,
-    description: `${name} 카테고리 멍멍피트 블로그 글 모음`,
+    title: `${name} 강아지 훈련 글 모음`,
+    description: `멍멍피트 ${name} 카테고리 블로그 ${count}편 — 독피트니스 트레이너가 정리한 강아지 행동·운동·재활 가이드 모음.`,
     alternates: { canonical: `/blog/category/${encodeURIComponent(name)}` },
+    openGraph: {
+      title: `${name} 강아지 훈련 글 모음 | 멍멍피트`,
+      description: `멍멍피트 ${name} 카테고리 블로그 ${count}편 모음.`,
+      url: `${getSiteUrl()}/blog/category/${encodeURIComponent(name)}`,
+    },
   };
 }
 
@@ -45,8 +53,44 @@ export default async function CategoryPage({ params }: Props) {
   const posts = getPostsByCategory(name);
   if (posts.length === 0) notFound();
 
+  const siteUrl = getSiteUrl();
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: "블로그", path: "/blog" },
+    { name, path: `/blog/category/${encodeURIComponent(name)}` },
+  ]);
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `멍멍피트 ${name} 글 모음`,
+    description: `${name} 카테고리 멍멍피트 블로그 ${posts.length}편 모음`,
+    url: `${siteUrl}/blog/category/${encodeURIComponent(name)}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "멍멍피트",
+      url: siteUrl,
+    },
+    hasPart: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.frontmatter.title,
+      url: `${siteUrl}/blog/${p.frontmatter.slug}`,
+      datePublished: p.frontmatter.date,
+      ...(p.frontmatter.description
+        ? { description: p.frontmatter.description }
+        : {}),
+    })),
+  };
+
   return (
-    <main className="page">
+    <main id="main-content" className="page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <Header />
       <section className="container subpage">
         <span className="eyebrow">Category</span>

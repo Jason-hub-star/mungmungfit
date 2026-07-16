@@ -1,0 +1,474 @@
+{
+  "mode": "all",
+  "dryRun": true,
+  "startedAt": "2026-06-30T01:27:16.329Z",
+  "siteUrl": "https://mungmungfit.kr/",
+  "publicSiteUrl": "https://mungmungfit.kr/",
+  "publicOrigin": "https://mungmungfit.kr",
+  "baseOrigin": "http://localhost:3001",
+  "sitemapUrl": "http://localhost:3001/sitemap.xml",
+  "env": {
+    "googleServiceAccountJson": false,
+    "googleApplicationCredentials": false,
+    "naverIndexNowKey": false,
+    "naverCrawlRequestAccessToken": false
+  },
+  "health": {
+    "routeChecks": [
+      {
+        "path": "/",
+        "url": "http://localhost:3001/",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 73
+      },
+      {
+        "path": "/pricing",
+        "url": "http://localhost:3001/pricing",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 33
+      },
+      {
+        "path": "/reviews",
+        "url": "http://localhost:3001/reviews",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 68
+      },
+      {
+        "path": "/blog",
+        "url": "http://localhost:3001/blog",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 24
+      },
+      {
+        "path": "/services/dog-fitness",
+        "url": "http://localhost:3001/services/dog-fitness",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 41
+      },
+      {
+        "path": "/areas/seoul",
+        "url": "http://localhost:3001/areas/seoul",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 33
+      },
+      {
+        "path": "/about",
+        "url": "http://localhost:3001/about",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 29
+      },
+      {
+        "path": "/cases",
+        "url": "http://localhost:3001/cases",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 26
+      },
+      {
+        "path": "/diagnosis",
+        "url": "http://localhost:3001/diagnosis",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 26
+      },
+      {
+        "path": "/sitemap.xml",
+        "url": "http://localhost:3001/sitemap.xml",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 4
+      },
+      {
+        "path": "/robots.txt",
+        "url": "http://localhost:3001/robots.txt",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 3
+      },
+      {
+        "path": "/feed.xml",
+        "url": "http://localhost:3001/feed.xml",
+        "status": 200,
+        "ok": true,
+        "elapsedMs": 4
+      }
+    ],
+    "sitemap": {
+      "url": "http://localhost:3001/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "locCount": 20,
+      "missingRequiredSitemapPaths": []
+    },
+    "robots": {
+      "status": 200,
+      "ok": true,
+      "hasSitemap": true
+    },
+    "feed": {
+      "status": 200,
+      "ok": true,
+      "looksXml": true
+    },
+    "sitemapUrls": [
+      "https://mungmungfit.kr",
+      "https://mungmungfit.kr/pricing",
+      "https://mungmungfit.kr/reviews",
+      "https://mungmungfit.kr/blog",
+      "https://mungmungfit.kr/about",
+      "https://mungmungfit.kr/cases",
+      "https://mungmungfit.kr/diagnosis",
+      "https://mungmungfit.kr/cases/pomeranian-confidence",
+      "https://mungmungfit.kr/services/dog-fitness",
+      "https://mungmungfit.kr/services/home-training",
+      "https://mungmungfit.kr/services/walk-training",
+      "https://mungmungfit.kr/services/puppy-training",
+      "https://mungmungfit.kr/areas/seoul",
+      "https://mungmungfit.kr/areas/gyeonggi",
+      "https://mungmungfit.kr/areas/incheon",
+      "https://mungmungfit.kr/areas/chungcheong",
+      "https://mungmungfit.kr/blog/dog-core-muscle-guide",
+      "https://mungmungfit.kr/blog/dog-fitness-intro",
+      "https://mungmungfit.kr/blog/category/%EA%B0%95%EC%95%84%EC%A7%80%20%EA%B7%BC%EC%9C%A1%20%EB%8F%84%EA%B0%90",
+      "https://mungmungfit.kr/blog/category/%EB%8F%85%ED%94%BC%ED%8A%B8%EB%8B%88%EC%8A%A4%20%EA%B8%B0%EC%B4%88"
+    ],
+    "inspectionUrls": [
+      "https://mungmungfit.kr/",
+      "https://mungmungfit.kr/pricing",
+      "https://mungmungfit.kr/reviews",
+      "https://mungmungfit.kr/blog",
+      "https://mungmungfit.kr/services/dog-fitness",
+      "https://mungmungfit.kr/areas/seoul",
+      "https://mungmungfit.kr/about",
+      "https://mungmungfit.kr/cases",
+      "https://mungmungfit.kr/diagnosis",
+      "https://mungmungfit.kr/blog/dog-core-muscle-guide"
+    ],
+    "canonicalChecks": [
+      {
+        "path": "/",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr",
+        "canonicalPath": "/",
+        "matchesPath": true
+      },
+      {
+        "path": "/pricing",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/pricing",
+        "canonicalPath": "/pricing",
+        "matchesPath": true
+      },
+      {
+        "path": "/reviews",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/reviews",
+        "canonicalPath": "/reviews",
+        "matchesPath": true
+      },
+      {
+        "path": "/blog",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/blog",
+        "canonicalPath": "/blog",
+        "matchesPath": true
+      },
+      {
+        "path": "/services/dog-fitness",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/services/dog-fitness",
+        "canonicalPath": "/services/dog-fitness",
+        "matchesPath": true
+      },
+      {
+        "path": "/areas/seoul",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/areas/seoul",
+        "canonicalPath": "/areas/seoul",
+        "matchesPath": true
+      },
+      {
+        "path": "/about",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/about",
+        "canonicalPath": "/about",
+        "matchesPath": true
+      },
+      {
+        "path": "/cases",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/cases",
+        "canonicalPath": "/cases",
+        "matchesPath": true
+      },
+      {
+        "path": "/diagnosis",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/diagnosis",
+        "canonicalPath": "/diagnosis",
+        "matchesPath": true
+      },
+      {
+        "path": "/blog/dog-core-muscle-guide",
+        "status": 200,
+        "ok": true,
+        "canonical": "https://mungmungfit.kr/blog/dog-core-muscle-guide",
+        "canonicalPath": "/blog/dog-core-muscle-guide",
+        "matchesPath": true
+      }
+    ]
+  },
+  "google": {
+    "sitemapSubmit": {
+      "skipped": true,
+      "reason": "dry-run",
+      "requestPath": "/sites/https%3A%2F%2Fmungmungfit.kr%2F/sitemaps/https%3A%2F%2Fmungmungfit.kr%2Fsitemap.xml"
+    },
+    "inspection": [
+      {
+        "url": "https://mungmungfit.kr/",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/pricing",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/pricing",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/reviews",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/reviews",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/blog",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/blog",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/services/dog-fitness",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/services/dog-fitness",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/areas/seoul",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/areas/seoul",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/about",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/about",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/cases",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/cases",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/diagnosis",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/diagnosis",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      },
+      {
+        "url": "https://mungmungfit.kr/blog/dog-core-muscle-guide",
+        "skipped": true,
+        "reason": "dry-run",
+        "payload": {
+          "inspectionUrl": "https://mungmungfit.kr/blog/dog-core-muscle-guide",
+          "siteUrl": "https://mungmungfit.kr/"
+        }
+      }
+    ]
+  },
+  "naver": {
+    "indexNow": [
+      {
+        "batch": 1,
+        "skipped": true,
+        "reason": "dry-run",
+        "endpoint": "https://searchadvisor.naver.com/indexnow",
+        "payload": {
+          "host": "mungmungfit.kr",
+          "key": "",
+          "keyLocation": "https://mungmungfit.kr/indexnow-key.txt",
+          "urlList": [
+            "https://mungmungfit.kr",
+            "https://mungmungfit.kr/pricing",
+            "https://mungmungfit.kr/reviews",
+            "https://mungmungfit.kr/blog",
+            "https://mungmungfit.kr/about",
+            "https://mungmungfit.kr/cases",
+            "https://mungmungfit.kr/diagnosis",
+            "https://mungmungfit.kr/cases/pomeranian-confidence",
+            "https://mungmungfit.kr/services/dog-fitness",
+            "https://mungmungfit.kr/services/home-training",
+            "https://mungmungfit.kr/services/walk-training",
+            "https://mungmungfit.kr/services/puppy-training",
+            "https://mungmungfit.kr/areas/seoul",
+            "https://mungmungfit.kr/areas/gyeonggi",
+            "https://mungmungfit.kr/areas/incheon",
+            "https://mungmungfit.kr/areas/chungcheong",
+            "https://mungmungfit.kr/blog/dog-core-muscle-guide",
+            "https://mungmungfit.kr/blog/dog-fitness-intro",
+            "https://mungmungfit.kr/blog/category/%EA%B0%95%EC%95%84%EC%A7%80%20%EA%B7%BC%EC%9C%A1%20%EB%8F%84%EA%B0%90",
+            "https://mungmungfit.kr/blog/category/%EB%8F%85%ED%94%BC%ED%8A%B8%EB%8B%88%EC%8A%A4%20%EA%B8%B0%EC%B4%88"
+          ]
+        }
+      }
+    ],
+    "crawl": [
+      {
+        "batch": 1,
+        "skipped": true,
+        "reason": "dry-run",
+        "verifyEndpoint": "https://apis.naver.com/searchadvisor/crawl-request/verify.json",
+        "submitEndpoint": "https://apis.naver.com/searchadvisor/crawl-request/submit.json",
+        "payload": {
+          "urls": [
+            {
+              "url": "https://mungmungfit.kr",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/pricing",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/reviews",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/blog",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/about",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/cases",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/diagnosis",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/cases/pomeranian-confidence",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/services/dog-fitness",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/services/home-training",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/services/walk-training",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/services/puppy-training",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/areas/seoul",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/areas/gyeonggi",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/areas/incheon",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/areas/chungcheong",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/blog/dog-core-muscle-guide",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/blog/dog-fitness-intro",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/blog/category/%EA%B0%95%EC%95%84%EC%A7%80%20%EA%B7%BC%EC%9C%A1%20%EB%8F%84%EA%B0%90",
+              "type": "update"
+            },
+            {
+              "url": "https://mungmungfit.kr/blog/category/%EB%8F%85%ED%94%BC%ED%8A%B8%EB%8B%88%EC%8A%A4%20%EA%B8%B0%EC%B4%88",
+              "type": "update"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "finishedAt": "2026-06-30T01:27:17.038Z",
+  "metricsPath": "docs/metrics/seo-pipeline-2026-06-30.json",
+  "summary": {
+    "mode": "all",
+    "status": "ok",
+    "failed": false,
+    "failureReasons": []
+  }
+}

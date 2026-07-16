@@ -1,0 +1,586 @@
+- generic [active] [ref=e1]:
+  - link "본문으로 이동" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - link "멍멍피트" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 멍멍피트
+      - navigation "주요 메뉴" [ref=e9]:
+        - link "독피트니스" [ref=e10] [cursor=pointer]:
+          - /url: /services/dog-fitness
+        - link "방문교육" [ref=e11] [cursor=pointer]:
+          - /url: /services/home-training
+        - link "수업료" [ref=e12] [cursor=pointer]:
+          - /url: /pricing
+        - link "블로그" [ref=e13] [cursor=pointer]:
+          - /url: /blog
+        - link "방문지역" [ref=e14] [cursor=pointer]:
+          - /url: /areas/seoul
+        - link "후기" [ref=e15] [cursor=pointer]:
+          - /url: /reviews
+      - generic [ref=e16]:
+        - link "010-2609-6593" [ref=e17] [cursor=pointer]:
+          - /url: tel:01026096593
+          - img [ref=e18]
+          - text: 010-2609-6593
+        - link "상담" [ref=e20] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/sOGIVLxe
+          - img [ref=e21]
+          - text: 상담
+    - region "멍멍피트 메인" [ref=e23]:
+      - 'generic "사진 슬롯 #1: 메인 히어로 (강아지 + 메이 또는 수업 현장 와이드샷)" [ref=e25]':
+        - img "독피트니스 방문훈련 메인 사진" [ref=e26]
+        - generic [ref=e27]: "#1"
+        - generic [ref=e28]: "교체 #1"
+      - generic [ref=e29]:
+        - generic [ref=e30]: Dog fitness home training
+        - heading "강아지 몸의 자신감이 생기면, 행동도 함께 달라져요." [level=1] [ref=e31]:
+          - text: 강아지 몸의 자신감이 생기면,
+          - emphasis [ref=e32]: 행동도 함께 달라져요.
+        - paragraph [ref=e33]:
+          - text: CSCC 국제 독피트니스 트레이너 김주영.
+          - text: 밸런스볼·카발레티·디스크로 1:1 방문훈련.
+        - generic [ref=e34]:
+          - link "카카오톡 상담" [ref=e35] [cursor=pointer]:
+            - /url: https://open.kakao.com/o/sOGIVLxe
+            - img [ref=e36]
+            - text: 카카오톡 상담
+          - link "010-2609-6593" [ref=e38] [cursor=pointer]:
+            - /url: tel:01026096593
+            - img [ref=e39]
+            - text: 010-2609-6593
+        - paragraph [ref=e41]: 전화·문자 언제든 받습니다 · 1회차 만족 못하시면 환불 보장
+      - generic [ref=e42]: SCROLL ↓
+    - region "신뢰 지표" [ref=e43]:
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - strong [ref=e47]: 5,000+회
+          - generic [ref=e48]: 누적 수업 진행
+        - generic [ref=e49]:
+          - strong [ref=e50]: CSCC
+          - generic [ref=e51]: 국제 독피트니스 자격
+        - generic [ref=e52]:
+          - strong [ref=e53]: 만족도 상
+          - generic [ref=e54]: 보호자 평가
+        - generic [ref=e55]:
+          - strong [ref=e56]: 환불 보장
+          - generic [ref=e57]: 1회차 불만족 시
+    - region "신뢰·보장 안내" [ref=e58]:
+      - heading "신뢰·보장 안내" [level=2] [ref=e59]
+      - generic [ref=e60]:
+        - generic [ref=e63]:
+          - heading "무료 전화 상담" [level=3] [ref=e64]
+          - paragraph [ref=e65]: 전화·문자 언제든 받습니다. 강아지 상태부터 편하게 물어보세요.
+        - generic [ref=e68]:
+          - heading "1회차 환불 보장" [level=3] [ref=e69]
+          - paragraph [ref=e70]: 첫 수업 만족 못하시면 100% 환불해드립니다. 부담 없이 시작.
+        - generic [ref=e73]:
+          - heading "방문 일정 빠른 안내" [level=3] [ref=e74]
+          - paragraph [ref=e75]: 상담 후 일주일 내 첫 방문 가능. 충청권은 일정 협의 후 진행.
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - img "김주영 독피트니스 트레이너 사진" [ref=e80]
+          - generic [ref=e81]: 김주영 트레이너
+        - generic [ref=e82]:
+          - img "CSCC 국제 독피트니스 트레이너 자격증 사진" [ref=e83]
+          - generic [ref=e84]: CSCC 국제 독피트니스 자격
+        - 'generic "사진 슬롯 #4: 헬퍼견 메이가 수업에 참여하는 모습 (다른 강아지와 함께)" [ref=e86]':
+          - generic [ref=e87]: "#4"
+          - img [ref=e88]
+          - generic [ref=e92]: TrainerProfile
+          - generic [ref=e93]: 헬퍼견 메이가 수업에 참여하는 모습 (다른 강아지와 함께)
+          - generic [ref=e94]: 4/5 · 주인님 사진 · 우선순위 1
+      - generic [ref=e95]:
+        - generic [ref=e96]: Trainer
+        - heading "김주영 독피트니스 트레이너" [level=2] [ref=e97]
+        - paragraph [ref=e98]: CSCC 국제 독피트니스 자격과 현장 방문교육 경험을 바탕으로, 헬퍼견 메이와 함께 강아지가 자신의 몸을 이해하고 보호자가 안정적으로 다룰 수 있는 수업을 만듭니다.
+        - paragraph [ref=e99]: 사회화·자신감 수업에서는 헬퍼견 메이가 함께 참여해 안전한 강아지-강아지 상호작용을 만들어 갑니다.
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - img [ref=e102]
+            - text: CSCC 국제 독피트니스 트레이너
+          - generic [ref=e104]:
+            - img [ref=e105]
+            - text: 현 브리딩 방문교육 훈련사
+          - generic [ref=e107]:
+            - img [ref=e108]
+            - text: 전 LG유플러스 포동 훈련사
+          - generic [ref=e110]:
+            - img [ref=e111]
+            - text: 돌고래 훈련사 경력
+          - generic [ref=e113]:
+            - img [ref=e114]
+            - text: 지자체 반려동물 행사 진행
+          - generic [ref=e116]:
+            - img [ref=e117]
+            - text: 사회화 수업 헬퍼견 메이와 함께 진행
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - generic [ref=e123]: Gallery
+          - heading "수업의 변화를 사진으로 보여드립니다." [level=2] [ref=e124]
+        - paragraph [ref=e125]: 독피트니스 도구 사용, 산책 핸들링, 보호자 실습 장면들이 강아지가 어떻게 달라지는지 한눈에 보여줍니다.
+      - generic [ref=e126]:
+        - img "포메라니안 카발레티 균형 훈련" [ref=e128]
+        - img "웨스티 플랫폼 균형 훈련" [ref=e130]
+        - img "화이트 푸들 레드 팟 밸런스 훈련" [ref=e132]
+        - img "프렌치불독 밸런스 보드 자세 유지" [ref=e134]
+        - img "살구색 푸들 램프와 밸런스 팟 훈련" [ref=e136]
+        - img "화이트 푸들 보라 디스크 독피트니스" [ref=e138]
+        - img "포메라니안 스케이트보드 균형 훈련" [ref=e140]
+    - generic [ref=e142]:
+      - generic [ref=e143]:
+        - generic [ref=e144]:
+          - generic [ref=e145]: Problem
+          - heading "문제행동처럼 보이지만, 자신감 부족에서 시작됩니다." [level=2] [ref=e146]:
+            - text: 문제행동처럼 보이지만,
+            - text: 자신감 부족에서 시작됩니다.
+        - paragraph [ref=e147]: 짖음, 줄당김, 흥분, 회피 행동을 혼내기보다 몸의 안정감과 보호자 핸들링 루틴으로 다시 설계합니다.
+      - generic [ref=e148]:
+        - article [ref=e149]:
+          - 'generic "사진 슬롯 #24: 나이가 들었거나 움직임이 줄어든 강아지가 차분히 쉬고 있는 모습" [ref=e150]':
+            - img "운동 부족과 노령견 케어가 필요한 강아지" [ref=e151]
+            - generic [ref=e152]: "#24"
+            - generic [ref=e153]: "교체 #24"
+          - generic [ref=e154]:
+            - heading "운동 부족·노령견 케어" [level=3] [ref=e155]
+            - paragraph [ref=e156]: 체중 관리가 필요하거나 관절·근력이 약해진 강아지에게 무리 없이 코어와 균형을 깨우는 저강도 루틴이 필요해요.
+        - article [ref=e157]:
+          - 'generic "사진 슬롯 #25: 산책 중 줄당김·짖음 강아지 모습" [ref=e158]':
+            - img "산책 줄당김 짖음 강아지" [ref=e159]
+            - generic [ref=e160]: "#25"
+            - generic [ref=e161]: "교체 #25"
+          - generic [ref=e162]:
+            - heading "산책 줄당김·짖음" [level=3] [ref=e163]
+            - paragraph [ref=e164]: 리드줄 교정만으론 안 풀리는 6개월+ 만성 줄당김.
+        - article [ref=e165]:
+          - 'generic "사진 슬롯 #26: 낯선 계단이나 높이 앞에서 머뭇거리는 강아지 모습" [ref=e166]':
+            - img "환경 자신감이 부족한 강아지" [ref=e167]
+            - generic [ref=e168]: "#26"
+            - generic [ref=e169]: "교체 #26"
+          - generic [ref=e170]:
+            - heading "환경 자신감 부족" [level=3] [ref=e171]
+            - paragraph [ref=e172]: 낯선 바닥·계단·높이를 어려워하고 쉽게 주저앉는 강아지.
+        - article [ref=e173]:
+          - 'generic "사진 슬롯 #27: 보호자가 강아지 옆에서 고민하는 모습" [ref=e174]':
+            - img "보호자 핸들링 고민" [ref=e175]
+            - generic [ref=e176]: "#27"
+            - generic [ref=e177]: "교체 #27"
+          - generic [ref=e178]:
+            - heading "보호자 핸들링" [level=3] [ref=e179]
+            - paragraph [ref=e180]: 어떻게 운동·핸들링해야 할지 막막한 보호자.
+    - generic [ref=e182]:
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - generic [ref=e185]: Comparison
+          - heading "일반 강아지 훈련과 멍멍피트의 차이." [level=2] [ref=e186]:
+            - text: 일반 강아지 훈련과
+            - text: 멍멍피트의 차이.
+        - paragraph [ref=e187]: "\"유튜브 보고 따라했는데 안 됐어요\"라는 보호자분이 많아요. 멍멍피트는 명령어 위주가 아니라 강아지 몸 상태부터 다시 봅니다."
+      - table [ref=e188]:
+        - row "항목 일반 강아지 훈련 멍멍피트 독피트니스" [ref=e189]:
+          - columnheader "항목" [ref=e190]
+          - columnheader "일반 강아지 훈련" [ref=e191]
+          - columnheader "멍멍피트 독피트니스" [ref=e192]
+        - row "접근 방식 명령어 위주 (앉아·기다려·이리와) 강아지 코어·균형부터 다시 잡고 시작" [ref=e193]:
+          - cell "접근 방식" [ref=e194]
+          - cell "명령어 위주 (앉아·기다려·이리와)" [ref=e195]
+          - cell "강아지 코어·균형부터 다시 잡고 시작" [ref=e196]
+        - row "주요 운동 산책 1시간 또는 놀이 5분 코어 루틴 + 산책 핸들링 결합" [ref=e197]:
+          - cell "주요 운동" [ref=e198]
+          - cell "산책 1시간 또는 놀이" [ref=e199]
+          - cell "5분 코어 루틴 + 산책 핸들링 결합" [ref=e200]
+        - row "문제행동 대응 혼내기·교정·억제 문제의 뿌리 (몸의 불안·자신감) 해결" [ref=e201]:
+          - cell "문제행동 대응" [ref=e202]
+          - cell "혼내기·교정·억제" [ref=e203]
+          - cell "문제의 뿌리 (몸의 불안·자신감) 해결" [ref=e204]
+        - row "사용 도구 트릿·클리커·일반 리드줄 밸런스볼·카발레티·디스크 풀세트 지참" [ref=e205]:
+          - cell "사용 도구" [ref=e206]
+          - cell "트릿·클리커·일반 리드줄" [ref=e207]
+          - cell "밸런스볼·카발레티·디스크 풀세트 지참" [ref=e208]
+        - row "보호자 학습 영상·책으로 혼자 학습 현장 1:1 핸들링 실습 + 루틴 정리" [ref=e209]:
+          - cell "보호자 학습" [ref=e210]
+          - cell "영상·책으로 혼자 학습" [ref=e211]
+          - cell "현장 1:1 핸들링 실습 + 루틴 정리" [ref=e212]
+        - row "체감 효과 시기 보통 6개월~1년 평균 4회 패키지 (약 4주)" [ref=e213]:
+          - cell "체감 효과 시기" [ref=e214]
+          - cell "보통 6개월~1년" [ref=e215]
+          - cell "평균 4회 패키지 (약 4주)" [ref=e216]
+    - generic [ref=e218]:
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - generic [ref=e221]: Method
+          - heading "혼내기보다, 몸을 쓰는 법부터 알려줍니다." [level=2] [ref=e222]:
+            - text: 혼내기보다,
+            - text: 몸을 쓰는 법부터 알려줍니다.
+        - paragraph [ref=e223]: 멍멍피트 수업은 강아지 운동만 하는 시간이 아닙니다. 강아지의 몸, 보호자의 손, 생활 공간의 동선을 한 번에 다룹니다.
+      - generic [ref=e224]:
+        - article [ref=e225]:
+          - img "강아지 몸 사용 능력 향상 독피트니스 수업 사진" [ref=e227]
+          - generic [ref=e228]: "01"
+          - heading "독피트니스로 강아지 몸 만들기" [level=3] [ref=e229]
+          - paragraph [ref=e230]: 밸런스볼·카발레티·디스크 같은 독피트니스 도구로 코어, 균형, 발 사용, 좌우 대칭을 단단히 만들어 자세에서 오는 자신감을 키웁니다.
+        - article [ref=e231]:
+          - img "보호자 핸들링 스킬 향상 수업 사진" [ref=e233]
+          - generic [ref=e234]: "02"
+          - heading "보호자 핸들링 스킬 향상" [level=3] [ref=e235]
+          - paragraph [ref=e236]: 리드줄, 보상 타이밍, 거리 조절, 움직임 유도까지 보호자가 직접 익혀 수업이 끝난 뒤에도 집에서 반복할 수 있게 합니다.
+        - article [ref=e237]:
+          - img "생활 환경 기반 강아지 방문교육 수업 사진" [ref=e239]
+          - generic [ref=e240]: "03"
+          - heading "생활 환경 기반 방문훈련" [level=3] [ref=e241]
+          - paragraph [ref=e242]: 집, 엘리베이터, 산책로처럼 실제 문제가 생기는 공간에서 독피트니스와 행동 교정을 결합해 진행합니다.
+    - generic [ref=e244]:
+      - generic [ref=e245]:
+        - generic [ref=e246]:
+          - generic [ref=e247]: Tools
+          - heading "사람 필라테스처럼, 강아지에게도 전문 도구가 필요합니다." [level=2] [ref=e248]:
+            - text: 사람 필라테스처럼,
+            - text: 강아지에게도 전문 도구가 필요합니다.
+        - paragraph [ref=e249]: 멍멍피트 수업은 산책·놀이로는 닿지 않는 코어 근육과 균형 감각을 전문 독피트니스 도구로 자극합니다. 트레이너가 직접 가져가니 보호자가 따로 구입할 필요는 없습니다.
+      - region "독피트니스 도구 모음 (좌우 스크롤)" [ref=e250]:
+        - list "좌우 화살표 키로 탐색" [ref=e251]:
+          - listitem [ref=e252]:
+            - article [ref=e253]:
+              - 'generic "사진 슬롯 #5: 낮은 플랫폼·스텝 위에서 자세를 유지하는 강아지 훈련 장면" [ref=e254]':
+                - img "강아지 밸런스 플랫폼 스텝 훈련" [ref=e255]
+                - generic [ref=e256]: "#5"
+                - generic [ref=e257]: "교체 #5"
+              - generic [ref=e258]:
+                - generic [ref=e259]: 기초 균형이 약하거나 자세가 쉽게 무너지는 강아지
+                - heading "밸런스 플랫폼·스텝" [level=3] [ref=e260]
+                - paragraph [ref=e261]: 낮은 플랫폼 위에서 중심 이동과 자세 유지를 차분하게 익힙니다.
+          - listitem [ref=e262]:
+            - article [ref=e263]:
+              - 'generic "사진 슬롯 #6: 카발레티(낮은 봉 5~6개 일렬) 사진" [ref=e264]':
+                - img "강아지 보행 훈련 카발레티 콘 세팅" [ref=e265]
+                - generic [ref=e266]: "#6"
+                - generic [ref=e267]: "교체 #6"
+              - generic [ref=e268]:
+                - generic [ref=e269]: 산책 때 보폭이 급하거나 후지 사용이 약한 강아지
+                - heading "카발레티(Cavaletti)" [level=3] [ref=e270]
+                - paragraph [ref=e271]: 보행 리듬을 정돈하고 다리를 또렷하게 들어 쓰는 감각을 만듭니다.
+          - listitem [ref=e272]:
+            - article [ref=e273]:
+              - 'generic "사진 슬롯 #7: 보라 디스크 또는 밸런스 팟 위에서 중심을 잡는 강아지 훈련 장면" [ref=e274]':
+                - img "강아지 밸런스 디스크 자세 유지 훈련" [ref=e275]
+                - generic [ref=e276]: "#7"
+                - generic [ref=e277]: "교체 #7"
+              - generic [ref=e278]:
+                - generic [ref=e279]: 체중 분산 연습이 필요하거나 몸 사용이 서툰 강아지
+                - heading "밸런스 디스크·팟" [level=3] [ref=e280]
+                - paragraph [ref=e281]: 불안정한 표면 위에서 발 사용과 코어 반응을 동시에 끌어냅니다.
+          - listitem [ref=e282]:
+            - article [ref=e283]:
+              - 'generic "사진 슬롯 #8: 낮은 패드·블록 위에서 발 감각과 정지 자세를 연습하는 장면" [ref=e284]':
+                - img "강아지 프로프리오셉션 패드 블록 균형 훈련" [ref=e285]
+                - generic [ref=e286]: "#8"
+                - generic [ref=e287]: "교체 #8"
+              - generic [ref=e288]:
+                - generic [ref=e289]: 낯선 바닥이 서툴거나 천천히 자신감을 쌓아야 하는 강아지
+                - heading "프로프리오셉션 패드·블록" [level=3] [ref=e290]
+                - paragraph [ref=e291]: 낮은 패드와 블록으로 발 감각과 정지 자세를 세밀하게 연습합니다.
+          - listitem [ref=e292]:
+            - article [ref=e293]:
+              - 'generic "사진 슬롯 #9: 낮은 바와 매트 세팅 위에서 전지지 자세를 유지하는 훈련 장면" [ref=e294]':
+                - img "강아지 전지지 바 균형 훈련" [ref=e295]
+                - generic [ref=e296]: "#9"
+                - generic [ref=e297]: "교체 #9"
+              - generic [ref=e298]:
+                - generic [ref=e299]: 전지 사용과 자세 유지 연습이 필요한 강아지
+                - heading "프런트 바·자세 유지" [level=3] [ref=e300]
+                - paragraph [ref=e301]: 앞발 높이와 바 세팅으로 전후 체중 이동과 정지 자세를 안정시킵니다.
+          - listitem [ref=e302]:
+            - article [ref=e303]:
+              - 'generic "사진 슬롯 #10: 램프와 매트 위에서 강아지가 균형 루틴을 수행하는 장면" [ref=e304]':
+                - img "강아지 램프 균형 루틴" [ref=e305]
+                - generic [ref=e306]: "#10"
+                - generic [ref=e307]: "교체 #10"
+              - generic [ref=e308]:
+                - generic [ref=e309]: 수업 후 집에서 반복 연습할 보호자
+                - heading "램프·홈 루틴" [level=3] [ref=e310]
+                - paragraph [ref=e311]: 램프와 매트를 활용해 집에서도 이어갈 5분 균형 루틴을 만듭니다.
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - generic [ref=e316]: For these dogs
+          - heading "이런 강아지에게 독피트니스가 답이 됩니다." [level=2] [ref=e317]:
+            - text: 이런 강아지에게
+            - text: 독피트니스가 답이 됩니다.
+        - paragraph [ref=e318]: 문제행동·체형·나이·견종에 따라 운동 강도와 도구를 다르게 설계합니다. 우리 강아지가 어디에 해당되는지 확인해보세요.
+      - generic [ref=e319]:
+        - article [ref=e320]:
+          - 'generic "사진 슬롯 #11: 비만·과체중 강아지 일러스트 또는 실제 사진" [ref=e321]':
+            - img "비만 강아지 다이어트 독피트니스 대상" [ref=e322]
+            - generic [ref=e323]: "#11"
+            - generic [ref=e324]: "교체 #11"
+          - generic [ref=e325]:
+            - heading "체중 관리가 필요한 강아지" [level=3] [ref=e326]
+            - paragraph [ref=e327]: 관절에 부담 없이 코어를 자극해 체중을 줄이면서 근력을 살립니다. 불독·퍼그처럼 견종 특성상 다부진 체형은 정상이며, 같은 체중이라도 근육·체지방 비율로 판단합니다.
+        - article [ref=e328]:
+          - 'generic "사진 슬롯 #12: 노령견 일러스트 또는 사진" [ref=e329]':
+            - img "노령견 재활 독피트니스 대상" [ref=e330]
+            - generic [ref=e331]: "#12"
+            - generic [ref=e332]: "교체 #12"
+          - generic [ref=e333]:
+            - heading "노령견 재활" [level=3] [ref=e334]
+            - paragraph [ref=e335]: 관절이 약해지거나 회복 중인 노령견에게 저강도 균형 운동으로 일상 회복을 돕습니다.
+        - article [ref=e336]:
+          - 'generic "사진 슬롯 #13: 소심한·자신감 부족 강아지 일러스트" [ref=e337]':
+            - img "소심한 강아지 자신감 훈련 대상" [ref=e338]
+            - generic [ref=e339]: "#13"
+            - generic [ref=e340]: "교체 #13"
+          - generic [ref=e341]:
+            - heading "소심·자신감 부족" [level=3] [ref=e342]
+            - paragraph [ref=e343]: 낯선 자극에 얼어붙는 강아지에게 도구 경험으로 단계적 성공을 쌓아줍니다.
+        - article [ref=e344]:
+          - 'generic "사진 슬롯 #14: 활동량 많은 견종 (보더콜리·말리노이즈 등) 일러스트" [ref=e345]':
+            - img "활동량 많은 강아지 체력 배출 운동 대상" [ref=e346]
+            - generic [ref=e347]: "#14"
+            - generic [ref=e348]: "교체 #14"
+          - generic [ref=e349]:
+            - heading "활동량 많은 견종" [level=3] [ref=e350]
+            - paragraph [ref=e351]: 보더콜리·말리노이즈처럼 에너지 넘치는 강아지에게 체력을 건강하게 배출시킵니다.
+        - article [ref=e352]:
+          - 'generic "사진 슬롯 #15: 퍼피 사회화기 강아지 일러스트" [ref=e353]':
+            - img "퍼피 사회화기 8주~16주 환경 자신감 대상" [ref=e354]
+            - generic [ref=e355]: "#15"
+            - generic [ref=e356]: "교체 #15"
+          - generic [ref=e357]:
+            - heading "퍼피 사회화기" [level=3] [ref=e358]
+            - paragraph [ref=e359]: 8~16주 사회화 시기에 다양한 표면·도구 경험으로 환경 자신감을 만듭니다.
+        - article [ref=e360]:
+          - 'generic "사진 슬롯 #16: 줄당김·산책 짖음 강아지 일러스트" [ref=e361]':
+            - img "줄당김 강아지 산책 교정 대상" [ref=e362]
+            - generic [ref=e363]: "#16"
+            - generic [ref=e364]: "교체 #16"
+          - generic [ref=e365]:
+            - heading "줄당김·산책 짖음" [level=3] [ref=e366]
+            - paragraph [ref=e367]: 단순 교정이 아니라 코어 안정성과 핸들러 집중력부터 다시 설계합니다.
+    - generic [ref=e369]:
+      - generic [ref=e370]: Class flow
+      - heading "상담부터 루틴까지, 4단계로 진행됩니다." [level=2] [ref=e371]
+      - 'generic "사진 슬롯 #17: 상담(Consultation)→평가(Assessment)→수업(Class)→루틴(Routine) 4단계 가로 인포그래픽. 배경 크림(#faf9f5), 강조 그린(#1c4032), 단계 사이 화살표. 단계마다 작은 아이콘(전화·체크·도구·집)." [ref=e373]':
+        - generic [ref=e374]: "#17"
+        - img [ref=e375]
+        - generic [ref=e379]: Process
+        - generic [ref=e380]: 상담(Consultation)→평가(Assessment)→수업(Class)→루틴(Routine) 4단계 가로 인포그래픽. 배경 크림(#faf9f5), 강조 그린(#1c4032), 단계 사이 화살표. 단계마다 작은 아이콘(전화·체크·도구·집).
+        - generic [ref=e381]: 16/9 · AI 생성 · 우선순위 2
+      - generic [ref=e382]:
+        - generic [ref=e383]:
+          - generic [ref=e384]: "01"
+          - generic [ref=e385]:
+            - heading "상담" [level=3] [ref=e386]
+            - paragraph [ref=e387]: 현재 고민, 생활환경, 산책 루틴을 함께 확인하며 시작점을 잡습니다.
+        - generic [ref=e388]:
+          - generic [ref=e389]: "02"
+          - generic [ref=e390]:
+            - heading "평가" [level=3] [ref=e391]
+            - paragraph [ref=e392]: 몸 사용, 긴장도, 보호자 핸들링, 문제 상황을 직접 관찰합니다.
+        - generic [ref=e393]:
+          - generic [ref=e394]: "03"
+          - generic [ref=e395]:
+            - heading "수업" [level=3] [ref=e396]
+            - paragraph [ref=e397]: 독피트니스, 행동수정, 보호자 실습을 한 수업 안에서 함께 진행합니다.
+        - generic [ref=e398]:
+          - generic [ref=e399]: "04"
+          - generic [ref=e400]:
+            - heading "루틴 제공" [level=3] [ref=e401]
+            - paragraph [ref=e402]: 집과 산책에서 반복할 수 있는 연습 과제를 정리해 드립니다.
+    - generic [ref=e404]:
+      - generic [ref=e405]:
+        - generic [ref=e406]:
+          - generic [ref=e407]: Price and area
+          - heading "오픈 기념 4회 패키지, 30% 할인 진행 중입니다." [level=2] [ref=e408]
+        - paragraph [ref=e409]: 이동 시간과 거리를 기준으로 상담 시 최종 금액을 먼저 안내합니다. 장거리의 경우 톨비와 주차비가 별도로 발생할 수 있습니다.
+      - article "4회 패키지 할인 안내" [ref=e410]:
+        - generic [ref=e411]:
+          - img [ref=e412]
+          - text: 오픈 기념 한정
+        - heading "4회 패키지" [level=3] [ref=e415]
+        - paragraph [ref=e416]: 오픈 기념 한정
+        - paragraph [ref=e417]: 강아지가 실제로 변화하기 시작하는 최소 단위입니다. 4회 동안 보호자 핸들링·집 루틴까지 모두 정리해 드립니다.
+        - generic [ref=e418]:
+          - generic [ref=e419]: 356,000원
+          - generic [ref=e420]: 250,000원
+          - generic [ref=e421]: 정가 대비 30% 할인
+        - paragraph [ref=e422]: 1회 평균 62,500원
+        - list [ref=e423]:
+          - listitem [ref=e424]:
+            - img [ref=e425]
+            - text: 매 수업 보호자 핸들링 가이드 제공
+          - listitem [ref=e427]:
+            - img [ref=e428]
+            - text: 집에서 반복 가능한 5분 루틴 정리
+          - listitem [ref=e430]:
+            - img [ref=e431]
+            - text: 4회 종합 변화 리포트
+        - generic [ref=e433]:
+          - link "패키지 상담하기" [ref=e434] [cursor=pointer]:
+            - /url: https://open.kakao.com/o/sOGIVLxe
+            - img [ref=e435]
+            - text: 패키지 상담하기
+          - link "010-2609-6593" [ref=e437] [cursor=pointer]:
+            - /url: tel:01026096593
+            - img [ref=e438]
+            - text: 010-2609-6593
+      - generic [ref=e440]:
+        - article [ref=e441]:
+          - generic [ref=e442]: Single
+          - heading "1회 단발 수업" [level=3] [ref=e443]
+          - generic [ref=e444]: 89,000원~
+          - paragraph [ref=e445]: 처음 강아지 상태를 보고 우선 1회 평가만 받아보고 싶을 때 적합합니다.
+          - list [ref=e446]:
+            - listitem [ref=e447]:
+              - img [ref=e448]
+              - text: 75~90분 수업
+            - listitem [ref=e450]:
+              - img [ref=e451]
+              - text: 독피트니스 도구 풀세트 지참
+            - listitem [ref=e453]:
+              - img [ref=e454]
+              - text: 보호자 핸들링 실습 포함
+        - article [ref=e456]:
+          - generic [ref=e457]: Travel
+          - heading "출장비 권장 기준" [level=3] [ref=e458]
+          - list [ref=e459]:
+            - listitem [ref=e460]:
+              - img [ref=e461]
+              - text: "서울·경기·인천: 2만~5만원 기준"
+            - listitem [ref=e464]:
+              - img [ref=e465]
+              - text: "충청권·장거리: 일정 확인 후 안내"
+          - paragraph [ref=e468]: 장거리 출장은 톨비·주차비가 별도 발생할 수 있어요.
+    - generic [ref=e470]:
+      - generic [ref=e471]:
+        - generic [ref=e472]:
+          - generic [ref=e473]: Reviews
+          - heading "보호자가 집에서 다시 할 수 있게 남기는 수업." [level=2] [ref=e474]
+        - paragraph [ref=e475]: 보호자들이 남긴 실제 후기로 우리 수업을 미리 만나보세요.
+      - generic [ref=e476]:
+        - article [ref=e477]:
+          - img "멍멍피트 강아지 방문교육 후기 1" [ref=e479]
+          - heading "산책 짖음과 줄당김 수업" [level=3] [ref=e480]
+          - paragraph [ref=e481]: 비숑프리제 · 8개월 · 서울
+          - paragraph [ref=e482]: 리드줄을 제대로 잡는 방법과 도구 사용법을 배웠어요. 보호자가 집에서도 반복 연습할 수 있는 동작들을 차근차근 알려주셔서 많은 도움이 됐습니다.
+          - generic [ref=e483]:
+            - generic [ref=e484]: 산책교육
+            - generic [ref=e485]: 핸들링
+            - generic [ref=e486]: 친절한 설명
+        - article [ref=e487]:
+          - img "멍멍피트 강아지 방문교육 후기 2" [ref=e489]
+          - heading "실내외 자극 반응 수업" [level=3] [ref=e490]
+          - paragraph [ref=e491]: 포메라니안 · 2세 · 경기
+          - paragraph [ref=e492]: 우리 아이가 사람을 보고 짖을 때 거리를 어떻게 조절하고 언제 보상을 줄지 실제로 배웠어요. 이제 산책이 훨씬 덜 힘들어졌어요.
+          - generic [ref=e493]:
+            - generic [ref=e494]: 짖음
+            - generic [ref=e495]: 거리조절
+            - generic [ref=e496]: 보호자 실습
+        - article [ref=e497]:
+          - img "멍멍피트 강아지 방문교육 후기 3" [ref=e499]
+          - heading "배변 공간과 생활 루틴 점검" [level=3] [ref=e500]
+          - paragraph [ref=e501]: 진돗개 · 1세 · 인천
+          - paragraph [ref=e502]: 집에서 문제가 되는 상황을 선생님이 직접 보고 그 자리에서 바로 해결 방법을 보여주셨어요. 현장에서 바로 적용하니 효과가 빨랐습니다.
+          - generic [ref=e503]:
+            - generic [ref=e504]: 방문교육
+            - generic [ref=e505]: 생활환경
+            - generic [ref=e506]: 루틴
+      - link "더 많은 후기 보기" [ref=e508] [cursor=pointer]:
+        - /url: /reviews
+        - text: 더 많은 후기 보기
+        - img [ref=e509]
+    - generic [ref=e512]:
+      - generic [ref=e513]:
+        - generic [ref=e514]:
+          - generic [ref=e515]: FAQ
+          - heading "많이 받는 질문에 미리 답해드립니다." [level=2] [ref=e516]:
+            - text: 많이 받는 질문에
+            - text: 미리 답해드립니다.
+        - paragraph [ref=e517]: 독피트니스가 처음이라 낯설 수 있어요. 자주 받는 질문을 모아두었으니 상담 전에 한번 훑어보세요.
+      - generic [ref=e518]:
+        - group [ref=e519]:
+          - generic "Q. 독피트니스가 정확히 뭔가요?" [ref=e520]:
+            - heading "Q. 독피트니스가 정확히 뭔가요?" [level=3] [ref=e521]
+        - group [ref=e522]:
+          - generic "Q. 어떤 강아지에게 필요한가요?" [ref=e523]:
+            - heading "Q. 어떤 강아지에게 필요한가요?" [level=3] [ref=e524]
+        - group [ref=e525]:
+          - generic "Q. 운동만 하나요? 행동 교정도 되나요?" [ref=e526]:
+            - heading "Q. 운동만 하나요? 행동 교정도 되나요?" [level=3] [ref=e527]
+        - group [ref=e528]:
+          - generic "Q. 도구는 보호자가 따로 사야 하나요?" [ref=e529]:
+            - heading "Q. 도구는 보호자가 따로 사야 하나요?" [level=3] [ref=e530]
+        - group [ref=e531]:
+          - generic "Q. 1회 수업으로 효과가 있나요?" [ref=e532]:
+            - heading "Q. 1회 수업으로 효과가 있나요?" [level=3] [ref=e533]
+        - group [ref=e534]:
+          - generic "Q. 수업료와 출장비는 어떻게 되나요?" [ref=e535]:
+            - heading "Q. 수업료와 출장비는 어떻게 되나요?" [level=3] [ref=e536]
+    - generic [ref=e538]:
+      - generic [ref=e539]:
+        - heading "우리 강아지에게 맞는 몸의 자신감부터 상담해보세요." [level=2] [ref=e540]
+        - paragraph [ref=e541]: 현재 고민, 거주 지역, 강아지 나이와 문제 상황을 보내주시면 방문교육 가능 일정과 예상 비용을 안내합니다.
+      - generic [ref=e542]:
+        - link "카카오 상담" [ref=e543] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/sOGIVLxe
+          - img [ref=e544]
+          - text: 카카오 상담
+        - link "전화 상담" [ref=e546] [cursor=pointer]:
+          - /url: tel:01026096593
+          - img [ref=e547]
+          - text: 전화 상담
+    - generic [ref=e550]:
+      - strong [ref=e552]: 멍멍피트
+      - generic [ref=e553]: 김주영 독피트니스 트레이너 · 강아지 방문교육 · 독피트니스 · 방문 가능 지역:서울, 경기, 인천, 충청
+      - generic [ref=e554]: "상담: 010-2609-6593 · 카카오 오픈채팅"
+      - generic [ref=e555]: "운영시간: 평일 10:00~20:00 · 주말 10:00~18:00 (사전 상담 후 방문)"
+      - generic [ref=e556]:
+        - text: "이메일:"
+        - link "gmdqn2tp@gmail.com" [ref=e557] [cursor=pointer]:
+          - /url: mailto:gmdqn2tp@gmail.com
+      - generic [ref=e558]:
+        - generic [ref=e559]: "운영사: 테일로그 ·"
+        - generic [ref=e560]: "대표: 탁엄지 ·"
+        - generic [ref=e561]: "사업자등록번호: 407-42-01364 ·"
+        - generic [ref=e562]: "통신판매업: 신고면제 ·"
+        - generic [ref=e563]: "주소: 경기 하남시"
+      - generic [ref=e564]:
+        - text: "수업 전 사전 정보:"
+        - link "반려견 정보 보내기 (새 창에서 네이버폼 열림)" [ref=e565] [cursor=pointer]:
+          - /url: https://naver.me/FUzkQDiK
+          - text: 반려견 정보 보내기
+      - generic [ref=e566]:
+        - text: SNS
+        - generic [ref=e567]:
+          - link "Instagram (새 창)" [ref=e568] [cursor=pointer]:
+            - /url: https://www.instagram.com/mungmungfit/
+            - text: Instagram
+          - link "YouTube (새 창)" [ref=e569] [cursor=pointer]:
+            - /url: https://www.youtube.com/@Mungmungfit
+            - text: YouTube
+          - link "당근 (새 창)" [ref=e570] [cursor=pointer]:
+            - /url: https://www.daangn.com/kr/local-profile/%EA%B0%95%EC%95%84%EC%A7%80-%EB%B0%A9%EB%AC%B8%EA%B5%90%EC%9C%A1-%ED%99%88%EC%8A%A4%EC%BF%A8%EB%A7%81-8oywzkpoyrdb/
+            - text: 당근
+      - generic [ref=e571]:
+        - link "개인정보처리방침" [ref=e572] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e573]: ·
+        - link "이용약관" [ref=e574] [cursor=pointer]:
+          - /url: /terms
+      - generic [ref=e575]: "일부 이미지: Photos from Pexels"
+  - button "Open Next.js Dev Tools" [ref=e581] [cursor=pointer]:
+    - img [ref=e582]
+  - alert [ref=e585]
+  - region "멍멍피트는 더 나은 서비스를 위해 Vercel Analytics·Speed Insights로 익명 통계(IP 익명화)를 수집합니다. 자세한 내용은 개인정보처리방침을 확인해 주세요." [ref=e586]:
+    - generic [ref=e587]:
+      - paragraph [ref=e588]:
+        - text: 멍멍피트는 더 나은 서비스를 위해 Vercel Analytics·Speed Insights로 익명 통계(IP 익명화)를 수집합니다. 자세한 내용은
+        - link "개인정보처리방침" [ref=e589] [cursor=pointer]:
+          - /url: /privacy
+        - text: 을 확인해 주세요.
+      - generic [ref=e590]:
+        - button "쿠키 사용 안내 확인" [ref=e591]: 확인
+        - button "쿠키 안내 닫기" [ref=e592] [cursor=pointer]:
+          - img [ref=e593]

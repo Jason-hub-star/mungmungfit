@@ -3,7 +3,7 @@ import { Header, Footer, StickyCta } from "@/components/site-sections";
 
 export default function NotFound() {
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <Header />
       <section className="container subpage">
         <span className="eyebrow">404</span>

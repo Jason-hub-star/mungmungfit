@@ -1,0 +1,134 @@
+- generic [active] [ref=e1]:
+  - link "본문으로 이동" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - link "멍멍피트" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 멍멍피트
+      - navigation "주요 메뉴" [ref=e9]:
+        - link "독피트니스" [ref=e10] [cursor=pointer]:
+          - /url: /services/dog-fitness
+        - link "방문교육" [ref=e11] [cursor=pointer]:
+          - /url: /services/home-training
+        - link "수업료" [ref=e12] [cursor=pointer]:
+          - /url: /pricing
+        - link "블로그" [ref=e13] [cursor=pointer]:
+          - /url: /blog
+        - link "방문지역" [ref=e14] [cursor=pointer]:
+          - /url: /areas/seoul
+        - link "후기" [ref=e15] [cursor=pointer]:
+          - /url: /reviews
+      - generic [ref=e16]:
+        - link "010-2609-6593" [ref=e17] [cursor=pointer]:
+          - /url: tel:01026096593
+          - img [ref=e18]
+          - text: 010-2609-6593
+        - link "상담" [ref=e20] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/sOGIVLxe
+          - img [ref=e21]
+          - text: 상담
+    - generic [ref=e23]:
+      - navigation "페이지 경로" [ref=e24]:
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - link "홈" [ref=e27] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e28]:
+            - text: ›
+            - generic [ref=e29]: 변화 사례
+      - generic [ref=e30]: Cases
+      - heading "강아지 변화 사례" [level=1] [ref=e31]
+      - paragraph [ref=e32]: 3회 패키지 동안 강아지가 어떻게 달라졌는지, 보호자가 어떤 도구·핸들링을 익혔는지 사례별로 기록합니다. 사진 정리가 끝나는 대로 순차 공개합니다.
+      - navigation "사례 태그 필터" [ref=e33]:
+        - link "전체" [ref=e34] [cursor=pointer]:
+          - /url: /cases
+        - link "#독피트니스 도구" [ref=e35] [cursor=pointer]:
+          - /url: /cases?tag=%EB%8F%85%ED%94%BC%ED%8A%B8%EB%8B%88%EC%8A%A4%20%EB%8F%84%EA%B5%AC
+        - link "#산책교육" [ref=e36] [cursor=pointer]:
+          - /url: /cases?tag=%EC%82%B0%EC%B1%85%EA%B5%90%EC%9C%A1
+        - link "#자신감" [ref=e37] [cursor=pointer]:
+          - /url: /cases?tag=%EC%9E%90%EC%8B%A0%EA%B0%90
+        - link "#퍼피 사회화" [ref=e38] [cursor=pointer]:
+          - /url: /cases?tag=%ED%8D%BC%ED%94%BC%20%EC%82%AC%ED%9A%8C%ED%99%94
+      - article [ref=e40]:
+        - link "포메라니안 자신감 충전 — 4주의 변화 사례 보기" [ref=e41] [cursor=pointer]:
+          - /url: /cases/pomeranian-confidence
+          - img "포메라니안 자신감 충전 케이스 — 멍멍피트 독피트니스 수업 사진" [ref=e42]
+        - generic [ref=e43]: 샘플 (실제 데이터 정리 중)
+        - heading "포메라니안 자신감 충전 — 4주의 변화" [level=3] [ref=e44]:
+          - link "포메라니안 자신감 충전 — 4주의 변화" [ref=e45] [cursor=pointer]:
+            - /url: /cases/pomeranian-confidence
+        - paragraph [ref=e46]: 산책 중 기둥 뒤에 숨고, 사람을 보면 굳어버리던 2세 포메라니안이 4주 만에 보호자 옆에서 안정적으로 산책하게 된 사례.
+        - paragraph [ref=e47]: 포메라니안 · 2세 · 서울 · 4주
+        - generic [ref=e48]:
+          - generic [ref=e49]: "#퍼피 사회화"
+          - generic [ref=e50]: "#자신감"
+          - generic [ref=e51]: "#산책교육"
+          - generic [ref=e52]: "#독피트니스 도구"
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - heading "우리 강아지에게 맞는 몸의 자신감부터 상담해보세요." [level=2] [ref=e56]
+        - paragraph [ref=e57]: 현재 고민, 거주 지역, 강아지 나이와 문제 상황을 보내주시면 방문교육 가능 일정과 예상 비용을 안내합니다.
+      - generic [ref=e58]:
+        - link "카카오 상담" [ref=e59] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/sOGIVLxe
+          - img [ref=e60]
+          - text: 카카오 상담
+        - link "전화 상담" [ref=e62] [cursor=pointer]:
+          - /url: tel:01026096593
+          - img [ref=e63]
+          - text: 전화 상담
+    - generic [ref=e66]:
+      - strong [ref=e68]: 멍멍피트
+      - generic [ref=e69]: 김주영 독피트니스 트레이너 · 강아지 방문교육 · 독피트니스 · 방문 가능 지역:서울, 경기, 인천, 충청
+      - generic [ref=e70]: "상담: 010-2609-6593 · 카카오 오픈채팅"
+      - generic [ref=e71]: "운영시간: 평일 10:00~20:00 · 주말 10:00~18:00 (사전 상담 후 방문)"
+      - generic [ref=e72]:
+        - text: "이메일:"
+        - link "gmdqn2tp@gmail.com" [ref=e73] [cursor=pointer]:
+          - /url: mailto:gmdqn2tp@gmail.com
+      - generic [ref=e74]:
+        - generic [ref=e75]: "운영사: 테일로그 ·"
+        - generic [ref=e76]: "대표: 탁엄지 ·"
+        - generic [ref=e77]: "사업자등록번호: 407-42-01364 ·"
+        - generic [ref=e78]: "통신판매업: 신고면제 ·"
+        - generic [ref=e79]: "주소: 경기 하남시"
+      - generic [ref=e80]:
+        - text: "수업 전 사전 정보:"
+        - link "반려견 정보 보내기 (새 창에서 네이버폼 열림)" [ref=e81] [cursor=pointer]:
+          - /url: https://naver.me/FUzkQDiK
+          - text: 반려견 정보 보내기
+      - generic [ref=e82]:
+        - text: SNS
+        - generic [ref=e83]:
+          - link "Instagram (새 창)" [ref=e84] [cursor=pointer]:
+            - /url: https://www.instagram.com/mungmungfit/
+            - text: Instagram
+          - link "YouTube (새 창)" [ref=e85] [cursor=pointer]:
+            - /url: https://www.youtube.com/@Mungmungfit
+            - text: YouTube
+          - link "당근 (새 창)" [ref=e86] [cursor=pointer]:
+            - /url: https://www.daangn.com/kr/local-profile/%EA%B0%95%EC%95%84%EC%A7%80-%EB%B0%A9%EB%AC%B8%EA%B5%90%EC%9C%A1-%ED%99%88%EC%8A%A4%EC%BF%A8%EB%A7%81-8oywzkpoyrdb/
+            - text: 당근
+      - generic [ref=e87]:
+        - link "개인정보처리방침" [ref=e88] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e89]: ·
+        - link "이용약관" [ref=e90] [cursor=pointer]:
+          - /url: /terms
+      - generic [ref=e91]: "일부 이미지: Photos from Pexels"
+  - button "Open Next.js Dev Tools" [ref=e97] [cursor=pointer]:
+    - img [ref=e98]
+  - alert [ref=e101]
+  - region "멍멍피트는 더 나은 서비스를 위해 Vercel Analytics·Speed Insights로 익명 통계(IP 익명화)를 수집합니다. 자세한 내용은 개인정보처리방침을 확인해 주세요." [ref=e102]:
+    - generic [ref=e103]:
+      - paragraph [ref=e104]:
+        - text: 멍멍피트는 더 나은 서비스를 위해 Vercel Analytics·Speed Insights로 익명 통계(IP 익명화)를 수집합니다. 자세한 내용은
+        - link "개인정보처리방침" [ref=e105] [cursor=pointer]:
+          - /url: /privacy
+        - text: 을 확인해 주세요.
+      - generic [ref=e106]:
+        - button "쿠키 사용 안내 확인" [ref=e107]: 확인
+        - button "쿠키 안내 닫기" [ref=e108] [cursor=pointer]:
+          - img [ref=e109]

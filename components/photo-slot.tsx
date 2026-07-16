@@ -20,9 +20,16 @@ export function PhotoSlot({ slotId, className, priority, sizes }: Props) {
     );
   }
 
+  const aspectValue = slot.aspect.replace("/", " / ");
+  const slotLabel = `사진 슬롯 #${slot.number}: ${slot.description}`;
+
   if (slot.src) {
     return (
-      <div className={`photo-slot photo-slot-filled ${className ?? ""}`}>
+      <div
+        className={`photo-slot photo-slot-filled ${className ?? ""}`}
+        style={{ aspectRatio: aspectValue }}
+        aria-label={slotLabel}
+      >
         <Image
           src={slot.src}
           alt={slot.alt}
@@ -31,27 +38,38 @@ export function PhotoSlot({ slotId, className, priority, sizes }: Props) {
           sizes={sizes ?? "(max-width: 940px) 100vw, 50vw"}
           className="photo-img"
         />
+        <span className="photo-slot-number">#{slot.number}</span>
+        <span className="photo-slot-replace-label">교체 #{slot.number}</span>
       </div>
     );
   }
 
-  return <PhotoSlotPlaceholder slot={slot} className={className} />;
+  return (
+    <PhotoSlotPlaceholder
+      slot={slot}
+      className={className}
+      aspectValue={aspectValue}
+      slotLabel={slotLabel}
+    />
+  );
 }
 
 function PhotoSlotPlaceholder({
   slot,
   className,
+  aspectValue,
+  slotLabel,
 }: {
   slot: PhotoSlotDef;
   className?: string;
+  aspectValue: string;
+  slotLabel: string;
 }) {
-  const aspectValue = slot.aspect.replace("/", " / ");
-
   return (
     <div
       className={`photo-slot photo-slot-placeholder ${className ?? ""}`}
       style={{ aspectRatio: aspectValue }}
-      aria-label={`사진 슬롯 #${slot.number}: ${slot.description}`}
+      aria-label={slotLabel}
     >
       <span className="photo-slot-number">#{slot.number}</span>
       <ImagePlus size={28} aria-hidden className="photo-slot-icon" />

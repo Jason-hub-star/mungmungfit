@@ -1,100 +1,76 @@
 # 사진 슬롯 진행률
 
-> 정본: `content/placeholders.ts` (src 필드)
+> 정본: `content/placeholders.ts`
 > 시각 가이드: `docs/photo-slots-reference.md`
 > 본 문서는 진행률·우선순위 한눈에 보기용.
 
-Last Updated: 2026-05-12 (concern-obese-senior·tool-routine·process-flow description 정밀화. manus-generated 시리즈 4장 자산 확보 — `mungmung-photos/manus-generated/2026-05-12-erector-spinae-{1..4}.png`은 사진 슬롯 시스템 외부에서 블로그 본문에 직접 사용 중)
+Last Updated: 2026-05-27 (KST) — #1 hero 사진을 주인님 제공 사진(`/images/slots/hero-1.jpg`)으로 교체. #4 메이 슬롯은 화면에서 삭제, #17 프로세스 사진 슬롯도 삭제하고 컴포넌트형 단계 시각화로 전환.
 
 ---
 
-## 📊 전체 진행률
+## 전체 진행률
 
-| 우선순위 | 슬롯 수 | 채워짐 | 진행률 |
-|----------|---------|--------|--------|
-| 🥇 P1 (가장 시급) | 9 | 8 | 89% |
-| 🥈 P2 (AI 가능) | 7 | 0 | 0% |
-| 🥉 P3 (BeforeAfter) | 6 | 0 | 0% |
-| **전체** | **22** | **8** | **36%** |
+| 범위 | 슬롯 수 | 채워짐 | 대기 | 진행률 |
+|------|---------|--------|------|--------|
+| 전체 | 29 | 19 | 10 | 66% |
+| P1 | 7 | 7 | 0 | 100% |
+| P2 | 11 | 9 | 2 | 82% |
+| P3 | 11 | 3 | 8 | 27% |
 
-(*P1에서 #4 메이 액션만 미해결 — 메이 사진 부재. #10 보호자 집 루틴은 별도 촬영 필요로 분류*)
+대기 슬롯: **#18~#23, #29~#32**
 
----
-
-## 🥇 Priority 1 — 주인님 직접 촬영 필요 (9개)
-
-### Hero (3개)
-
-| 슬롯 | 번호 | 필요한 사진 | 상태 |
-|------|------|------------|------|
-| `hero-1` | #1 | 메인 (현재 `main.jpg` 사용 중) | ✅ 채워짐 |
-| `hero-2` | #2 | 독피트니스 도구 사용 액션샷 | ✅ `new4_004.jpg` |
-| `hero-3` | #3 | 비포애프터 / 수업 후 컷 | ✅ `DPyK9B6kta8_5.jpg` |
-
-### TrainerProfile (1개)
-
-| 슬롯 | 번호 | 필요한 사진 | 상태 |
-|------|------|------------|------|
-| `mei-action` | #4 | 헬퍼견 메이 수업 참여 모습 | ⚠️ **메이 사진 없음** — 별도 촬영 |
-
-### 독피트니스 도구 6종 🔥
-
-| 슬롯 | 번호 | 도구 | 상태 |
-|------|------|------|------|
-| `tool-balance-ball` | #5 | 밸런스볼·스텝업 박스 | ✅ `new3_016.jpg` |
-| `tool-cavaletti` | #6 | 카발레티 | ✅ `new4_002.jpg` |
-| `tool-fitpaws` | #7 | 균형 디스크·도넛 (FitPaws 라벨 재검토) | ✅ `DQta7c_kkkm_8.jpg` |
-| `tool-proprioception` | #8 | 프로프리오셉션 매트 | ✅ `new4_006.jpg` |
-| `tool-hurdle` | #9 | 콘 허들·점프 박스 | ✅ `DQGzZQSkvFr_3.jpg` |
-| `tool-routine` | #10 | 보호자 5분 루틴 (집 환경) | ⚠️ 별도 촬영 필요 |
+> #4, #17, #28은 retired 번호.
 
 ---
 
-## 🥈 Priority 2 — Manus Nano Banana 생성 가능 (7개)
+## 대기 슬롯
 
-### 대상 강아지 일러스트 (6개)
-
-| 슬롯 | 번호 | 대상 | 상태 |
-|------|------|------|------|
-| `target-obese` | #11 | 비만 강아지 | ⏳ 대기 |
-| `target-senior` | #12 | 노령견 | ⏳ 대기 |
-| `target-shy` | #13 | 소심한 강아지 | ⏳ 대기 |
-| `target-energetic` | #14 | 활동량 많은 견종 | ⏳ 대기 |
-| `target-puppy` | #15 | 퍼피 사회화 | ⏳ 대기 |
-| `target-leash` | #16 | 줄당김 강아지 | ⏳ 대기 |
-
-### Process 인포그래픽 (1개)
-
-| 슬롯 | 번호 | 내용 | 상태 |
-|------|------|------|------|
-| `process-flow` | #17 | 상담→평가→수업→루틴 4단계 가로 | ⏳ 대기 |
+| 번호 | 슬롯 ID | 우선순위 | 필요한 이미지 | 상태 |
+|------|---------|----------|---------------|------|
+| #18 | `before-1` | P2 | 케이스 1 수업 전 | 대기 |
+| #19 | `after-1` | P2 | 케이스 1 수업 후 | 대기 |
+| #20 | `before-2` | P3 | 케이스 2 수업 전 | 대기 |
+| #21 | `after-2` | P3 | 케이스 2 수업 후 | 대기 |
+| #22 | `before-3` | P3 | 케이스 3 수업 전 | 대기 |
+| #23 | `after-3` | P3 | 케이스 3 수업 후 | 대기 |
+| #29 | `area-seoul` | P3 | 서울 지역 수업 또는 산책 현장 | 대기 |
+| #30 | `area-gyeonggi` | P3 | 경기 지역 수업 현장 | 대기 |
+| #31 | `area-incheon` | P3 | 인천 지역 수업 현장 | 대기 |
+| #32 | `area-chungcheong` | P3 | 충청 지역 수업 현장 | 대기 |
 
 ---
 
-## 🥉 Priority 3 — 비포애프터 3쌍 (6개)
+## 채워진 슬롯
 
-| 슬롯 | 번호 | 위치 | 상태 |
-|------|------|------|------|
-| `before-1` / `after-1` | #18/#19 | BeforeAfter 케이스 1 | ⏳ 대기 |
-| `before-2` / `after-2` | #20/#21 | BeforeAfter 케이스 2 | ⏳ 대기 |
-| `before-3` / `after-3` | #22/#23 | BeforeAfter 케이스 3 | ⏳ 대기 |
+| 번호 | 슬롯 ID | 현재 이미지 |
+|------|---------|-------------|
+| #1 | `hero-1` | `/images/slots/hero-1.jpg?v=20260527-1` |
+| #2 | `hero-2` | `/images/slots/hero-2.jpg` |
+| #3 | `hero-3` | `/images/slots/hero-3.jpg` |
+| #5 | `tool-balance-ball` | `/images/slots/tool-balance-ball.jpg?v=20260515-3` |
+| #6 | `tool-cavaletti` | `/images/slots/tool-cavaletti.jpg?v=20260515-3` |
+| #7 | `tool-fitpaws` | `/images/slots/tool-fitpaws.jpg?v=20260515-3` |
+| #8 | `tool-proprioception` | `/images/slots/tool-proprioception.jpg?v=20260515-3` |
+| #9 | `tool-hurdle` | `/images/slots/tool-hurdle.jpg?v=20260515-3` |
+| #10 | `tool-routine` | `/images/slots/tool-routine.jpg?v=20260515-3` |
+| #11 | `target-obese` | `/images/slots/target-obese.jpg` |
+| #12 | `target-senior` | `/images/slots/target-senior.jpg` |
+| #13 | `target-shy` | `/images/slots/target-shy.jpg` |
+| #14 | `target-energetic` | `/images/slots/target-energetic.jpg` |
+| #15 | `target-puppy` | `/images/slots/target-puppy.jpg` |
+| #16 | `target-leash` | `/images/slots/target-leash.jpg` |
+| #24 | `concern-obese-senior` | `/images/slots/concern-obese-senior.jpg?v=20260515-3` |
+| #25 | `concern-leash` | `/images/slots/concern-leash.jpg` |
+| #26 | `concern-confidence` | `/images/slots/concern-confidence.jpg?v=20260515-3` |
+| #27 | `concern-handler` | `/images/slots/concern-handler.jpg` |
 
 ---
 
-## 🔄 사진 받았을 때 반영 절차
+## 사진 받았을 때 반영 절차
 
-1. 파일을 `/public/images/slots/{slot-id}.{ext}` 에 저장
-2. `content/placeholders.ts` 해당 슬롯의 `src: null` → `src: "/images/slots/{slot-id}.jpg"`
-3. dev 서버 자동 갱신
-4. 본 문서 ⏳ → ✅
-5. `git add public/images/slots content/placeholders.ts docs/status/PHOTO-SLOTS-STATUS.md`
-6. `git commit -m "feat(photos): 슬롯 #N 채움"`
-7. `git push` → Vercel 자동 배포
-
----
-
-## 🤖 자동화 (예정)
-
-봇 명령어 `/슬롯 [번호]` (사진 첨부) 구현되면:
-- 위 7단계가 1단계로 압축
-- 텔레그램으로 사진 + "/슬롯 5" → 자동 저장·반영·푸시
+1. 화면 번호를 `content/placeholders.ts`의 `number`와 매칭한다.
+2. 파일을 `/public/images/slots/{slot-id}.{ext}`에 저장한다.
+3. `src`가 비어 있으면 `/images/slots/{slot-id}.{ext}`로 채운다. 이미 채워진 슬롯이면 같은 경로로 교체하고 필요 시 cache-buster를 갱신한다.
+4. `docs/photo-slots-reference.md`와 본 문서의 상태를 맞춘다.
+5. `npm run typecheck`를 실행한다.
+6. 로컬 사이트에서 해당 `#N` 배지가 보이는지 확인한다.

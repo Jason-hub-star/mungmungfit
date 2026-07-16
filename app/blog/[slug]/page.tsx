@@ -145,7 +145,7 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

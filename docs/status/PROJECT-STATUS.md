@@ -1,17 +1,75 @@
 # 멍멍피트 Project Status
 
-Last Updated: 2026-05-12 (KST) — 홈 카피·섹션 대수술 + 블로그 Supabase 이미지 전환 + Pricing 4회 패키지 30% 할인 중앙 정렬 카드 + 척추기립근 시리즈 첫 발행. Process h2 "1시간 15분~30분" 제거 → "상담부터 루틴까지 4단계", concerns/targetDogs 표현 다듬어 불독·퍼그 정상 체형 배려 ("비만" → "체중 관리"), eventOffer.validUntil "오픈 기념 한정" 살아나서 Pricing 카드에 캡션 노출. Tools 섹션 가로 스와이프 캐러셀(`.tools-carousel`/`.tools-track`/`.tools-snap` + tabIndex 키보드 접근성) + placeholder 톤 통일. BeforeAfter 섹션 주석 처리 (사진 들어오면 한 줄 켜기). ReviewsPreview 가독성 재설계 — `review-meta`(견종·나이·지역)·`review-body`·"더 많은 후기 보기 →" `/reviews` CTA. Pricing 컴포넌트 재설계: ① 4회 패키지 중앙 정렬 강조 카드 (~~356,000~~ → 250,000원 + 30% 할인 배지 + 1회 평균 62,500원 + 체크리스트 3 + 카카오 상담·전화 CTA) ② 1회 단발 ③ 출장비 — `.price-feature` flex column align-items center + `.price-feature-list` width fit-content. 블로그 BlogImage `placeholder` 모드 완전 제거, `BlogFrontmatter`에 `coverImage`/`coverAlt` 필드 + `app/blog/{page,[slug]}.tsx`에 cover 표시 + OG 우선순위 `coverImage → ogImage → /api/og`. `lib/blog.ts` `_postsCache` dev 모드 비활성화(`NODE_ENV !== "development"` 분기)로 mdx frontmatter 변경 즉시 반영. **`content/blog/2026-05-14-dog-core-muscle-guide.mdx`** 를 척추기립근 시리즈 #1로 재구성 — Supabase `mungmung-photos/manus-generated/2026-05-12-erector-spinae-{1..4}.png` 4장 활용 (cover 표지 + 본문 3장, 텍스트 최소). **`content/blog/2026-05-16-pull-on-leash-core-first.mdx` 삭제**. BreadcrumbList JSON-LD 헬퍼 `buildBreadcrumbJsonLd`(`content/site.ts`) 추가 + blog/services/areas 페이지 3종 적용(부모는 홈→현재만). area page 가격 90,000→89,000 정합. `.code-review-graphignore`에 `.codex/`/`1-발행대기/`/`supabase/`/`tsconfig.tsbuildinfo`/`package-lock.json` 추가. `npx next build` Errors 0 Warnings 0, agent-browser 6장 캡처 + 시각 검증 통과(이미지 32/32 로드, 브로큰 0). 다음 우선순위: 복근·둔근·어깨·발바닥 시리즈 manus 발주 → 시리즈 #2~#5 블로그 발행.
+> 목적: 새 에이전트가 현재 상태를 빠르게 복원하기 위한 최상위 상태판.
+> 세부 정본은 아래 문서 맵을 따른다.
 
-Previous: 디자인 토큰 통일 + 5,000+회 누적 + 멍아이 벤치마킹 5종 일괄 적용 완료. `app/globals.css :root`에 카드 시스템 토큰 9종 신설 (`--card-radius` 14px, `--card-radius-lg` 18px, `--card-pad` clamp(20,2.6vw,28), `--card-bg`, `--card-bg-strong`, `--card-border`, `--card-lift`, `--card-lift-strong`, `--grad-green`/`--grad-stat`/`--grad-paper`). 11개 카드 클래스(.card·.guarantee-card·.tool-card·.gallery-tile·.concern-photo-card·.method-image·.certificate-card·.review-shot·.review-figure·.before-after-pair·.comparison-table) raw px → 토큰 치환으로 페이지간 일관성 확보. 조미료: 트러스트 스탯 숫자 그라데이션 텍스트, 비교 표 멍멍피트 컬럼 왼쪽 보더 그라데이션, CTA 우상단 honey 글로우, guarantee-card 아이콘 그라데이션 그린 + 후광 그림자. trustStats[0] "4,000+회" → **"5,000+회"** 갱신 (단일 소스로 사이트 전역 자동 반영). 멍아이 벤치마킹 5종(comparison section · 트러스트 4지표 · 환불 보장 · 무료 전화 상담 · 언제든 전화·문자) 일괄 도입. 하남/미사 14개 occurrence 전체 제거, 출장 권역을 "서울·경기·인천·충청" 4개로 정리, area-hanam 라우트·슬롯·sitemap entry 삭제. 1회 89,000원·4회 패키지 250,000원(정가 356,000원, 30% 할인) 가격 체계 확정, `.price-feature` 그라데이션 그린 카드로 4회 패키지 가독성 개선. 다음 우선순위: 슬래시 커맨드 frontmatter 표준화 + 모델 매트릭스 정본화.
+Last Updated: 2026-06-30 (KST)
 
-Previous: 사이트 독피트니스 리포지셔닝 + 큐 시스템 + 핸드오프 문서 4종 + 시각화 placeholder 시스템 도입 완료. /pricing(4회 25만원 이벤트, 무기한) 신설, 네비게이션에 "수업료" 추가, TrainerProfile에 "헬퍼견 메이와 함께" 명시, DogFitnessTools·TargetDogs·BeforeAfter 섹션을 PhotoSlot 기반으로 개편(총 23개 사진 슬롯, #1~#23 번호 시각화), Gallery 위치 상향 조정. Supabase 6개 큐 테이블 생성(instagram_queue·threads_queue·youtube_inspirations·pet_tech_products·insights_log·content_calendar) on `qufjlveukaoiokhpkhwj` (taillog 프로젝트와 공유). 4개 핸드오프 문서(`docs/manus-*.md`, `docs/claude-content-handoff.md`) + `docs/photo-slots-reference.md` 작성. 멍멍피트 봇은 실행 중(`bot.ts`, taillog Supabase + 사진 가공·당근 캡션·Vercel deploy hook). React Gallery key 중복 경고 수정(`key={image.src + index}`). 다음 우선순위: /blog 인프라(MDX 라우팅) + 시드 글 3편(독피트니스 입문/코어근육 도감/줄당김 코어부터) + 봇 인스타·스레드 큐 INSERT 확장.
+---
 
-Previous: 사이트 텍스트 위주 문제 진단 후 placeholder 시스템 도입. 23개 사진 슬롯 정의(`content/placeholders.ts`), `PhotoSlot` 컴포넌트로 점선 박스 + 번호 + 설명 표시, 사진 받으면 `src` 채우기만 하면 자동 반영. Priority 1=도구 6장(#5~#10)·메이 1장(#4)·Hero 추가 2장(#2,#3), Priority 2=Nano Banana 일러스트 7장(#11~#17), Priority 3=비포애프터 3쌍(#18~#23). 슬롯 ID 매핑표는 `docs/photo-slots-reference.md`.
+## 현재 스냅샷
 
-Previous: 멍멍피트 봇 엔드투엔드 작동 검증. 텔레그램 사진 수신 → Sharp 가공 → Gemini 캡션 → Supabase 업로드 → gallery.json 갱신 → Vercel 재빌드 트리거까지 전 단계 통과. 새 Supabase 프로젝트(`qufjlveukaoiokhpkhwj`)에 `mungmung-photos` 버킷 + Service Role 키로 동작. mungmungfit Vercel 프로덕션 배포 라이브.
+| 영역 | 상태 | 정본 |
+|------|------|------|
+| 사이트 런타임 | Next.js 16.2.6, React 19, `npm run dev`/`npm run typecheck` | `package.json` |
+| 핵심 콘텐츠 | 홈페이지·가격·후기·지역·서비스·블로그·자가진단·약관/개인정보 라우트 구성 | `app/`, `content/site-content.json` |
+| 사업자/NAP | Footer·법적 페이지·JSON-LD가 `businessInfo` 공유 | `content/site-content.json` |
+| 사진 슬롯 | 화면 번호 기반 교체 가능. 총 29개 중 19개 채워짐, 10개 대기 | `content/placeholders.ts`, `docs/status/PHOTO-SLOTS-STATUS.md` |
+| 블로그 | 발행 2편, draft 없음, 다음은 근육 도감 #2~#5 이미지 대기 | `content/blog/*.mdx`, `docs/status/BLOG-QUEUE-STATUS.md` |
+| SEO | Phase 0~3 코드 반영, Search Console/Naver 값 입력 및 weekly 실측 대기 | `docs/seo-roadmap.md`, `docs/status/SEO-HEALTH-STATUS.md` |
+| 자동화 | Claude commands/automations가 정본. Codex는 로컬 MCP/hook만 유지 | `.claude/CLAUDE.md`, `AGENTS.md` |
+| 스킬 | 사진 슬롯·문서 동기화·SEO 제출 모니터·미디어 예산·릴리즈 QA 절차 이식 완료 | `.claude/skills/` |
 
-Previous: 사이트 전반 독피트니스 방문훈련 중심 리포지셔닝 — Hero 카피·메타·OG·JSON-LD(LocalBusiness + Service + FAQPage 3중 schema), 신규 섹션 DogFitnessTools/TargetDogs/Faq, methods·concerns·servicePages 콘텐츠 갱신, 키워드 밀도(독피트니스 105회·코어 34회·CSCC 25회·밸런스볼 23회·카발레티 23회). Vercel 배포 완료. 봇 캡션 프롬프트도 "독피트니스 방문훈련" 키워드 자연 포함.
+---
 
-Previous: 자동화 마케팅 파이프라인 아키텍처 확정 — Manus(인스타·스레드 발행+Nano Banana 이미지) × Claude Code(블로그·MDX·git) × 멍멍피트 봇(사진 큐레이션) × Supabase 큐(공유 상태) × vibehub1030 스레드(크로스 프로모션). 메이 단독 콘텐츠 보류·수업 참여 명시 정책 확정. 시저밀란 제외·퍼피빌 사용 금지·쿠팡 파트너스 보류 등 톤 가이드 확정.
+## 최근 변경
 
-Latest addendum: TaillogToss skill harness 분석 후 5개 패턴(상태판·Nightly 자동화·슬래시 커맨드·MCP·Post-Edit Hook) 이식 결정. 본 `PROJECT-STATUS.md` 신설이 그 첫 결과물.
+| 날짜 | 변경 | 검증 |
+|------|------|------|
+| 2026-06-30 | 모바일 반응형·폰트·디자인 프로덕션 안정화. `snack-web` 참고해 Pretendard Variable 동적 서브셋 로딩, safe-area(inset) 적용, 뷰포트 `viewport-fit=cover`, 터치 타겟/ focus-visible 개선, `text-wrap: balance`, `100dvh` 적용 | `npm run typecheck` 통과, `npm run build` 통과, `npm run qa:responsive` 45건 통과 |
+| 2026-06-01 | `jason-agent-harness-template`에서 SEO 제출 모니터, 미디어 성능 예산, 릴리즈 QA 하네스 이식. `/cases` 태그 필터와 media budget script 추가 | `npm run typecheck` 통과, `npm run qa:responsive` 45건 통과, `npm run media:budget` WARN |
+| 2026-05-27 | `jason-agent-harness-template` 참고해 `photo-slot-replacement`, `docs-status-sync` 스킬 이식 | 스킬 파일 생성 확인 |
+| 2026-05-27 | `PhotoSlot`이 빈 슬롯과 채워진 사진 모두 `#N`/`교체 #N` 표시 | Playwright snapshot에서 `#1`, `#4`, `#5`, `#11~#17` 확인 |
+| 2026-05-27 | 문서관리 정리: `AGENTS.md` 실제 구조 반영, 프로젝트/블로그 상태 최신화 | 문서 링크 검사, `npm run typecheck` |
+| 2026-05-27 | #1 hero 사진 교체, #4/#17 사진 슬롯 삭제, 프로세스 단계형 UI 전환, 오픈기념 3회 패키지 187,000원 반영 | typecheck 및 브라우저 확인 |
+| 2026-05-13 | Phase 0~3 SEO·신뢰·법적 페이지·모바일 메뉴·쿠키·sitemap·alt 메타 슬롯 반영 | responsive check 30건 통과 기록 |
+| 2026-05-12 | 홈 카피/가격/리뷰/블로그 이미지 구조 정리, 척추기립근 시리즈 #1 발행 | `next build` 통과 기록 |
+
+---
+
+## 다음 우선순위
+
+1. 사진 슬롯 대기분 채우기: #18~#23, #29~#32.
+2. 배포 전 `npm run media:budget`, `npm run qa:responsive`, `npm run seo:dry-run -- --no-write` 루틴화.
+3. Search Console/Naver Webmaster 인증값 운영 환경에 입력.
+4. `trainingPhotosMeta`·`reviewPhotosMeta` 라벨링 채우기.
+5. 근육 도감 #2~#5용 Manus 이미지 발주 후 블로그 큐 진행.
+6. 사업자 등록 종목 추가 신청 여부 확인.
+
+---
+
+## 문서 정본 맵
+
+| 질문 | 먼저 볼 문서 |
+|------|--------------|
+| 전체 상태가 뭔가? | `docs/status/PROJECT-STATUS.md` |
+| 사진 번호 교체는 어떻게 하나? | `.claude/skills/photo-slot-replacement/SKILL.md`, `docs/photo-slots-reference.md` |
+| 사진 슬롯 진행률은? | `docs/status/PHOTO-SLOTS-STATUS.md` |
+| 블로그 다음 글은? | `docs/status/BLOG-QUEUE-STATUS.md` |
+| 인스타/스레드 운영은? | `docs/status/INSTAGRAM-THREAD-QUEUE.md` |
+| 자동화가 막히면? | `docs/automation-runbook.md` |
+| 배포 전 QA는? | `.claude/skills/release-qa/SKILL.md` |
+| 이미지가 무거운지 보려면? | `.claude/skills/media-performance-budget/SKILL.md` |
+| 배포 후 SEO 제출은? | `.claude/skills/seo-submit-monitor/SKILL.md`, `docs/status/SEO-HEALTH-STATUS.md` |
+| SEO Phase 기록은? | `docs/seo-roadmap.md` |
+| SEO 자동 점검 상태는? | `docs/status/SEO-HEALTH-STATUS.md` |
+| NAP/로컬 SEO는? | `docs/local-seo-playbook.md` |
+| 콘텐츠 작성 룰은? | `docs/claude-content-handoff.md` |
+
+---
+
+## 히스토리 요약
+
+- 2026-05-13: 법적 페이지, 사업자 정보, 모바일 메뉴, skip link, error/loading, 자가진단 공유, 쿠키 배너, JSON-LD logo, verification env 슬롯, 이미지 sitemap, 블로그 카테고리 JSON-LD, alt 메타 슬롯, responsive check 반영.
+- 2026-05-12: 홈 섹션 대수술, Pricing 패키지 카드, ReviewsPreview 개선, BlogImage placeholder 제거, coverImage/coverAlt 구조, 척추기립근 시리즈 #1 발행.
+- 이전: 독피트니스 리포지셔닝, Supabase 큐/사진 파이프라인, 23개 사진 슬롯 도입, Vercel 배포, 콘텐츠/마케팅 자동화 방향 확정.

@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
 
   // 이미지 최적화·캐싱
   images: {
+    localPatterns: [
+      {
+        pathname: "/images/**",
+      },
+    ],
     remotePatterns: [
       {
         protocol: "https",

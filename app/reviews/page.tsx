@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     description:
       "멍멍피트 강아지 방문교육 후기. 보호자가 집과 산책에서 다시 연습할 수 있도록 남기는 수업입니다.",
     url: `${getSiteUrl()}/reviews`,
+    images: [
+      {
+        url: reviewImages[0]?.src ?? "/images/training/main.jpg",
+        alt: reviewImages[0]?.alt ?? "멍멍피트 강아지 방문교육 후기",
+      },
+    ],
   },
 };
 
@@ -74,7 +80,7 @@ export default function ReviewsPage() {
   ]);
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}

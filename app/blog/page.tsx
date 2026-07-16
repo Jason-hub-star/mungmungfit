@@ -8,7 +8,7 @@ import {
   StickyCta,
 } from "@/components/site-sections";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { buildBreadcrumbJsonLd } from "@/content/site";
+import { brandImages, buildBreadcrumbJsonLd, getSiteUrl } from "@/content/site";
 import { getAllPosts, getAllCategories } from "@/lib/blog";
 import { alpha, font, space } from "@/styles/tokens";
 
@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description:
     "강아지 독피트니스·코어 운동·방문훈련에 대한 CSCC 국제 트레이너의 정통 가이드. 비만견·노령견·퍼피 등 견종·문제행동별 운동법을 정리합니다.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "독피트니스 블로그 | 멍멍피트",
+    description:
+      "강아지 독피트니스·코어 운동·방문훈련에 대한 CSCC 국제 트레이너의 정통 가이드.",
+    url: `${getSiteUrl()}/blog`,
+    images: [{ url: brandImages.hero.src, alt: brandImages.hero.alt }],
+  },
 };
 
 const categoryOrder = [
@@ -58,7 +65,7 @@ export default function BlogIndex() {
   ]);
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -114,6 +121,7 @@ export default function BlogIndex() {
                   <Link
                     href={`/blog/${featured.frontmatter.slug}`}
                     className="blog-card-cover"
+                    aria-label={`${featured.frontmatter.title} 글 보기`}
                   >
                     <Image
                       src={featured.frontmatter.coverImage}
@@ -158,6 +166,7 @@ export default function BlogIndex() {
                       <Link
                         href={`/blog/${post.frontmatter.slug}`}
                         className="blog-card-cover blog-card-cover-sm"
+                        aria-label={`${post.frontmatter.title} 글 보기`}
                       >
                         <Image
                           src={post.frontmatter.coverImage}

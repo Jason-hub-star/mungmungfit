@@ -1,140 +1,118 @@
-# 📸 멍멍피트 사진 슬롯 매핑표
+# 멍멍피트 사진 슬롯 매핑표
 
-> **사용법**: 사진 준비되면 "이 사진을 #5에 넣어줘" 처럼 번호로 알려주세요.
-> 자동으로 해당 위치에 배치합니다.
+> 사용법: 사진 준비되면 "이 사진을 #5에 넣어줘"처럼 번호로 알려주세요.
+> 정본은 `content/placeholders.ts`이고, 화면에는 빈 슬롯과 채워진 슬롯 모두 번호 배지가 표시됩니다.
 >
-> **사진 저장 경로**: `/public/images/slots/{slot-id}.jpg`
+> 사진 저장 경로: `/public/images/slots/{slot-id}.jpg`
 
 ---
 
-## 🎯 우선순위 1 (가장 시급) — 9개
+## 현재 대기 슬롯
 
-### Hero 슬라이드 (3개)
+| 번호 | 슬롯 ID | 위치 | 필요한 사진 | 화면비 |
+|------|---------|------|------------|--------|
+| **#18** | `before-1` | 비포애프터 | BEFORE 1: 수업 전 문제 상황 | 1:1 |
+| **#19** | `after-1` | 비포애프터 | AFTER 1: 같은 강아지 수업 후 안정된 모습 | 1:1 |
+| **#20** | `before-2` | 비포애프터 | BEFORE 2: 두 번째 케이스 수업 전 | 1:1 |
+| **#21** | `after-2` | 비포애프터 | AFTER 2: 두 번째 케이스 수업 후 | 1:1 |
+| **#22** | `before-3` | 비포애프터 | BEFORE 3: 세 번째 케이스 수업 전 | 1:1 |
+| **#23** | `after-3` | 비포애프터 | AFTER 3: 세 번째 케이스 수업 후 | 1:1 |
+| **#29** | `area-seoul` | 지역 페이지 | 서울 지역 수업 또는 산책 현장 | 16:9 |
+| **#30** | `area-gyeonggi` | 지역 페이지 | 경기 지역 수업 현장 | 16:9 |
+| **#31** | `area-incheon` | 지역 페이지 | 인천 지역 수업 현장 | 16:9 |
+| **#32** | `area-chungcheong` | 지역 페이지 | 충청 지역 수업 현장 | 16:9 |
 
-| 번호 | 위치 | 필요한 사진 | 화면비 |
-|------|------|------------|--------|
-| **#1** | Hero 메인 | ✅ 기존 main.jpg 사용 중 | 1:1 |
-| **#2** | Hero 슬라이드 2 | 독피트니스 도구 사용 액션샷 (예: 밸런스볼 위 강아지) | 1:1 |
-| **#3** | Hero 슬라이드 3 | 비포애프터 또는 수업 후 보호자·강아지 컷 | 1:1 |
-
-### TrainerProfile - 메이 (1개)
-
-| 번호 | 위치 | 필요한 사진 | 화면비 |
-|------|------|------------|--------|
-| **#4** | 트레이너 프로필 | 헬퍼견 메이가 수업에 참여하는 모습 (다른 강아지와 함께) | 4:5 |
-
-### 독피트니스 도구 (6개) 🔥 가장 임팩트 큼
-
-| 번호 | 도구 | 필요한 사진 | 화면비 |
-|------|------|------------|--------|
-| **#5** | 밸런스볼·스텝업 박스 | 도구 클로즈업 (또는 강아지 사용 중) | 1:1 |
-| **#6** | 카발레티 | 낮은 봉 5~6개 일렬 사진 | 1:1 |
-| **#7** | FitPaws 도넛·디스크 | 도넛/디스크 클로즈업 | 1:1 |
-| **#8** | 프로프리오셉션 패드 | 감각 자극용 매트 | 1:1 |
-| **#9** | 허들·점프 박스 | 허들/박스 사진 | 1:1 |
-| **#10** | 보호자 5분 루틴 | 보호자가 집에서 진행하는 모습 (또는 집 환경 도구) | 1:1 |
+> #4는 트레이너 섹션 슬롯 삭제, #17은 프로세스 사진 슬롯 삭제, #28은 하남 지역 슬롯 제거로 retired 처리합니다. 기존 번호 참조가 섞이지 않도록 재사용하지 않습니다.
 
 ---
 
-## 🥈 우선순위 2 — 7개
+## 채워진 슬롯
 
-### 대상 강아지 일러스트 (6개) — AI 생성 가능
+### Hero
 
-| 번호 | 대상 | 필요한 이미지 | 비고 |
-|------|------|--------------|------|
-| **#11** | 비만 강아지 | 일러스트 또는 실제 사진 | Nano Banana 생성 가능 |
-| **#12** | 노령견 재활 | 일러스트 또는 사진 | Nano Banana 생성 가능 |
-| **#13** | 소심한 강아지 | 일러스트 | Nano Banana 생성 가능 |
-| **#14** | 활동량 많은 견종 | 일러스트 | Nano Banana 생성 가능 |
-| **#15** | 퍼피 사회화 | 일러스트 | Nano Banana 생성 가능 |
-| **#16** | 줄당김 강아지 | 일러스트 | Nano Banana 생성 가능 |
+| 번호 | 슬롯 ID | 위치 | 현재 이미지 |
+|------|---------|------|-------------|
+| **#1** | `hero-1` | Hero 메인 | `/images/slots/hero-1.jpg` |
+| **#2** | `hero-2` | Hero 보조 | `/images/slots/hero-2.jpg` |
+| **#3** | `hero-3` | Hero 보조 | `/images/slots/hero-3.jpg` |
 
-### Process 인포그래픽 (1개) — AI 생성 가능
+### 독피트니스 도구
 
-| 번호 | 위치 | 필요한 이미지 | 화면비 |
-|------|------|--------------|--------|
-| **#17** | 4단계 프로세스 | 상담→평가→수업→루틴 가로 인포그래픽 | 16:9 |
+| 번호 | 슬롯 ID | 도구 | 현재 이미지 |
+|------|---------|------|-------------|
+| **#5** | `tool-balance-ball` | 밸런스 플랫폼·스텝 | `/images/slots/tool-balance-ball.jpg` |
+| **#6** | `tool-cavaletti` | 카발레티 | `/images/slots/tool-cavaletti.jpg` |
+| **#7** | `tool-fitpaws` | 균형 디스크·도넛 | `/images/slots/tool-fitpaws.jpg` |
+| **#8** | `tool-proprioception` | 감각 패드·블록 | `/images/slots/tool-proprioception.jpg` |
+| **#9** | `tool-hurdle` | 낮은 바·매트 | `/images/slots/tool-hurdle.jpg` |
+| **#10** | `tool-routine` | 보호자 루틴 | `/images/slots/tool-routine.jpg` |
+
+### 대상 강아지
+
+| 번호 | 슬롯 ID | 대상 | 현재 이미지 |
+|------|---------|------|-------------|
+| **#11** | `target-obese` | 체중 관리 | `/images/slots/target-obese.jpg` |
+| **#12** | `target-senior` | 노령견 | `/images/slots/target-senior.jpg` |
+| **#13** | `target-shy` | 소심한 강아지 | `/images/slots/target-shy.jpg` |
+| **#14** | `target-energetic` | 활동량 많은 견종 | `/images/slots/target-energetic.jpg` |
+| **#15** | `target-puppy` | 퍼피 사회화 | `/images/slots/target-puppy.jpg` |
+| **#16** | `target-leash` | 줄당김·산책 짖음 | `/images/slots/target-leash.jpg` |
+
+### 고민 카드
+
+| 번호 | 슬롯 ID | 위치 | 현재 이미지 |
+|------|---------|------|-------------|
+| **#24** | `concern-obese-senior` | 노령·운동 부족 고민 | `/images/slots/concern-obese-senior.jpg` |
+| **#25** | `concern-leash` | 산책 줄당김·짖음 | `/images/slots/concern-leash.jpg` |
+| **#26** | `concern-confidence` | 환경 자신감 부족 | `/images/slots/concern-confidence.jpg` |
+| **#27** | `concern-handler` | 보호자 핸들링 고민 | `/images/slots/concern-handler.jpg` |
 
 ---
 
-## 🥉 우선순위 3 — 6개 (비포애프터)
+## 사진 받았을 때 워크플로우
 
-### 비포·애프터 3쌍
+1. 번호로 슬롯을 찾습니다. 예: `#5` → `tool-balance-ball`.
+2. 사진을 `/Users/family/jason/mungmungfit/public/images/slots/{slot-id}.jpg`에 저장합니다.
+3. `content/placeholders.ts`에서 해당 슬롯의 `src`를 `/images/slots/{slot-id}.jpg`로 맞춥니다.
+4. 캐시가 남을 수 있으면 `?v=YYYYMMDD-N`을 붙입니다.
+5. `npm run typecheck`를 실행합니다.
+6. 로컬 사이트에서 해당 번호 배지가 그대로 보이는지 확인합니다.
 
-| 번호 | 위치 | 필요한 사진 |
-|------|------|------------|
-| **#18** | BEFORE 1 | 수업 전 강아지 (줄당김·짖음·회피 등) |
-| **#19** | AFTER 1 | 같은 강아지 수업 후 (편안한·안정된 모습) |
-| **#20** | BEFORE 2 | 다른 케이스 수업 전 |
-| **#21** | AFTER 2 | 다른 케이스 수업 후 |
-| **#22** | BEFORE 3 | 세 번째 케이스 비포 |
-| **#23** | AFTER 3 | 세 번째 케이스 애프터 |
+## 전체 슬롯 ID 매핑표
 
----
-
-## 🔄 사진 받았을 때 워크플로우
-
-### 옵션 A: 텔레그램으로 보내기
-1. 텔레그램으로 사진 + "이거 #5 도구사진" 메시지
-2. (예정) 봇이 자동으로 `/public/images/slots/tool-balance-ball.jpg`에 저장
-3. (예정) `placeholders.ts` 자동 업데이트
-4. git push → Vercel 배포
-
-### 옵션 B: 수동 (현재 가능)
-1. 사진을 `/Users/family/jason/mungmungfit/public/images/slots/` 폴더에 저장
-2. 파일명: `tool-balance-ball.jpg` (슬롯 ID 그대로)
-3. `content/placeholders.ts` 열어서 해당 슬롯의 `src: null` → `src: "/images/slots/tool-balance-ball.jpg"`
-4. 저장 → dev 서버 자동 갱신
-
-### 슬롯 ID 매핑표 (파일명용)
+```text
+#1  -> hero-1
+#2  -> hero-2
+#3  -> hero-3
+#4  -> retired
+#5  -> tool-balance-ball
+#6  -> tool-cavaletti
+#7  -> tool-fitpaws
+#8  -> tool-proprioception
+#9  -> tool-hurdle
+#10 -> tool-routine
+#11 -> target-obese
+#12 -> target-senior
+#13 -> target-shy
+#14 -> target-energetic
+#15 -> target-puppy
+#16 -> target-leash
+#17 -> retired
+#18 -> before-1
+#19 -> after-1
+#20 -> before-2
+#21 -> after-2
+#22 -> before-3
+#23 -> after-3
+#24 -> concern-obese-senior
+#25 -> concern-leash
+#26 -> concern-confidence
+#27 -> concern-handler
+#28 -> retired
+#29 -> area-seoul
+#30 -> area-gyeonggi
+#31 -> area-incheon
+#32 -> area-chungcheong
 ```
-#1  → hero-1
-#2  → hero-2
-#3  → hero-3
-#4  → mei-action
-#5  → tool-balance-ball
-#6  → tool-cavaletti
-#7  → tool-fitpaws
-#8  → tool-proprioception
-#9  → tool-hurdle
-#10 → tool-routine
-#11 → target-obese
-#12 → target-senior
-#13 → target-shy
-#14 → target-energetic
-#15 → target-puppy
-#16 → target-leash
-#17 → process-flow
-#18 → before-1
-#19 → after-1
-#20 → before-2
-#21 → after-2
-#22 → before-3
-#23 → after-3
-```
 
----
-
-## 📋 진행 체크리스트
-
-### Priority 1 (긴급) — 도구 사진
-- [x] #5 밸런스볼·스텝업 박스 ← `new3_016.jpg` (셀티+CATO 스텝박스+트레이너)
-- [x] #6 카발레티 ← `new4_002.jpg` (푸들+카발레티+콘+매트)
-- [x] #7 균형 디스크·도넛 ← `DQta7c_kkkm_8.jpg` (파란 도넛+스텝업 박스)
-- [x] #8 프로프리오셉션 패드 ← `new4_006.jpg` (갈색 매트 위 푸들)
-- [x] #9 허들·점프 박스 ← `DQGzZQSkvFr_3.jpg` (콘 허들 라인)
-- [ ] #10 보호자 루틴 ← **별도 촬영 필요** (집 환경 후보 없음)
-- [x] #2 Hero 슬라이드 2 ← `new4_004.jpg` (푸들 카발레티 액션)
-- [x] #3 Hero 슬라이드 3 ← `DPyK9B6kta8_5.jpg` (푸들+트레이너 핸들링)
-- [ ] #4 메이 액션샷 ← **메이 없음** (47장에 미존재, 별도 필요)
-
-### Priority 2 (AI 자동 생성 예정)
-- [ ] #11~#16 대상 강아지 일러스트 (Nano Banana로 자동)
-- [ ] #17 Process 인포그래픽 (Nano Banana로 자동)
-
-### Priority 3 (시간 두고)
-- [ ] #18~#23 비포·애프터 3쌍
-
----
-
-**최종수정**: 2026-05-11
+최종 수정: 2026-05-27

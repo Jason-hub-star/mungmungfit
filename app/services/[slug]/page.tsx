@@ -45,6 +45,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${page.title} | 멍멍피트`,
       description: page.description,
       url: `${getSiteUrl()}/services/${page.slug}`,
+      images: [
+        {
+          url: "/images/training/main.jpg",
+          alt: `${page.title} 멍멍피트 방문훈련`,
+        },
+      ],
     },
   };
 }
@@ -99,7 +105,7 @@ export default async function ServicePage({ params }: Props) {
     : null;
 
   return (
-    <main className="page">
+    <main id="main-content" className="page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

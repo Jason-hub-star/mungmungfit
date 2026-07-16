@@ -1,71 +1,66 @@
-import fs from "fs";
-import path from "path";
 import type { MetadataRoute } from "next";
-import { areaPages, cases, getSiteUrl, servicePages } from "@/content/site";
+import {
+  areaPages,
+  brandImages,
+  cases,
+  featuredGallery,
+  getSiteUrl,
+  methodImages,
+  reviewImages,
+  servicePages,
+} from "@/content/site";
 import { getAllCategories, getAllPosts, getPostsByCategory } from "@/lib/blog";
-
-const CONTENT_JSON = "content/site-content.json";
-
-function fileMtime(rel: string): Date | null {
-  try {
-    return fs.statSync(path.join(process.cwd(), rel)).mtime;
-  } catch {
-    return null;
-  }
-}
-
-// 페이지 mtime은 페이지 컴포넌트 변경 + 데이터(JSON) 변경 중 최신값을 사용.
-// 정확한 lastmod는 크롤 효율과 색인 신선도에 영향.
-function pageMtime(...rels: string[]): Date {
-  const stamps = rels
-    .map(fileMtime)
-    .filter((d): d is Date => d !== null)
-    .map((d) => d.getTime());
-  return stamps.length ? new Date(Math.max(...stamps)) : new Date();
-}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
   const posts = getAllPosts();
   const categories = getAllCategories();
+  const generatedAt = new Date();
 
-  const homeMtime = pageMtime("app/page.tsx", "components/site-sections.tsx", CONTENT_JSON);
-  const pricingMtime = pageMtime("app/pricing/page.tsx", CONTENT_JSON);
-  const reviewsMtime = pageMtime("app/reviews/page.tsx", CONTENT_JSON);
-  const aboutMtime = pageMtime("app/about/page.tsx", CONTENT_JSON);
-  const casesIndexMtime = pageMtime("app/cases/page.tsx", "content/cases.json");
-  const caseTplMtime = pageMtime("app/cases/[slug]/page.tsx", "content/cases.json");
-  const diagnosisMtime = pageMtime(
-    "app/diagnosis/page.tsx",
-    "components/diagnosis-form.tsx",
-    CONTENT_JSON,
-  );
-  const serviceTplMtime = pageMtime("app/services/[slug]/page.tsx", CONTENT_JSON);
-  const areaTplMtime = pageMtime("app/areas/[slug]/page.tsx", CONTENT_JSON);
+  const abs = (src: string) =>
+    src.startsWith("http") ? src : `${baseUrl}${src.startsWith("/") ? src : `/${src}`}`;
+
+  // 홈: hero + featuredGallery 전체 + 첫 6장의 후기 이미지
+  const homeImages = [
+    abs(brandImages.hero.src),
+    ...featuredGallery.map((g) => abs(g.src)),
+    ...reviewImages.slice(0, 6).map((r) => abs(r.src)),
+  ];
+  // /about: 트레이너·자격증·메소드
+  const aboutImages = [
+    abs(brandImages.trainer.src),
+    abs(brandImages.certificate.src),
+    ...methodImages.map((m) => abs(m.src)),
+  ];
+  // /reviews: 모든 후기 이미지
+  const reviewsImages = reviewImages.map((r) => abs(r.src));
 
   // 블로그 인덱스: 가장 최신 글의 발행일을 lastmod로
   const blogIndexMtime = posts.length
     ? new Date(Math.max(...posts.map((p) => new Date(p.frontmatter.date).getTime())))
-    : pageMtime("app/blog/page.tsx");
+    : generatedAt;
 
   return [
     {
       url: baseUrl,
-      lastModified: homeMtime,
+      lastModified: generatedAt,
       changeFrequency: "weekly",
       priority: 1,
+      images: homeImages,
     },
     {
       url: `${baseUrl}/pricing`,
-      lastModified: pricingMtime,
+      lastModified: generatedAt,
       changeFrequency: "monthly",
       priority: 0.9,
+      images: [abs(brandImages.hero.src)],
     },
     {
       url: `${baseUrl}/reviews`,
-      lastModified: reviewsMtime,
+      lastModified: generatedAt,
       changeFrequency: "weekly",
       priority: 0.8,
+      images: reviewsImages,
     },
     {
       url: `${baseUrl}/blog`,
@@ -75,41 +70,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: aboutMtime,
+      lastModified: generatedAt,
       changeFrequency: "monthly",
       priority: 0.85,
+      images: aboutImages,
     },
     {
       url: `${baseUrl}/cases`,
-      lastModified: casesIndexMtime,
+      lastModified: generatedAt,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/diagnosis`,
-      lastModified: diagnosisMtime,
+      lastModified: generatedAt,
       changeFrequency: "monthly",
       priority: 0.85,
     },
     ...cases.map((c) => {
       const isDraft = (c as { isDraft?: boolean }).isDraft === true;
+      const cover = (c as { coverImage?: string }).coverImage;
       return {
         url: `${baseUrl}/cases/${c.slug}`,
-        lastModified: c.datePublished ? new Date(c.datePublished) : caseTplMtime,
+        lastModified: c.datePublished ? new Date(c.datePublished) : generatedAt,
         changeFrequency: "monthly" as const,
         // 더미·샘플 케이스는 priority 낮게
         priority: isDraft ? 0.5 : 0.75,
+        ...(cover ? { images: [abs(cover)] } : {}),
       };
     }),
     ...servicePages.map((page) => ({
       url: `${baseUrl}/services/${page.slug}`,
-      lastModified: serviceTplMtime,
+      lastModified: generatedAt,
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
     ...areaPages.map((page) => ({
       url: `${baseUrl}/areas/${page.slug}`,
-      lastModified: areaTplMtime,
+      lastModified: generatedAt,
       changeFrequency: "monthly" as const,
       priority: page.slug === "seoul" ? 0.9 : 0.75,
     })),
@@ -118,6 +116,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.frontmatter.date),
       changeFrequency: "monthly" as const,
       priority: post.frontmatter.featured ? 0.85 : 0.75,
+      ...(post.frontmatter.coverImage
+        ? { images: [abs(post.frontmatter.coverImage)] }
+        : {}),
     })),
     ...categories.map((cat) => {
       const catPosts = getPostsByCategory(cat);

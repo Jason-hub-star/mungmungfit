@@ -1,7 +1,7 @@
 # 🚨 자동화 런북 — 막혔을 때 어디를 봐야 하나
 
 > 자동화가 멈추거나 사용자에게 무언가 요청할 때 **이 문서 1장만 보면** 해결 경로가 나오게 정리.
-> Last Updated: 2026-05-12
+> Last Updated: 2026-06-01
 
 ---
 
@@ -13,6 +13,7 @@
 | **bot-dispatch-tracker** | 매일 20:00 | `.claude/automations/bot-dispatch-tracker.prompt.md` |
 | **blog-publish-nightly** | 매일 22:00 | `.claude/automations/blog-publish-nightly.prompt.md` |
 | **content-metrics-weekly** | 매주 일 21:00 (opus) | `.claude/automations/content-metrics-weekly.prompt.md` |
+| **seo-submit-monitor** | 배포 후/수동 | `.claude/automations/seo-submit-monitor.prompt.md`, `.claude/skills/seo-submit-monitor/SKILL.md` |
 
 수동 실행: `claude --automation .claude/automations/{name}.prompt.md`
 
@@ -237,10 +238,32 @@ launchctl load ~/Library/LaunchAgents/com.mungmungfit.instagram-cycle-*.plist
 
 ---
 
-## 10. 변경 기록
+## 10. 배포 후 SEO 제출·모니터
+
+정본 절차: `.claude/skills/seo-submit-monitor/SKILL.md`
+
+빠른 순서:
+
+```bash
+npm run seo:dry-run -- --base-url https://mungmungfit.kr --no-write
+npm run seo:dry-run -- --base-url https://mungmungfit.vercel.app --no-write
+npm run seo:submit -- --google-only --no-write
+npm run seo:submit -- --naver-indexnow-only --no-write
+```
+
+판단 규칙:
+
+- DNS, 배포 보호, 앱 라우트, 검색 공급자 인증을 분리한다.
+- Search Console/Naver secret 누락은 실패가 아니라 `skipped`로 기록한다.
+- raw 결과는 `docs/metrics/`에 저장하고 `docs/status/SEO-HEALTH-STATUS.md`에는 요약만 남긴다.
+
+---
+
+## 11. 변경 기록
 
 | 날짜 | 변경 | 작성 |
 |------|------|------|
+| 2026-06-01 | SEO 제출 모니터 하네스 포인터와 수동 실행 순서 추가 | Codex |
 | 2026-05-12 | 초안 — 마누스 첫 발행 후 자동화 막힌 2지점 (rclone·텔레그램) 대응 | Claude |
 
 ---

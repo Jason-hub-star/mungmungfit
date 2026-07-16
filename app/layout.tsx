@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { getSiteUrl, site } from "@/content/site";
 import { colors } from "@/styles/tokens";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const siteUrl = getSiteUrl();
 
@@ -63,11 +64,24 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NAVER_SITE_VERIFICATION
+      ? {
+          other: {
+            "naver-site-verification": process.env.NAVER_SITE_VERIFICATION,
+          },
+        }
+      : {}),
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: colors.green,
 };
 
@@ -87,9 +101,13 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">
+          본문으로 이동
+        </a>
         {children}
         <SpeedInsights />
         <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );

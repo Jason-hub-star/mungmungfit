@@ -23,11 +23,11 @@
   "eventOffer": {
     "active": true,
     "badge": "오픈 기념 이벤트",
-    "description": "4회 패키지 한정 할인",
+    "description": "3회 패키지 한정 할인",
     "singlePrice": 89000,
-    "packagePrice": 250000,
-    "packageOriginalPrice": 356000,
-    "packagePerSessionPrice": 62500,
+    "packagePrice": 187000,
+    "packageOriginalPrice": 267000,
+    "packagePerSessionPrice": 62300,
     "packageDiscountPercent": 30,
     "validUntil": "오픈 기념 한정"
   },
@@ -95,13 +95,13 @@
     {
       "label": "체감 효과 시기",
       "common": "보통 6개월~1년",
-      "mungmungfit": "평균 4회 패키지 (약 4주)"
+      "mungmungfit": "평균 3회 패키지 (약 3주)"
     }
   ],
   "concerns": [
     {
       "title": "운동 부족·노령견 케어",
-      "body": "체중 관리가 필요하거나 관절·근력이 약해진 강아지에게, 무릎 부담 없이 코어부터 자극하는 저강도 루틴이 필요해요.",
+      "body": "체중 관리가 필요하거나 관절·근력이 약해진 강아지에게 무리 없이 코어와 균형을 깨우는 저강도 루틴이 필요해요.",
       "slotId": "concern-obese-senior"
     },
     {
@@ -111,7 +111,7 @@
     },
     {
       "title": "환경 자신감 부족",
-      "body": "낯선 바닥·계단·차에 못 올라가는 강아지.",
+      "body": "낯선 바닥·계단·높이를 어려워하고 쉽게 주저앉는 강아지.",
       "slotId": "concern-confidence"
     },
     {
@@ -136,34 +136,34 @@
   ],
   "dogFitnessTools": [
     {
-      "name": "밸런스볼·스텝업 박스",
-      "effect": "코어 안정성과 자세 인지 능력 향상",
-      "target": "허리 약한 견종(닥스훈트·코기), 비만견"
+      "name": "밸런스 플랫폼·스텝",
+      "effect": "낮은 플랫폼 위에서 중심 이동과 자세 유지를 차분하게 익힙니다.",
+      "target": "기초 균형이 약하거나 자세가 쉽게 무너지는 강아지"
     },
     {
       "name": "카발레티(Cavaletti)",
-      "effect": "보행 리듬 정돈, 후지 사용 활성화",
-      "target": "산책 시 끌어당기는 강아지, 노령견"
+      "effect": "보행 리듬을 정돈하고 다리를 또렷하게 들어 쓰는 감각을 만듭니다.",
+      "target": "산책 때 보폭이 급하거나 후지 사용이 약한 강아지"
     },
     {
-      "name": "균형 디스크·도넛",
-      "effect": "체중 분산 감각, 좌우 균형 교정",
-      "target": "한쪽으로만 기대는 강아지, 자세 불균형"
+      "name": "밸런스 디스크·팟",
+      "effect": "불안정한 표면 위에서 발 사용과 코어 반응을 동시에 끌어냅니다.",
+      "target": "체중 분산 연습이 필요하거나 몸 사용이 서툰 강아지"
     },
     {
-      "name": "프로프리오셉션 패드",
-      "effect": "발바닥 자극, 환경 자신감",
-      "target": "낯선 바닥을 무서워하는 강아지, 퍼피"
+      "name": "프로프리오셉션 패드·블록",
+      "effect": "낮은 패드와 블록으로 발 감각과 정지 자세를 세밀하게 연습합니다.",
+      "target": "낯선 바닥이 서툴거나 천천히 자신감을 쌓아야 하는 강아지"
     },
     {
-      "name": "허들·점프 박스",
-      "effect": "근지구력, 점프 자신감, 두려움 극복",
-      "target": "활동량 많은 견종, 점프를 무서워하는 강아지"
+      "name": "프런트 바·자세 유지",
+      "effect": "앞발 높이와 바 세팅으로 전후 체중 이동과 정지 자세를 안정시킵니다.",
+      "target": "전지 사용과 자세 유지 연습이 필요한 강아지"
     },
     {
-      "name": "맞춤 운동 루틴",
-      "effect": "수업 후 집에서 반복 가능한 5분 루틴",
-      "target": "모든 보호자"
+      "name": "램프·홈 루틴",
+      "effect": "램프와 매트를 활용해 집에서도 이어갈 5분 균형 루틴을 만듭니다.",
+      "target": "수업 후 집에서 반복 연습할 보호자"
     }
   ],
   "targetDogs": [
@@ -384,8 +384,11 @@
   ],
   "businessInfo": {
     "legalName": "멍멍피트",
-    "registrationNumber": null,
-    "email": null,
+    "businessName": "테일로그",
+    "representativeName": "탁엄지",
+    "registrationNumber": "407-42-01364",
+    "telecomSalesNumber": null,
+    "email": "gmdqn2tp@gmail.com",
     "openingHoursSpec": [
       {
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -401,19 +404,28 @@
     "openingHoursDisplay": "평일 10:00~20:00 · 주말 10:00~18:00 (사전 상담 후 방문)",
     "address": {
       "country": "KR",
-      "addressRegion": "서울",
-      "addressLocality": null,
+      "addressRegion": "경기",
+      "addressLocality": "하남시",
       "streetAddress": null,
       "postalCode": null
     },
     "sameAs": [
       "https://www.instagram.com/mungmungfit/",
-      "https://www.youtube.com/@Mungmungfit"
+      "https://www.youtube.com/@Mungmungfit",
+      "https://www.daangn.com/kr/local-profile/%EA%B0%95%EC%95%84%EC%A7%80-%EB%B0%A9%EB%AC%B8%EA%B5%90%EC%9C%A1-%ED%99%88%EC%8A%A4%EC%BF%A8%EB%A7%81-8oywzkpoyrdb/"
     ]
   },
+  "intakeForm": {
+    "url": "https://naver.me/FUzkQDiK",
+    "label": "반려견 정보 보내기",
+    "shortLabel": "사전 정보 작성",
+    "description": "수업 전 강아지 상태를 미리 알려주시면 상담이 훨씬 정확해져요."
+  },
+  "trainingPhotosMeta": [],
+  "reviewPhotosMeta": [],
   "brandImages": {
     "hero": {
-      "src": "/images/training/main.jpg",
+      "src": "/images/training/main.jpg?v=20260515-3",
       "alt": "강아지 방문 독피트니스 메인 수업 사진"
     },
     "trainer": {
@@ -427,46 +439,46 @@
   },
   "methodImages": [
     {
-      "src": "/images/training/method-body-use.jpg",
+      "src": "/images/training/method-body-use.jpg?v=20260515-3",
       "alt": "강아지 몸 사용 능력 향상 독피트니스 수업 사진"
     },
     {
-      "src": "/images/training/method-handling.jpg",
+      "src": "/images/training/method-handling.jpg?v=20260515-3",
       "alt": "보호자 핸들링 스킬 향상 수업 사진"
     },
     {
-      "src": "/images/training/training-16.jpg",
+      "src": "/images/training/training-16.jpg?v=20260515-3",
       "alt": "생활 환경 기반 강아지 방문교육 수업 사진"
     }
   ],
   "featuredGallery": [
     {
-      "src": "/images/training/gallery-dogfitness-01.jpg",
+      "src": "/images/training/gallery-dogfitness-01.jpg?v=20260515-3",
       "alt": "멍멍피트 독피트니스 수업 사진 1",
       "label": "독피트니스"
     },
     {
-      "src": "/images/training/gallery-dogfitness-02.jpg",
+      "src": "/images/training/gallery-dogfitness-02.jpg?v=20260515-3",
       "alt": "멍멍피트 독피트니스 수업 사진 2",
       "label": "독피트니스"
     },
     {
-      "src": "/images/training/gallery-guardian-practice.jpg",
+      "src": "/images/training/gallery-guardian-practice.jpg?v=20260515-3",
       "alt": "멍멍피트 보호자 실습 수업 사진",
       "label": "보호자 실습"
     },
     {
-      "src": "/images/training/gallery-walk-handling.jpg",
+      "src": "/images/training/gallery-walk-handling.jpg?v=20260515-3",
       "alt": "멍멍피트 산책 핸들링 수업 사진",
       "label": "산책 핸들링"
     },
     {
-      "src": "/images/training/training-01.jpg",
+      "src": "/images/training/training-01.jpg?v=20260515-3",
       "alt": "멍멍피트 강아지 방문교육 대표 수업 사진",
       "label": "대표 수업 사진"
     },
     {
-      "src": "/images/training/training-03.jpg",
+      "src": "/images/training/training-03.jpg?v=20260515-3",
       "alt": "멍멍피트 독피트니스 도구 수업 사진",
       "label": "독피트니스"
     }
@@ -526,17 +538,17 @@
       },
       "pricing": {
         "eyebrow": "Price and area",
-        "title": "오픈 기념 4회 패키지, 30% 할인 진행 중입니다.",
+        "title": "오픈 기념 3회 패키지, 30% 할인 진행 중입니다.",
         "body": "이동 시간과 거리를 기준으로 상담 시 최종 금액을 먼저 안내합니다. 장거리의 경우 톨비와 주차비가 별도로 발생할 수 있습니다.",
         "packageBadge": "오픈 기념 한정",
-        "packageTitle": "4회 패키지",
-        "packageBody": "강아지가 실제로 변화하기 시작하는 최소 단위입니다. 4회 동안 보호자 핸들링·집 루틴까지 모두 정리해 드립니다.",
+        "packageTitle": "3회 패키지",
+        "packageBody": "첫 평가부터 보호자 실습까지 흐름을 잡는 집중 패키지입니다. 3회 동안 보호자 핸들링·집 루틴까지 정리해 드립니다.",
         "packagePerSession": "1회 평균",
         "packageDiscountLabel": "정가 대비",
         "packageItems": [
           "매 수업 보호자 핸들링 가이드 제공",
           "집에서 반복 가능한 5분 루틴 정리",
-          "4회 종합 변화 리포트"
+          "3회 종합 변화 리포트"
         ],
         "packageCta": "패키지 상담하기",
         "singleTitle": "1회 단발 수업",
@@ -562,7 +574,7 @@
       "gallery": {
         "eyebrow": "Gallery",
         "title": "수업의 변화를 사진으로 보여드립니다.",
-        "body": "독피트니스 도구 사용, 산책 핸들링, 보호자 실습 장면들이 강아지가 어떻게 달라지는지 한눈에 보여줍니다."
+        "body": "독피트니스 도구 사용, 산책 핸들링, 보호자 실습 등 체계적인 훈련을 통해 알려드립니다."
       },
       "finalCta": {
         "title": "우리 강아지에게 맞는 몸의 자신감부터 상담해보세요.",
@@ -578,7 +590,21 @@
         "hoursPrefix": "운영시간:",
         "emailPrefix": "이메일:",
         "businessRegPrefix": "사업자등록번호:",
+        "operatorPrefix": "운영사:",
+        "representativePrefix": "대표:",
+        "addressPrefix": "주소:",
+        "telecomSalesPrefix": "통신판매업:",
+        "telecomExemptLabel": "신고면제",
         "snsHeading": "SNS",
+        "snsLabels": {
+          "instagram.com": "Instagram",
+          "youtube.com": "YouTube",
+          "daangn.com": "당근"
+        },
+        "legalLinksHeading": "법적 고지",
+        "privacyLabel": "개인정보처리방침",
+        "termsLabel": "이용약관",
+        "intakeFormPrefix": "수업 전 사전 정보:",
         "imageCredit": "일부 이미지: Photos from Pexels"
       },
       "stickyCta": {
@@ -589,7 +615,7 @@
       "tools": {
         "eyebrow": "Tools",
         "title": ["사람 필라테스처럼,", "강아지에게도 전문 도구가 필요합니다."],
-        "body": "멍멍피트 수업은 산책·놀이로는 닿지 않는 코어 근육과 균형 감각을 전문 독피트니스 도구로 자극합니다. 트레이너가 직접 가져가니 보호자가 따로 구입할 필요는 없습니다."
+        "body": "멍멍피트 수업은 산책·놀이로는 닿지 않는 코어 근육과 균형 감각을 전문 독피트니스 도구로 자극합니다."
       },
       "targetDogs": {
         "eyebrow": "For these dogs",
@@ -598,7 +624,7 @@
       },
       "beforeAfter": {
         "eyebrow": "Before · After",
-        "title": ["4회 패키지 후,", "실제 강아지들의 변화입니다."],
+        "title": ["3회 패키지 후,", "실제 강아지들의 변화입니다."],
         "body": "수업 전후를 같은 환경에서 촬영해 비교합니다. 짖음·움츠림·자세 불균형이 어떻게 안정되는지 사진으로 보여드립니다."
       },
       "faq": {
@@ -666,7 +692,7 @@
         "metadataDescription": "멍멍피트 독피트니스 방문훈련을 받은 강아지들의 4주 변화 사례. 문제·접근·결과를 시간 순으로 정리합니다.",
         "eyebrow": "Cases",
         "title": "강아지 변화 사례",
-        "lead": "4회 패키지 동안 강아지가 어떻게 달라졌는지, 보호자가 어떤 도구·핸들링을 익혔는지 사례별로 기록합니다. 사진 정리가 끝나는 대로 순차 공개합니다.",
+        "lead": "3회 패키지 동안 강아지가 어떻게 달라졌는지, 보호자가 어떤 도구·핸들링을 익혔는지 사례별로 기록합니다. 사진 정리가 끝나는 대로 순차 공개합니다.",
         "comingSoonLabel": "준비 중",
         "draftBadge": "샘플 (실제 데이터 정리 중)"
       },
@@ -683,7 +709,7 @@
         "weakAreasLabel": "특히 신경 써야 할 영역",
         "recommendationLabel": "추천 5분 운동",
         "ctaLabel": "수업으로 직접 점검받기",
-        "ctaSubLabel": "1회 평가 89,000원 · 4회 패키지 25만원 (오픈 기념)",
+        "ctaSubLabel": "1회 평가 89,000원 · 3회 패키지 187,000원 (오픈 기념)",
         "questions": [
           {
             "id": "q1",
@@ -771,8 +797,8 @@
             "level": "clear",
             "emoji": "🟠",
             "title": "명확한 약함 — 체계적 운동이 필요해요",
-            "summary": "한두 영역에서 분명한 약함 신호가 잡힙니다. 보호자 핸들링과 코어 운동을 같이 4주에 걸쳐 잡는 게 효과적입니다.",
-            "recommendation": "4회 패키지 권장. 매주 1회 방문, 강아지 몸 평가 → 코어 운동 → 산책 핸들링 → 가정 루틴 정착 순서로 진행됩니다."
+            "summary": "한두 영역에서 분명한 약함 신호가 잡힙니다. 보호자 핸들링과 코어 운동을 같이 3주에 걸쳐 잡는 게 효과적입니다.",
+            "recommendation": "3회 패키지 권장. 매주 1회 방문, 강아지 몸 평가 → 코어 운동 → 산책 핸들링 → 가정 루틴 정착 순서로 진행됩니다."
           },
           {
             "min": 12,
@@ -788,14 +814,14 @@
     },
     "pricingPage": {
       "metadataTitle": "수업료 안내 (오픈 기념 이벤트)",
-      "metadataDescription": "멍멍피트 강아지 독피트니스 방문훈련 수업료 안내. 오픈 기념 이벤트로 4회 패키지를 25만원에 진행합니다. 1회 89,000원, 출장비 지역별 안내.",
-      "offerName": "멍멍피트 4회 패키지 (오픈 기념 이벤트)",
-      "offerDescription": "강아지 독피트니스 방문훈련 4회 패키지 이벤트 가격",
+      "metadataDescription": "멍멍피트 강아지 독피트니스 방문훈련 수업료 안내. 오픈 기념 이벤트로 3회 패키지를 187,000원에 진행합니다. 1회 89,000원, 출장비 지역별 안내.",
+      "offerName": "멍멍피트 3회 패키지 (오픈 기념 이벤트)",
+      "offerDescription": "강아지 독피트니스 방문훈련 3회 패키지 이벤트 가격",
       "eyebrow": "Pricing",
       "title": "강아지 독피트니스 방문훈련 수업료",
       "lead": "이동 거리와 시간을 기준으로 상담 시 최종 금액을 먼저 안내합니다. 서울·경기·인천·충청 지역으로 직접 방문합니다.",
-      "packageTitle": "4회 패키지",
-      "packageDescriptionSuffix": "한 마리 강아지가 실제 변화하기 시작하는 최소 단위입니다.",
+      "packageTitle": "3회 패키지",
+      "packageDescriptionSuffix": "첫 평가부터 보호자 실습까지 흐름을 잡는 집중 패키지입니다.",
       "saveSuffix": "원 할인",
       "perSessionPrefix": "1회 평균",
       "discountHintPrefix": "정가 대비",
@@ -803,7 +829,7 @@
       "packageItems": [
         "매 수업 보호자 핸들링 가이드 제공",
         "집에서 반복 가능한 운동 루틴 정리",
-        "4회 동안 강아지 변화 리포트 제공"
+        "3회 동안 강아지 변화 리포트 제공"
       ],
       "packageCta": "패키지 상담하기",
       "singleTitle": "1회 단발 수업",
@@ -819,7 +845,7 @@
         "충청권·장거리: 일정 확인 후 안내"
       ],
       "travelNote": "장거리 출장의 경우 톨비·주차비가 별도로 발생할 수 있습니다.",
-      "recommendTitle": "이런 강아지에게 4회 패키지를 추천드립니다",
+      "recommendTitle": "이런 강아지에게 3회 패키지를 추천드립니다",
       "recommendItems": [
         "비만·과체중으로 운동이 필요한 강아지",
         "줄당김·짖음이 반복되어 보호자도 지친 경우",

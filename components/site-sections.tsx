@@ -19,7 +19,9 @@ import {
   eventOffer,
   faqs,
   featuredGallery,
+  getBusinessAddressDisplay,
   guarantees,
+  intakeForm,
   methodImages,
   methods,
   pageContent,
@@ -34,47 +36,9 @@ import {
 import { PhotoSlot } from "@/components/photo-slot";
 import { font, space } from "@/styles/tokens";
 
-const navContent = pageContent.nav;
 const sectionContent = pageContent.sections;
 
-export function Header() {
-  return (
-    <header className="nav">
-      <div className="container nav-inner">
-        <Link className="logo" href="/">
-          <span className="logo-mark" aria-hidden>
-            <Image
-              src="/images/brand/mungmungfit-icon.png"
-              alt=""
-              width={34}
-              height={34}
-              className="logo-mark-img"
-              priority
-            />
-          </span>
-          <span>{site.name}</span>
-        </Link>
-        <nav className="nav-links" aria-label="주요 메뉴">
-          {navContent.links.map((link) => (
-            <Link href={link.href as Route} key={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="nav-actions">
-          <a className="button button-ghost" href={site.phoneHref}>
-            <Phone size={17} aria-hidden />
-            {site.phoneDisplay}
-          </a>
-          <a className="button button-kakao" href={site.kakaoUrl}>
-            <MessageCircle size={17} aria-hidden />
-            {navContent.consultLabel}
-          </a>
-        </div>
-      </div>
-    </header>
-  );
-}
+export { Header } from "@/components/site-header";
 
 export function Hero() {
   const copy = sectionContent.hero;
@@ -157,12 +121,6 @@ export function TrainerProfile() {
               className="photo-img contain"
             />
             <span>{copy.certificateLabel}</span>
-          </div>
-          <div style={{ gridColumn: "1 / -1" }}>
-            <PhotoSlot
-              slotId="mei-action"
-              sizes="(max-width: 940px) 100vw, 560px"
-            />
           </div>
         </div>
         <div>
@@ -272,27 +230,17 @@ export function Process() {
       <div className="container">
         <span className="eyebrow">{copy.eyebrow}</span>
         <h2>{copy.title}</h2>
-        <div
-          style={{
-            marginTop: "24px",
-            marginBottom: "32px",
-            maxWidth: "880px",
-          }}
-        >
-          <PhotoSlot
-            slotId="process-flow"
-            sizes="(max-width: 940px) 100vw, 880px"
-          />
-        </div>
-        <div className="process-list">
+        <div className="process-flow" aria-label="수업 단계별 흐름">
           {trainingProcess.map((step, index) => (
-            <div className="process-item" key={step.title}>
-              <div className="process-number">{String(index + 1).padStart(2, "0")}</div>
-              <div>
+            <details className="process-step" key={step.title} open={index === 0}>
+              <summary>
+                <span className="process-number">{String(index + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
+              </summary>
+              <div className="process-step-body">
                 <p>{step.body}</p>
               </div>
-            </div>
+            </details>
           ))}
         </div>
       </div>
@@ -315,7 +263,7 @@ export function Pricing() {
           <p className="section-text">{copy.body}</p>
         </div>
 
-        <article className="price-feature" aria-label="4회 패키지 할인 안내">
+        <article className="price-feature" aria-label="3회 패키지 할인 안내">
           <span className="price-feature-badge">
             <Sparkles size={14} aria-hidden /> {copy.packageBadge}
           </span>
@@ -470,8 +418,6 @@ export function Gallery() {
                 sizes="(max-width: 940px) 50vw, 33vw"
                 className="photo-img"
               />
-              {"label" in image && image.label && <span>{image.label}</span>}
-              {"description" in image && image.description && <span>{image.description}</span>}
             </div>
           ))}
         </div>
@@ -509,6 +455,8 @@ export function Footer() {
   const copy = sectionContent.footer;
   const info = businessInfo;
   const sns = info.sameAs ?? [];
+  const snsLabels = (copy as { snsLabels?: Record<string, string> }).snsLabels ?? {};
+  const addressLine = getBusinessAddressDisplay();
 
   return (
     <footer className="footer">
@@ -534,9 +482,43 @@ export function Footer() {
             <a href={`mailto:${info.email}`}>{info.email}</a>
           </div>
         )}
-        {info.registrationNumber && (
+        <div className="footer-row footer-business">
+          {info.businessName && (
+            <span>
+              {copy.operatorPrefix} {info.businessName}
+            </span>
+          )}
+          {info.representativeName && (
+            <span>
+              {copy.representativePrefix} {info.representativeName}
+            </span>
+          )}
+          {info.registrationNumber && (
+            <span>
+              {copy.businessRegPrefix} {info.registrationNumber}
+            </span>
+          )}
+          <span>
+            {copy.telecomSalesPrefix}{" "}
+            {info.telecomSalesNumber ?? copy.telecomExemptLabel}
+          </span>
+          {addressLine && (
+            <span>
+              {copy.addressPrefix} {addressLine}
+            </span>
+          )}
+        </div>
+        {intakeForm?.url && (
           <div className="footer-row">
-            {copy.businessRegPrefix} {info.registrationNumber}
+            {copy.intakeFormPrefix}{" "}
+            <a
+              href={intakeForm.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label={`${intakeForm.label} (새 창에서 네이버폼 열림)`}
+            >
+              {intakeForm.label}
+            </a>
           </div>
         )}
         {sns.length > 0 && (
@@ -544,15 +526,21 @@ export function Footer() {
             {copy.snsHeading}
             <span className="footer-sns">
               {sns.map((url) => {
-                const label = (() => {
-                  try {
-                    return new URL(url).hostname.replace(/^www\./, "");
-                  } catch {
-                    return url;
-                  }
-                })();
+                let hostname = url;
+                try {
+                  hostname = new URL(url).hostname.replace(/^www\./, "");
+                } catch {
+                  // keep raw url
+                }
+                const label = snsLabels[hostname] ?? hostname;
                 return (
-                  <a key={url} href={url} rel="noopener noreferrer" target="_blank">
+                  <a
+                    key={url}
+                    href={url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label={`${label} (새 창)`}
+                  >
                     {label}
                   </a>
                 );
@@ -560,6 +548,11 @@ export function Footer() {
             </span>
           </div>
         )}
+        <div className="footer-row footer-legal">
+          <Link href={"/privacy" as Route}>{copy.privacyLabel}</Link>
+          <span aria-hidden> · </span>
+          <Link href={"/terms" as Route}>{copy.termsLabel}</Link>
+        </div>
         <small className="footer-credit" style={{ fontSize: font.small }}>
           {copy.imageCredit}
         </small>
