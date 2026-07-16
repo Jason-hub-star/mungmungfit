@@ -158,9 +158,10 @@ export function TrainerProfile() {
                   <Image
                     src={card.src}
                     alt={card.alt}
-                    fill
-                    sizes="(max-width: 720px) 82vw, 400px"
-                    className="photo-img"
+                    width={card.width}
+                    height={card.height}
+                    sizes="(max-width: 720px) 44vw, 400px"
+                    className="story-img"
                   />
                 </div>
                 <figcaption>{card.label}</figcaption>
@@ -220,9 +221,10 @@ export function PhotoMarquee() {
             <Image
               src={photo.src}
               alt={photo.alt}
-              fill
-              sizes="(max-width: 720px) 62vw, 300px"
-              className="photo-img"
+              width={photo.width}
+              height={photo.height}
+              sizes="(max-width: 720px) 60vw, 360px"
+              className="marquee-img"
             />
           </div>
         ))}

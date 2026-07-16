@@ -26,6 +26,7 @@ Last Updated: 2026-07-16 (KST)
 
 | 날짜 | 변경 | 검증 |
 |------|------|------|
+| 2026-07-16 (3차) | 사진 홀더 = 원본 비율 체제: 갤러리 9:16 균일 그리드(3×2, 크롭·여백 0 — 소스 전부 1080×1920, 유사컷 1장 제외해 6장), 마퀴 높이 고정·자연 너비 스트립, 스토리 카드 원본 비율 폴라로이드(3:4+4:3). 마퀴·스토리는 fill → width/height 자연 렌더 전환, JSON에 치수 필드 추가 | 실브라우저 마퀴·갤러리·스토리 확대 검수(사진 전체 노출 확인), typecheck 통과 |
 | 2026-07-16 (2차) | 사용자 피드백 반영: 스토리 카드 사진 교체(돌고래 셀피·경사로 포메, `?v=` 캐시버스트), 보행 밸런스 릴스 제거(3개 체제·3열 중앙 그리드), 프렌치불독 사진 2곳 제거(#11 슬롯→살구 푸들, 갤러리→비숑 플랫폼), 갤러리 첫 타일 상단 크롭(머리 잘림 수정), 수업 4단계 아코디언 인터랙션(+/− 회전·배지 반전 팝·열림 슬라이드·스태거) | typecheck 통과, qa:responsive 홈 에러 0·햄버거 14/14, 실브라우저 클릭 검증(02 평가 열림 애니메이션), 스토리·갤러리·타깃 확대 재검수 |
 | 2026-07-16 | 홈 모션·미디어 개편: `FitnessReels`(9초 수업 영상 4개, IO 자동재생)·`PhotoMarquee`(현장 사진 무한 띠) 섹션 신설, 트레이너 돌고래 스토리 카드, 스크롤 리빌·스탯 카운트업·히어로 Ken Burns·버튼/카드 마이크로 인터랙션(`components/motion.tsx`, 의존성 0, reduced-motion·webdriver 폴백). 신뢰지표 4열 깨짐(3+1) 회귀 수정, 갤러리 `object-fit: cover` 전환, 릴스 영상 라벨 실프레임 검증(콘 허들 코스), QA 캡처 `scale:"css"` 수정 | `npm run typecheck` 통과, `npm run qa:responsive` 45건 중 홈 에러 0·햄버거 14/14 (블로그 500은 기존 Supabase 원격 이미지 이슈), `npm run media:budget` 신규 자산 전부 예산 내, 390/768/1440 뷰포트 워커(`tmp/viewport-walk.mjs`) 실렌더 검수 |
 | 2026-06-30 | 모바일 반응형·폰트·디자인 프로덕션 안정화. `snack-web` 참고해 Pretendard Variable 동적 서브셋 로딩, safe-area(inset) 적용, 뷰포트 `viewport-fit=cover`, 터치 타겟/ focus-visible 개선, `text-wrap: balance`, `100dvh` 적용 | `npm run typecheck` 통과, `npm run build` 통과, `npm run qa:responsive` 45건 통과 |

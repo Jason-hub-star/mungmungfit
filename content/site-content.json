@@ -510,14 +510,14 @@
     }
   ],
   "marqueePhotos": [
-    { "src": "/images/marquee/visit-balance-a.jpg", "alt": "밸런스 본 위에 올라선 포메라니안" },
-    { "src": "/images/reels/fit-board-poster.jpg", "alt": "밸런스보드 수업 장면" },
-    { "src": "/images/marquee/visit-cones.jpg", "alt": "콘 위빙을 연습하는 강아지" },
-    { "src": "/images/reels/fit-cavaletti-poster.jpg", "alt": "카발레티 스텝 수업 장면" },
-    { "src": "/images/marquee/visit-balance-b.jpg", "alt": "디스크 위에서 균형 잡는 강아지" },
-    { "src": "/images/marquee/visit-extra1.jpg", "alt": "밸런스 도구 위에서 간식을 기다리는 강아지" },
-    { "src": "/images/reels/fit-cones-poster.jpg", "alt": "콘 사이를 지나는 강아지" },
-    { "src": "/images/marquee/visit-walk.jpg", "alt": "노을 아래 산책 중인 강아지들" }
+    { "src": "/images/marquee/visit-balance-a.jpg", "alt": "밸런스 본 위에 올라선 포메라니안", "width": 480, "height": 640 },
+    { "src": "/images/reels/fit-board-poster.jpg", "alt": "밸런스보드 수업 장면", "width": 540, "height": 960 },
+    { "src": "/images/marquee/visit-cones.jpg", "alt": "콘 위빙을 연습하는 강아지", "width": 854, "height": 640 },
+    { "src": "/images/reels/fit-cavaletti-poster.jpg", "alt": "카발레티 스텝 수업 장면", "width": 540, "height": 960 },
+    { "src": "/images/marquee/visit-balance-b.jpg", "alt": "디스크 위에서 균형 잡는 강아지", "width": 854, "height": 640 },
+    { "src": "/images/marquee/visit-extra1.jpg", "alt": "밸런스 도구 위에서 간식을 기다리는 강아지", "width": 854, "height": 640 },
+    { "src": "/images/reels/fit-cones-poster.jpg", "alt": "콘 사이를 지나는 강아지", "width": 540, "height": 960 },
+    { "src": "/images/marquee/visit-walk.jpg", "alt": "노을 아래 산책 중인 강아지들", "width": 854, "height": 640 }
   ],
   "trainerStory": {
     "eyebrow": "Story",
@@ -527,12 +527,16 @@
       {
         "src": "/images/story/dolphin-trainer-days.jpg?v=20260716-1",
         "alt": "돌고래 훈련사 시절의 김주영 트레이너",
-        "label": "돌고래 훈련사 시절"
+        "label": "돌고래 훈련사 시절",
+        "width": 600,
+        "height": 800
       },
       {
         "src": "/images/story/now-dog-fitness.jpg?v=20260716-1",
-        "alt": "야외 독피트니스 수업 중인 김주영 트레이너",
-        "label": "지금, 독피트니스 수업"
+        "alt": "경사로 독피트니스 수업 중인 강아지",
+        "label": "지금, 독피트니스 수업",
+        "width": 1066,
+        "height": 800
       }
     ]
   },

@@ -3349,3 +3349,67 @@ body.has-mobile-nav .cookie-consent {
     animation: none;
   }
 }
+
+/* ═══ 사진 홀더 = 원본 비율 — 크롭 없이 사진 전체 표시 (2026-07-16 2차) ═══ */
+
+/* 갤러리: 소스가 전부 9:16이므로 홀더를 9:16으로 — 크롭 0, 여백 0 */
+.gallery-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.gallery-tile {
+  aspect-ratio: 9 / 16;
+  min-height: 0;
+}
+
+.gallery-tile:first-child {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.gallery-tile:first-child .photo-img {
+  object-position: center;
+}
+
+@media (max-width: 720px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* 마퀴: 높이 고정 + 원본 비율 너비 — 세로·가로 사진이 섞여도 전체 표시 */
+.marquee-item {
+  width: auto;
+  aspect-ratio: auto;
+  height: clamp(190px, 22vw, 260px);
+}
+
+.marquee-img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* 스토리 카드: 원본 비율 폴라로이드 — 3:4와 4:3이 자연스럽게 공존 */
+.profile-story {
+  align-items: start;
+}
+
+.story-cards {
+  align-items: start;
+}
+
+.story-media {
+  aspect-ratio: auto;
+}
+
+.story-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
