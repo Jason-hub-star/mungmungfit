@@ -30,7 +30,11 @@
     "viewport": "desktop",
     "page": "/blog",
     "status": 200,
-    "consoleErrors": [],
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    ],
     "pageErrors": [],
     "networkErrors": [],
     "notes": []
@@ -165,7 +169,11 @@
     "viewport": "tablet",
     "page": "/blog",
     "status": 200,
-    "consoleErrors": [],
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    ],
     "pageErrors": [],
     "networkErrors": [],
     "notes": []
@@ -306,7 +314,9 @@
     "viewport": "mobile",
     "page": "/blog",
     "status": 200,
-    "consoleErrors": [],
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    ],
     "pageErrors": [],
     "networkErrors": [],
     "notes": [

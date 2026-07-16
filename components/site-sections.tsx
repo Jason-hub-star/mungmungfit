@@ -19,9 +19,11 @@ import {
   eventOffer,
   faqs,
   featuredGallery,
+  fitnessReels,
   getBusinessAddressDisplay,
   guarantees,
   intakeForm,
+  marqueePhotos,
   methodImages,
   methods,
   pageContent,
@@ -29,11 +31,13 @@ import {
   reviews,
   site,
   targetDogs,
+  trainerStory,
   trainingGallery,
   trainingProcess,
   trustStats,
 } from "@/content/site";
 import { PhotoSlot } from "@/components/photo-slot";
+import { AutoVideo, CountUp, Marquee, Reveal } from "@/components/motion";
 import { font, space } from "@/styles/tokens";
 
 const sectionContent = pageContent.sections;
@@ -80,14 +84,16 @@ export function Hero() {
       </section>
       <section className="hero-stat-strip" aria-label={copy.statsAriaLabel}>
         <div className="container">
-          <div className="stats stats-trust">
+          <Reveal stagger className="stats stats-trust">
             {trustStats.map((s) => (
               <div className="stat" key={s.label}>
-                <strong>{s.value}</strong>
+                <strong>
+                  <CountUp value={s.value} />
+                </strong>
                 <span>{s.label}</span>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
       <Guarantee />
@@ -139,7 +145,88 @@ export function TrainerProfile() {
             ))}
           </div>
         </div>
+        <div className="profile-story">
+          <Reveal className="profile-story-copy">
+            <span className="eyebrow">{trainerStory.eyebrow}</span>
+            <h3>{trainerStory.title}</h3>
+            <p className="section-text">{trainerStory.body}</p>
+          </Reveal>
+          <Reveal stagger className="story-cards">
+            {trainerStory.cards.map((card) => (
+              <figure className="story-card" key={card.src}>
+                <div className="story-media">
+                  <Image
+                    src={card.src}
+                    alt={card.alt}
+                    fill
+                    sizes="(max-width: 720px) 82vw, 400px"
+                    className="photo-img"
+                  />
+                </div>
+                <figcaption>{card.label}</figcaption>
+              </figure>
+            ))}
+          </Reveal>
+        </div>
       </div>
+    </section>
+  );
+}
+
+export function FitnessReels() {
+  const copy = sectionContent.reels;
+
+  return (
+    <section className="section reels-section" id="reels" aria-label={copy.ariaLabel}>
+      <div className="container">
+        <Reveal className="section-header">
+          <div>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2>
+              {copy.title[0]}
+              <br />
+              {copy.title[1]}
+            </h2>
+          </div>
+          <p className="section-text">{copy.body}</p>
+        </Reveal>
+        <Reveal stagger className="reels-track">
+          {fitnessReels.map((reel) => (
+            <figure className="reel-card" key={reel.id}>
+              <AutoVideo src={reel.src} poster={reel.poster} title={reel.title} />
+              <figcaption className="reel-caption">
+                <strong>{reel.title}</strong>
+                <span>{reel.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </Reveal>
+        <p className="reels-hint" aria-hidden>
+          {copy.hint}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+export function PhotoMarquee() {
+  const copy = sectionContent.photoMarquee;
+
+  return (
+    <section className="marquee-band" aria-label={copy.ariaLabel}>
+      <Marquee>
+        {marqueePhotos.map((photo) => (
+          <div className="marquee-item" key={photo.src}>
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 720px) 62vw, 300px"
+              className="photo-img"
+            />
+          </div>
+        ))}
+      </Marquee>
     </section>
   );
 }
@@ -161,7 +248,7 @@ export function Concerns() {
           </div>
           <p className="section-text">{copy.body}</p>
         </div>
-        <div className="concern-grid">
+        <Reveal stagger className="concern-grid">
           {concerns.map((concern) => (
             <article className="concern-photo-card" key={concern.title}>
               <PhotoSlot
@@ -174,7 +261,7 @@ export function Concerns() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -199,7 +286,7 @@ export function Method() {
             {copy.body}
           </p>
         </div>
-        <div className="grid grid-3">
+        <Reveal stagger className="grid grid-3">
           {methods.map((method, index) => (
             <article className="card method-card" key={method.title}>
               <div className="method-image">
@@ -216,7 +303,7 @@ export function Method() {
               <p>{method.body}</p>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -357,7 +444,7 @@ export function ReviewsPreview() {
           </div>
           <p className="section-text">{copy.body}</p>
         </div>
-        <div className="review-image-grid preview">
+        <Reveal stagger className="review-image-grid preview">
           {reviews.map((review, index) => (
             <article className="card review-card" key={review.title}>
               <div className="review-shot">
@@ -384,7 +471,7 @@ export function ReviewsPreview() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
         <div className="review-more">
           <Link className="review-more-link" href={"/reviews" as Route}>
             더 많은 후기 보기 <ArrowRight size={16} aria-hidden />
@@ -408,7 +495,7 @@ export function Gallery() {
           </div>
           <p className="section-text">{copy.body}</p>
         </div>
-        <div className="gallery-grid">
+        <Reveal stagger className="gallery-grid">
           {(trainingGallery.length > 0 ? trainingGallery : featuredGallery).map((image, index) => (
             <div className="gallery-tile" key={`${image.src}-${index}`}>
               <Image
@@ -420,7 +507,7 @@ export function Gallery() {
               />
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -431,7 +518,7 @@ export function FinalCta() {
 
   return (
     <section className="section">
-      <div className="container cta">
+      <Reveal className="container cta">
         <div>
           <h2>{copy.title}</h2>
           <p>{copy.body}</p>
@@ -446,7 +533,7 @@ export function FinalCta() {
             {copy.phoneLabel}
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -661,7 +748,7 @@ export function TargetDogs() {
           </div>
           <p className="section-text">{copy.body}</p>
         </div>
-        <div className="tools-library">
+        <Reveal stagger className="tools-library">
           {targetDogs.map((target, i) => (
             <article className="tool-card" key={target.title}>
               <PhotoSlot
@@ -674,7 +761,7 @@ export function TargetDogs() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -23,6 +23,9 @@ export type CaseStudy = (typeof cases)[number];
 export const brandImages = siteContent.brandImages;
 export const methodImages = siteContent.methodImages;
 export const featuredGallery = siteContent.featuredGallery;
+export const fitnessReels = siteContent.fitnessReels;
+export const marqueePhotos = siteContent.marqueePhotos;
+export const trainerStory = siteContent.trainerStory;
 export const pageContent = siteContent.pageContent;
 export const intakeForm = siteContent.intakeForm;
 

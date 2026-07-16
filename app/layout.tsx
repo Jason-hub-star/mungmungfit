@@ -99,6 +99,9 @@ export default function RootLayout({
           title="멍멍피트 독피트니스 블로그 RSS"
           href="/feed.xml"
         />
+        <noscript>
+          <style>{`[data-reveal],[data-stagger]>*{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </head>
       <body>
         <a href="#main-content" className="skip-to-content">

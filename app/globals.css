@@ -2848,3 +2848,407 @@ body.has-mobile-nav .cookie-consent {
     transition: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   Motion & Interaction — 2026-07 리뉴얼
+   (스크롤 리빌 · 릴스 · 마퀴 · 스토리 카드 · 마이크로 인터랙션)
+   ═══════════════════════════════════════════════════ */
+
+/* 1) 스크롤 리빌 프리미티브 */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s ease var(--reveal-delay, 0ms),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-stagger].is-revealed > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-stagger].is-revealed > *:nth-child(2) { transition-delay: 90ms; }
+[data-stagger].is-revealed > *:nth-child(3) { transition-delay: 180ms; }
+[data-stagger].is-revealed > *:nth-child(4) { transition-delay: 270ms; }
+[data-stagger].is-revealed > *:nth-child(5) { transition-delay: 340ms; }
+[data-stagger].is-revealed > *:nth-child(6) { transition-delay: 410ms; }
+[data-stagger].is-revealed > *:nth-child(n + 7) { transition-delay: 470ms; }
+
+/* 2) Hero 진입 + Ken Burns */
+.hero-backdrop img {
+  animation: heroKenBurns 14s cubic-bezier(0.2, 0.6, 0.35, 1) forwards;
+  transform-origin: 62% 38%;
+}
+
+@keyframes heroKenBurns {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+.hero-content > * {
+  opacity: 0;
+  animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.12s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.24s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.38s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.52s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.66s; }
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 3) 버튼·카드 마이크로 인터랙션 */
+.button {
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 30, 22, 0.16);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--orange-soft, #f2a65a);
+  outline-offset: 2px;
+}
+
+.gallery-tile .photo-img {
+  /* 기존 contain(1011행)을 덮음 — 타일을 사진으로 꽉 채워 시각 밀도 강화 */
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-tile:hover .photo-img {
+  transform: scale(1.06);
+}
+
+/* 4) 릴스 섹션 — 9초 세로 수업 영상 */
+.reels-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 38px;
+}
+
+.reel-card {
+  margin: 0;
+}
+
+.reel-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #10150f;
+  cursor: pointer;
+  box-shadow: var(--card-lift);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s ease;
+}
+
+.reel-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel-media:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(15, 30, 22, 0.22);
+}
+
+.reel-media:focus-visible {
+  outline: 3px solid var(--orange-soft, #f2a65a);
+  outline-offset: 3px;
+}
+
+.reel-play-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(12, 16, 12, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.reel-play-hint::before {
+  content: "▶";
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  transform: translateX(1px);
+}
+
+.reel-media.is-playing .reel-play-hint {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.6s;
+}
+
+.reel-media:not(.is-playing) .reel-play-hint {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.reel-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 12px;
+}
+
+.reel-caption strong {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.reel-caption span {
+  font-size: 13.5px;
+  color: var(--ink-muted);
+}
+
+.reels-hint {
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+/* 5) 포토 마퀴 — 현장 사진 무한 흐름 띠 */
+.marquee-band {
+  padding: clamp(30px, 5vw, 58px) 0;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.marquee {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 44s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+.marquee-item {
+  position: relative;
+  width: clamp(190px, 23vw, 280px);
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--card-lift);
+}
+
+@keyframes marqueeScroll {
+  to { transform: translateX(-50%); }
+}
+
+/* 6) 트레이너 스토리 — 돌고래 훈련사 → 독피트니스 */
+.profile-story {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 36px;
+  align-items: center;
+  margin-top: 34px;
+  padding-top: 38px;
+  border-top: 1px solid var(--line);
+}
+
+.profile-story-copy h3 {
+  margin: 14px 0 0;
+  font-size: var(--font-h3);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.profile-story-copy .section-text {
+  margin-top: 14px;
+}
+
+.story-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.story-card {
+  margin: 0;
+}
+
+.story-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--card-lift);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-card:nth-child(1) .story-media {
+  transform: rotate(-2deg);
+}
+
+.story-card:nth-child(2) .story-media {
+  transform: rotate(2deg);
+}
+
+.story-card:hover .story-media {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.story-card figcaption {
+  margin-top: 10px;
+  font-size: 13.5px;
+  font-weight: 650;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* 7) 반응형 — 릴스·마퀴·스토리 */
+@media (max-width: 940px) {
+  .reels-track {
+    display: flex;
+    gap: 14px;
+    margin-inline: -20px;
+    padding-inline: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .reels-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reel-card {
+    flex: 0 0 min(62vw, 260px);
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .profile-story {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .story-cards {
+    gap: 14px;
+  }
+
+  .marquee-item {
+    width: clamp(160px, 44vw, 220px);
+  }
+}
+
+/* 8) 모션 축소 존중 */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-backdrop img,
+  .hero-content > * {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee-group[aria-hidden] {
+    display: none;
+  }
+
+  .button,
+  .reel-media,
+  .story-media,
+  .gallery-tile .photo-img {
+    transition: none !important;
+  }
+}
+
+/* 신뢰지표 4칸 회귀 수정 — 뒤에 정의된 .stats(3col)가 .stats-trust(4col)를
+   덮어써 3+1로 깨지던 것. 데스크톱 4열 / 태블릿 2×2 / 모바일 1열 */
+.stats-trust {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 940px) {
+  .stats-trust {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .stats-trust {
+    grid-template-columns: 1fr;
+  }
+}

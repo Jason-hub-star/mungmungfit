@@ -483,6 +483,68 @@
       "label": "독피트니스"
     }
   ],
+  "fitnessReels": [
+    {
+      "id": "cavaletti",
+      "title": "카발레티 스텝",
+      "caption": "보폭과 리듬을 다시 배우는 시간",
+      "src": "/videos/reels/fit-cavaletti.mp4",
+      "poster": "/images/reels/fit-cavaletti-poster.jpg",
+      "alt": "카발레티 봉을 넘는 강아지 수업 영상"
+    },
+    {
+      "id": "board",
+      "title": "밸런스보드",
+      "caption": "코어가 잡히면 몸이 차분해져요",
+      "src": "/videos/reels/fit-board.mp4",
+      "poster": "/images/reels/fit-board-poster.jpg",
+      "alt": "밸런스보드 위에서 균형 잡는 강아지 수업 영상"
+    },
+    {
+      "id": "cones",
+      "title": "콘 허들 코스",
+      "caption": "집중력과 뒷다리 힘을 한 번에",
+      "src": "/videos/reels/fit-cones.mp4",
+      "poster": "/images/reels/fit-cones-poster.jpg",
+      "alt": "콘 사이를 통과하는 강아지 수업 영상"
+    },
+    {
+      "id": "gait",
+      "title": "보행 밸런스",
+      "caption": "관절에 부담 없는 걸음 만들기",
+      "src": "/videos/reels/fit-gait.mp4",
+      "poster": "/images/reels/fit-gait-poster.jpg",
+      "alt": "바른 보행을 연습하는 강아지 수업 영상"
+    }
+  ],
+  "marqueePhotos": [
+    { "src": "/images/marquee/visit-balance-a.jpg", "alt": "밸런스 본 위에 올라선 포메라니안" },
+    { "src": "/images/reels/fit-board-poster.jpg", "alt": "밸런스보드 수업 장면" },
+    { "src": "/images/marquee/visit-cones.jpg", "alt": "콘 위빙을 연습하는 강아지" },
+    { "src": "/images/reels/fit-cavaletti-poster.jpg", "alt": "카발레티 스텝 수업 장면" },
+    { "src": "/images/marquee/visit-balance-b.jpg", "alt": "디스크 위에서 균형 잡는 강아지" },
+    { "src": "/images/reels/fit-gait-poster.jpg", "alt": "야외 보행 수업 장면" },
+    { "src": "/images/marquee/visit-extra1.jpg", "alt": "밸런스 도구 위에서 간식을 기다리는 강아지" },
+    { "src": "/images/reels/fit-cones-poster.jpg", "alt": "콘 사이를 지나는 강아지" },
+    { "src": "/images/marquee/visit-walk.jpg", "alt": "노을 아래 산책 중인 강아지들" }
+  ],
+  "trainerStory": {
+    "eyebrow": "Story",
+    "title": "돌고래 훈련사에서, 강아지 피트니스로",
+    "body": "동물의 몸과 마음을 읽는 일에서 시작해, 지금은 강아지의 자신감을 만드는 일을 합니다. 종은 달라도 원칙은 같습니다. 억지로 시키지 않고, 몸이 스스로 배우게 하는 것.",
+    "cards": [
+      {
+        "src": "/images/story/dolphin-trainer-days.jpg",
+        "alt": "돌고래 훈련사 시절의 김주영 트레이너",
+        "label": "돌고래 훈련사 시절"
+      },
+      {
+        "src": "/images/story/now-dog-fitness.jpg",
+        "alt": "야외 독피트니스 수업 중인 김주영 트레이너",
+        "label": "지금, 독피트니스 수업"
+      }
+    ]
+  },
   "pageContent": {
     "nav": {
       "links": [
@@ -575,6 +637,16 @@
         "eyebrow": "Gallery",
         "title": "수업의 변화를 사진으로 보여드립니다.",
         "body": "독피트니스 도구 사용, 산책 핸들링, 보호자 실습 등 체계적인 훈련을 통해 알려드립니다."
+      },
+      "reels": {
+        "ariaLabel": "실제 수업 영상 모음",
+        "eyebrow": "Real class, 9 seconds",
+        "title": ["말보다 빠른 9초,", "실제 수업 장면입니다."],
+        "body": "편집 없이 그대로 담은 수업 클립이에요. 우리 아이가 받게 될 수업을 영상으로 먼저 만나보세요.",
+        "hint": "화면에 들어오면 자동 재생됩니다 · 소리는 나지 않아요"
+      },
+      "photoMarquee": {
+        "ariaLabel": "방문 수업 현장 사진 모음"
       },
       "finalCta": {
         "title": "우리 강아지에게 맞는 몸의 자신감부터 상담해보세요.",

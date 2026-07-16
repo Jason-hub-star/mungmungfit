@@ -3,7 +3,7 @@
 > 목적: 새 에이전트가 현재 상태를 빠르게 복원하기 위한 최상위 상태판.
 > 세부 정본은 아래 문서 맵을 따른다.
 
-Last Updated: 2026-06-30 (KST)
+Last Updated: 2026-07-16 (KST)
 
 ---
 
@@ -26,6 +26,7 @@ Last Updated: 2026-06-30 (KST)
 
 | 날짜 | 변경 | 검증 |
 |------|------|------|
+| 2026-07-16 | 홈 모션·미디어 개편: `FitnessReels`(9초 수업 영상 4개, IO 자동재생)·`PhotoMarquee`(현장 사진 무한 띠) 섹션 신설, 트레이너 돌고래 스토리 카드, 스크롤 리빌·스탯 카운트업·히어로 Ken Burns·버튼/카드 마이크로 인터랙션(`components/motion.tsx`, 의존성 0, reduced-motion·webdriver 폴백). 신뢰지표 4열 깨짐(3+1) 회귀 수정, 갤러리 `object-fit: cover` 전환, 릴스 영상 라벨 실프레임 검증(콘 허들 코스), QA 캡처 `scale:"css"` 수정 | `npm run typecheck` 통과, `npm run qa:responsive` 45건 중 홈 에러 0·햄버거 14/14 (블로그 500은 기존 Supabase 원격 이미지 이슈), `npm run media:budget` 신규 자산 전부 예산 내, 390/768/1440 뷰포트 워커(`tmp/viewport-walk.mjs`) 실렌더 검수 |
 | 2026-06-30 | 모바일 반응형·폰트·디자인 프로덕션 안정화. `snack-web` 참고해 Pretendard Variable 동적 서브셋 로딩, safe-area(inset) 적용, 뷰포트 `viewport-fit=cover`, 터치 타겟/ focus-visible 개선, `text-wrap: balance`, `100dvh` 적용 | `npm run typecheck` 통과, `npm run build` 통과, `npm run qa:responsive` 45건 통과 |
 | 2026-06-01 | `jason-agent-harness-template`에서 SEO 제출 모니터, 미디어 성능 예산, 릴리즈 QA 하네스 이식. `/cases` 태그 필터와 media budget script 추가 | `npm run typecheck` 통과, `npm run qa:responsive` 45건 통과, `npm run media:budget` WARN |
 | 2026-05-27 | `jason-agent-harness-template` 참고해 `photo-slot-replacement`, `docs-status-sync` 스킬 이식 | 스킬 파일 생성 확인 |

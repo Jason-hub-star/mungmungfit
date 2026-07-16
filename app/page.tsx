@@ -5,11 +5,13 @@ import {
   DogFitnessTools,
   Faq,
   FinalCta,
+  FitnessReels,
   Footer,
   Gallery,
   Header,
   Hero,
   Method,
+  PhotoMarquee,
   Pricing,
   Process,
   ReviewsPreview,
@@ -135,6 +137,7 @@ export default function Home() {
       <Header />
       <Hero />
       <TrainerProfile />
+      <FitnessReels />
       <Gallery />
       <Concerns />
       <Comparison />
@@ -149,6 +152,7 @@ export default function Home() {
       <Pricing />
       <ReviewsPreview />
       <Faq />
+      <PhotoMarquee />
       <FinalCta />
       <Footer />
       <StickyCta />

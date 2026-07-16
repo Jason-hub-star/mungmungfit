@@ -121,7 +121,9 @@ for (const vp of VIEWPORTS) {
       }
 
       const file = join(OUT, vp.name, `${p.name}.png`);
-      await page.screenshot({ path: file, fullPage: true }).catch((e) => {
+      // scale:"css" — DPR3 × 긴 페이지가 Chromium 캡처 한계(65,536 device px)를
+      // 넘어 중간이 백지로 찍히는 것 방지 (컨텍스트 DPR은 그대로 유지)
+      await page.screenshot({ path: file, fullPage: true, scale: "css" }).catch((e) => {
         notes.push(`screenshot:FAIL ${e.message}`);
       });
     } catch (e) {
