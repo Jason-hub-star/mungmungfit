@@ -70,6 +70,11 @@ html {
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* 모바일 좌우 흔들림 방지: 풀블리드 캐러셀(.tools-carousel/.reels-track)의 음수 마진이
+     모바일에서 뷰포트를 20px 넘겨 가로 스크롤을 만든다. clip으로 페이지 가로 스크롤을 차단하면
+     이 요소들이 정확히 화면 끝에 맞게 렌더된다. clip은 hidden과 달리 스크롤 컨테이너를
+     만들지 않아 sticky nav·내부 캐러셀 가로 스크롤을 깨지 않는다. */
+  overflow-x: clip;
 }
 
 body {
@@ -89,6 +94,7 @@ body {
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 /* Global focus ring — keyboard navigation 가시성 */
@@ -986,6 +992,7 @@ h3 {
 
 @media (max-width: 720px) {
   .concern-grid {
+    /* 2열 롤백: 텍스트가 사진 위 오버레이라 좁은 폭에서 본문이 카드 높이를 넘쳐 배지와 겹침 */
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -1807,7 +1814,10 @@ h3 {
     line-height: 1.25;
   }
 
-  .grid-3,
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .grid-2 {
     grid-template-columns: 1fr;
   }
@@ -1821,7 +1831,8 @@ h3 {
   }
 
   .method-image {
-    min-height: 320px;
+    /* 2열에서는 aspect-ratio 4/5가 높이를 지배하도록 최소높이 해제 (레터박스 방지) */
+    min-height: 0;
   }
 
   .review-wall {
@@ -1829,7 +1840,7 @@ h3 {
   }
 
   .review-image-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .process-step summary {
@@ -2058,6 +2069,14 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 16px;
+}
+
+/* 모바일: 사진 카드 2열로 → 세로 스택 높이 절반 (데스크탑 auto-fill 유지, 콘텐츠 무손실) */
+@media (max-width: 720px) {
+  .tools-library {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
 }
 
 /* Tools 스와이프 캐러셀 — 좌우 가로 스크롤 */
